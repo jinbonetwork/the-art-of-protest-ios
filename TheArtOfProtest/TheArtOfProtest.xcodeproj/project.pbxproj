@@ -11,8 +11,12 @@
 		A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA611B47B25A00F48FF1 /* AppDelegate.m */; };
 		A956FA651B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A956FA631B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodeld */; };
 		A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A956FA6C1B47B25A00F48FF1 /* Images.xcassets */; };
-		A956FA8D1B47B4AF00F48FF1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA8B1B47B4AF00F48FF1 /* ViewController.m */; };
-		A956FA8E1B47B4AF00F48FF1 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A956FA8C1B47B4AF00F48FF1 /* ViewController.xib */; };
+		A9C2FAFC1B4ABDC5008EDC2B /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C2FAFA1B4ABDC5008EDC2B /* MainTabBarController.m */; };
+		A9C2FB011B4ABE09008EDC2B /* ManualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C2FAFF1B4ABE09008EDC2B /* ManualViewController.m */; };
+		A9C2FB021B4ABE09008EDC2B /* ManualViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2FB001B4ABE09008EDC2B /* ManualViewController.xib */; };
+		A9C2FB061B4ABE18008EDC2B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C2FB041B4ABE18008EDC2B /* HomeViewController.m */; };
+		A9C2FB071B4ABE18008EDC2B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2FB051B4ABE18008EDC2B /* HomeViewController.xib */; };
+		A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2FB081B4AC09A008EDC2B /* MainTabBarController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +27,15 @@
 		A956FA611B47B25A00F48FF1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A956FA641B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheArtOfProtest.xcdatamodel; sourceTree = "<group>"; };
 		A956FA6C1B47B25A00F48FF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A956FA8A1B47B4AF00F48FF1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A956FA8B1B47B4AF00F48FF1 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A956FA8C1B47B4AF00F48FF1 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		A9C2FAF91B4ABDC5008EDC2B /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		A9C2FAFA1B4ABDC5008EDC2B /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		A9C2FAFE1B4ABE09008EDC2B /* ManualViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualViewController.h; sourceTree = "<group>"; };
+		A9C2FAFF1B4ABE09008EDC2B /* ManualViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualViewController.m; sourceTree = "<group>"; };
+		A9C2FB001B4ABE09008EDC2B /* ManualViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManualViewController.xib; sourceTree = "<group>"; };
+		A9C2FB031B4ABE18008EDC2B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		A9C2FB041B4ABE18008EDC2B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		A9C2FB051B4ABE18008EDC2B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		A9C2FB081B4AC09A008EDC2B /* MainTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +68,12 @@
 		A956FA5B1B47B25A00F48FF1 /* TheArtOfProtest */ = {
 			isa = PBXGroup;
 			children = (
+				A9C2FAEE1B4ABB75008EDC2B /* Views */,
 				A956FA601B47B25A00F48FF1 /* AppDelegate.h */,
 				A956FA611B47B25A00F48FF1 /* AppDelegate.m */,
 				A956FA6C1B47B25A00F48FF1 /* Images.xcassets */,
 				A956FA631B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodeld */,
 				A956FA5C1B47B25A00F48FF1 /* Supporting Files */,
-				A956FA8A1B47B4AF00F48FF1 /* ViewController.h */,
-				A956FA8B1B47B4AF00F48FF1 /* ViewController.m */,
-				A956FA8C1B47B4AF00F48FF1 /* ViewController.xib */,
 			);
 			path = TheArtOfProtest;
 			sourceTree = "<group>";
@@ -77,6 +85,46 @@
 				A956FA5E1B47B25A00F48FF1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9C2FAEE1B4ABB75008EDC2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9C2FAF81B4ABD8A008EDC2B /* MainTabBarController */,
+				A9C2FAF71B4ABD7E008EDC2B /* ManualViewController */,
+				A9C2FAF51B4ABD61008EDC2B /* HomeViewController */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A9C2FAF51B4ABD61008EDC2B /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A9C2FB031B4ABE18008EDC2B /* HomeViewController.h */,
+				A9C2FB041B4ABE18008EDC2B /* HomeViewController.m */,
+				A9C2FB051B4ABE18008EDC2B /* HomeViewController.xib */,
+			);
+			name = HomeViewController;
+			sourceTree = "<group>";
+		};
+		A9C2FAF71B4ABD7E008EDC2B /* ManualViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A9C2FAFE1B4ABE09008EDC2B /* ManualViewController.h */,
+				A9C2FAFF1B4ABE09008EDC2B /* ManualViewController.m */,
+				A9C2FB001B4ABE09008EDC2B /* ManualViewController.xib */,
+			);
+			name = ManualViewController;
+			sourceTree = "<group>";
+		};
+		A9C2FAF81B4ABD8A008EDC2B /* MainTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				A9C2FAF91B4ABDC5008EDC2B /* MainTabBarController.h */,
+				A9C2FAFA1B4ABDC5008EDC2B /* MainTabBarController.m */,
+				A9C2FB081B4AC09A008EDC2B /* MainTabBarController.xib */,
+			);
+			name = MainTabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +184,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A956FA8E1B47B4AF00F48FF1 /* ViewController.xib in Resources */,
+				A9C2FB071B4ABE18008EDC2B /* HomeViewController.xib in Resources */,
+				A9C2FB021B4ABE09008EDC2B /* ManualViewController.xib in Resources */,
 				A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */,
+				A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,8 +199,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */,
+				A9C2FAFC1B4ABDC5008EDC2B /* MainTabBarController.m in Sources */,
 				A956FA5F1B47B25A00F48FF1 /* main.m in Sources */,
-				A956FA8D1B47B4AF00F48FF1 /* ViewController.m in Sources */,
+				A9C2FB011B4ABE09008EDC2B /* ManualViewController.m in Sources */,
+				A9C2FB061B4ABE18008EDC2B /* HomeViewController.m in Sources */,
 				A956FA651B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +331,7 @@
 				A956FA811B47B25A00F48FF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

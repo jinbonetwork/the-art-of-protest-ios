@@ -1,21 +1,24 @@
 //
-//  ViewController.m
+//  MainTabBarController.m
 //  TheArtOfProtest
 //
-//  Created by HwangKyuman on 2015. 7. 4..
+//  Created by HwangKyuman on 2015. 7. 6..
 //  Copyright (c) 2015년 JinboNet. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainTabBarController.h"
 
-@interface ViewController ()
+@interface MainTabBarController ()
 
 @end
 
-@implementation ViewController
+@implementation MainTabBarController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    int a;
+    a = 1;
+    a = 2;
     // Do any additional setup after loading the view from its nib.
 }
 
