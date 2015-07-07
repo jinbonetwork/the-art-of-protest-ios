@@ -68,7 +68,7 @@
 		A956FA5B1B47B25A00F48FF1 /* TheArtOfProtest */ = {
 			isa = PBXGroup;
 			children = (
-				A9C2FAEE1B4ABB75008EDC2B /* Views */,
+				A9C2FAEE1B4ABB75008EDC2B /* views */,
 				A956FA601B47B25A00F48FF1 /* AppDelegate.h */,
 				A956FA611B47B25A00F48FF1 /* AppDelegate.m */,
 				A956FA6C1B47B25A00F48FF1 /* Images.xcassets */,
@@ -87,14 +87,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A9C2FAEE1B4ABB75008EDC2B /* Views */ = {
+		A9C2FAEE1B4ABB75008EDC2B /* views */ = {
 			isa = PBXGroup;
 			children = (
 				A9C2FAF81B4ABD8A008EDC2B /* MainTabBarController */,
 				A9C2FAF71B4ABD7E008EDC2B /* ManualViewController */,
 				A9C2FAF51B4ABD61008EDC2B /* HomeViewController */,
 			);
-			name = Views;
+			path = views;
 			sourceTree = "<group>";
 		};
 		A9C2FAF51B4ABD61008EDC2B /* HomeViewController */ = {
