@@ -1,23 +1,27 @@
 //
-//  ManualViewController.m
+//  ContentViewController.m
 //  TheArtOfProtest
 //
-//  Created by HwangKyuman on 2015. 7. 6..
+//  Created by HwangKyuman on 2015. 7. 8..
 //  Copyright (c) 2015년 JinboNet. All rights reserved.
 //
 
-#import "ManualViewController.h"
 #import "ContentViewController.h"
 
-@interface ManualViewController ()
+@interface ContentViewController ()
 
 @end
 
-@implementation ManualViewController
+@implementation ContentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSString *fullUrl = @"http://m.naver.com";
+    NSURL *reqObj = [NSURL URLWithString:fullUrl];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:reqObj];
+    
+    [self.webView loadRequest: requestObj];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,8 +39,4 @@
 }
 */
 
-- (IBAction)goToNext:(id)sender {
-    ContentViewController *vc = [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 @end

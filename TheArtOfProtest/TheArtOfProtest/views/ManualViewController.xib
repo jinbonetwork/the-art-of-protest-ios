@@ -21,9 +21,20 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sF8-il-uv5">
+                    <rect key="frame" x="266" y="318" width="69" height="30"/>
+                    <state key="normal" title="GoToNext">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="goToNext:" destination="-1" eventType="touchUpInside" id="3n8-m3-cCL"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerY" secondItem="sF8-il-uv5" secondAttribute="centerY" constant="-40" id="2oh-u0-wvC"/>
+                <constraint firstAttribute="centerX" secondItem="sF8-il-uv5" secondAttribute="centerX" id="4bZ-oV-emd"/>
                 <constraint firstAttribute="centerX" secondItem="VU3-aZ-N8u" secondAttribute="centerX" id="OLP-RS-y2p"/>
                 <constraint firstAttribute="centerY" secondItem="VU3-aZ-N8u" secondAttribute="centerY" id="TUK-ZO-Zz9"/>
             </constraints>
