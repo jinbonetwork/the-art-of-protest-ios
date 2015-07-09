@@ -1,2 +1,6 @@
-# the-art-of-protest-ios
-ios
+# 집회 시위 제대로 아이폰
+집회 시위 제대로 아이폰 버전입니다.
+
+## 앱 지원 범위
+* iPhone4 이상
+* iOS7 이상
