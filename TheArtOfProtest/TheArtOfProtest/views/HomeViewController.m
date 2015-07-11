@@ -7,6 +7,8 @@
 //
 
 #import "HomeViewController.h"
+#import "DocItem.h"
+#import "AFNetworking.h"
 
 @interface HomeViewController ()
 
@@ -15,11 +17,17 @@
 @implementation HomeViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    int a;
-    a = 1;
-    a = 2;
+    [super viewDidLoad] ;
+    [self getMenus];
+    
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void) getMenus {
+    
+        
+    // 5
+ 
 }
 
 - (void)didReceiveMemoryWarning {

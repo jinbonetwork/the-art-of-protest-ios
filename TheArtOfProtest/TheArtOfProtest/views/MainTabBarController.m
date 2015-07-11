@@ -7,6 +7,7 @@
 //
 
 #import "MainTabBarController.h"
+#import "ServerCommunicator.h"
 
 @interface MainTabBarController ()
 
@@ -16,7 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self testCode];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void) testCode {
+    ServerCommunicator *communicator = [ServerCommunicator sharedCommunicator];
+    
+    [communicator getDocumentListAsync:^(NSArray *docList) {
+        int debug;
+        
+    } failure:^(NSError *error) {
+        int debug;
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
