@@ -19,9 +19,13 @@
 		A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2FB081B4AC09A008EDC2B /* MainTabBarController.xib */; };
 		A9F04A661B4C271900439606 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F04A641B4C271900439606 /* ContentViewController.m */; };
 		A9F04A671B4C271900439606 /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F04A651B4C271900439606 /* ContentViewController.xib */; };
+		C54A20A5BA84F34EAC8F51CA /* libPods-TheArtOfProtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A31BA1CE601AB941201C9151 /* libPods-TheArtOfProtest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54E22E5AAFDE391C40C2CCC1 /* Pods-TheArtOfProtest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheArtOfProtest.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheArtOfProtest/Pods-TheArtOfProtest.release.xcconfig"; sourceTree = "<group>"; };
+		6EF1624C7E9633F109EE59F1 /* Pods-TheArtOfProtest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheArtOfProtest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheArtOfProtest/Pods-TheArtOfProtest.debug.xcconfig"; sourceTree = "<group>"; };
+		A31BA1CE601AB941201C9151 /* libPods-TheArtOfProtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheArtOfProtest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A956FA591B47B25A00F48FF1 /* TheArtOfProtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheArtOfProtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A956FA5D1B47B25A00F48FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A956FA5E1B47B25A00F48FF1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -48,17 +52,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C54A20A5BA84F34EAC8F51CA /* libPods-TheArtOfProtest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76EB741DED84CA621111C662 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A31BA1CE601AB941201C9151 /* libPods-TheArtOfProtest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9FAD7ECFBF72ADCE3CF6E86D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6EF1624C7E9633F109EE59F1 /* Pods-TheArtOfProtest.debug.xcconfig */,
+				54E22E5AAFDE391C40C2CCC1 /* Pods-TheArtOfProtest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A956FA501B47B25900F48FF1 = {
 			isa = PBXGroup;
 			children = (
 				A956FA5B1B47B25A00F48FF1 /* TheArtOfProtest */,
 				A956FA5A1B47B25A00F48FF1 /* Products */,
+				9FAD7ECFBF72ADCE3CF6E86D /* Pods */,
+				76EB741DED84CA621111C662 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A956FA7F1B47B25A00F48FF1 /* Build configuration list for PBXNativeTarget "TheArtOfProtest" */;
 			buildPhases = (
+				54FE2520D1589DD199D5EF73 /* Check Pods Manifest.lock */,
 				A956FA551B47B25A00F48FF1 /* Sources */,
 				A956FA561B47B25A00F48FF1 /* Frameworks */,
 				A956FA571B47B25A00F48FF1 /* Resources */,
+				865B99898CCE83DDBC3A1E0D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,6 +236,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54FE2520D1589DD199D5EF73 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		865B99898CCE83DDBC3A1E0D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheArtOfProtest/Pods-TheArtOfProtest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A956FA551B47B25A00F48FF1 /* Sources */ = {
@@ -311,6 +370,7 @@
 		};
 		A956FA801B47B25A00F48FF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EF1624C7E9633F109EE59F1 /* Pods-TheArtOfProtest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TheArtOfProtest/Info.plist;
@@ -322,6 +382,7 @@
 		};
 		A956FA811B47B25A00F48FF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54E22E5AAFDE391C40C2CCC1 /* Pods-TheArtOfProtest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TheArtOfProtest/Info.plist;
