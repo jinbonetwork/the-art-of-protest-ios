@@ -13,6 +13,8 @@
 		A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A956FA6C1B47B25A00F48FF1 /* Images.xcassets */; };
 		A97BE2D01B5179CB00E4C389 /* MenuJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2CF1B5179CB00E4C389 /* MenuJsonParser.m */; };
 		A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D41B517CA300E4C389 /* ServerCommunicator.m */; };
+		A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D71B51904800E4C389 /* CoreDataManager.m */; };
+		A97C99E21B5282620052EB34 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97C99E11B5282620052EB34 /* Default-568h@2x.png */; };
 		A9C2FAFC1B4ABDC5008EDC2B /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C2FAFA1B4ABDC5008EDC2B /* MainTabBarController.m */; };
 		A9C2FB011B4ABE09008EDC2B /* ManualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C2FAFF1B4ABE09008EDC2B /* ManualViewController.m */; };
 		A9C2FB021B4ABE09008EDC2B /* ManualViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2FB001B4ABE09008EDC2B /* ManualViewController.xib */; };
@@ -40,6 +42,9 @@
 		A97BE2CF1B5179CB00E4C389 /* MenuJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuJsonParser.m; sourceTree = "<group>"; };
 		A97BE2D31B517CA300E4C389 /* ServerCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerCommunicator.h; sourceTree = "<group>"; };
 		A97BE2D41B517CA300E4C389 /* ServerCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerCommunicator.m; sourceTree = "<group>"; };
+		A97BE2D61B51904800E4C389 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		A97BE2D71B51904800E4C389 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		A97C99E11B5282620052EB34 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A9C2FAF91B4ABDC5008EDC2B /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		A9C2FAFA1B4ABDC5008EDC2B /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		A9C2FAFE1B4ABE09008EDC2B /* ManualViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualViewController.h; sourceTree = "<group>"; };
@@ -88,6 +93,7 @@
 		A956FA501B47B25900F48FF1 = {
 			isa = PBXGroup;
 			children = (
+				A97C99E11B5282620052EB34 /* Default-568h@2x.png */,
 				A956FA5B1B47B25A00F48FF1 /* TheArtOfProtest */,
 				A956FA5A1B47B25A00F48FF1 /* Products */,
 				9FAD7ECFBF72ADCE3CF6E86D /* Pods */,
@@ -185,6 +191,8 @@
 				A97BE2CF1B5179CB00E4C389 /* MenuJsonParser.m */,
 				A97BE2D31B517CA300E4C389 /* ServerCommunicator.h */,
 				A97BE2D41B517CA300E4C389 /* ServerCommunicator.m */,
+				A97BE2D61B51904800E4C389 /* CoreDataManager.h */,
+				A97BE2D71B51904800E4C389 /* CoreDataManager.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -263,6 +271,7 @@
 				A9C2FB021B4ABE09008EDC2B /* ManualViewController.xib in Resources */,
 				A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */,
 				A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */,
+				A97C99E21B5282620052EB34 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +320,7 @@
 				A9F04A661B4C271900439606 /* ContentViewController.m in Sources */,
 				A9C2FAFC1B4ABDC5008EDC2B /* MainTabBarController.m in Sources */,
 				A97BE2D01B5179CB00E4C389 /* MenuJsonParser.m in Sources */,
+				A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */,
 				A956FA5F1B47B25A00F48FF1 /* main.m in Sources */,
 				A9C2FB011B4ABE09008EDC2B /* ManualViewController.m in Sources */,
 				A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */,

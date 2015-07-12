@@ -16,7 +16,7 @@
 @interface ServerCommunicator : NSObject
 
 /**
- Server Commucator의 싱글톤 객체를 반환한다.
+ Server Commucator의 싱글톤 객체를 반환한다.'
  */
 + (id)sharedCommunicator;
 
