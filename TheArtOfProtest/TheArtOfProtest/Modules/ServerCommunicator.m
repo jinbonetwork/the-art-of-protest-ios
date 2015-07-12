@@ -7,6 +7,7 @@
 //
 
 #import "ServerCommunicator.h"
+#import "FileManager.h"
 
 @implementation ServerCommunicator
 
@@ -30,6 +31,9 @@
          MenuJsonParser *parser = [[MenuJsonParser alloc] init];
          NSArray *result = [parser parse:(NSDictionary*)responseObject];
          success(result);
+         
+         FileManager *manager = [[FileManager alloc] init];
+         [manager saveMenuJson:(NSDictionary*)responseObject];
      }
      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          failure(error);
