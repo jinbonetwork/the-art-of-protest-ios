@@ -24,7 +24,7 @@
 		A9C2FB061B4ABE18008EDC2B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C2FB041B4ABE18008EDC2B /* HomeViewController.m */; };
 		A9C2FB071B4ABE18008EDC2B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2FB051B4ABE18008EDC2B /* HomeViewController.xib */; };
 		A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2FB081B4AC09A008EDC2B /* MainTabBarController.xib */; };
-		A9E48AA51B51598C00122920 /* DocItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E48AA41B51598C00122920 /* DocItem.m */; };
+		A9E48AA51B51598C00122920 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E48AA41B51598C00122920 /* MenuItem.m */; };
 		C54A20A5BA84F34EAC8F51CA /* libPods-TheArtOfProtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A31BA1CE601AB941201C9151 /* libPods-TheArtOfProtest.a */; };
 /* End PBXBuildFile section */
 
@@ -60,8 +60,8 @@
 		A9C2FB041B4ABE18008EDC2B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		A9C2FB051B4ABE18008EDC2B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		A9C2FB081B4AC09A008EDC2B /* MainTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
-		A9E48AA31B51598C00122920 /* DocItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocItem.h; sourceTree = "<group>"; };
-		A9E48AA41B51598C00122920 /* DocItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocItem.m; sourceTree = "<group>"; };
+		A9E48AA31B51598C00122920 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		A9E48AA41B51598C00122920 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +181,8 @@
 		A9E48AA21B5158E400122920 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A9E48AA31B51598C00122920 /* DocItem.h */,
-				A9E48AA41B51598C00122920 /* DocItem.m */,
+				A9E48AA31B51598C00122920 /* MenuItem.h */,
+				A9E48AA41B51598C00122920 /* MenuItem.m */,
 				A928E4F81B52933B006BBAD1 /* DocumentItem.h */,
 				A928E4F91B52933B006BBAD1 /* DocumentItem.m */,
 			);
@@ -322,7 +322,7 @@
 			files = (
 				A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */,
 				A928E4F41B529063006BBAD1 /* ContentViewController.m in Sources */,
-				A9E48AA51B51598C00122920 /* DocItem.m in Sources */,
+				A9E48AA51B51598C00122920 /* MenuItem.m in Sources */,
 				A9C2FAFC1B4ABDC5008EDC2B /* MainTabBarController.m in Sources */,
 				A97BE2D01B5179CB00E4C389 /* MenuJsonParser.m in Sources */,
 				A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */,

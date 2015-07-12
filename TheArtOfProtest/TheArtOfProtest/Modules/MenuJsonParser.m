@@ -7,7 +7,7 @@
 //
 
 #import "MenuJsonParser.h"
-#import "DocItem.h"
+#import "MenuItem.h"
 
 @implementation MenuJsonParser
 
@@ -27,8 +27,8 @@
 /**
  하나의 document Item을 parsing한다.
  */
-- (DocItem*)parseItem:(NSDictionary*)data {
-    DocItem *item = [[DocItem alloc] init];
+- (MenuItem*)parseItem:(NSDictionary*)data {
+    MenuItem *item = [[MenuItem alloc] init];
     item.documentId = [data valueForKey:MENU_JSON_DOCUMENT_ID];
     item.title = [data valueForKey:MENU_JSON_TITLE];
     item.folded = [[data valueForKey:MENU_JSON_FOLDED] boolValue];

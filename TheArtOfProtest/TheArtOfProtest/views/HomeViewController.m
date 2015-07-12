@@ -7,7 +7,6 @@
 //
 
 #import "HomeViewController.h"
-#import "DocItem.h"
 #import "AFNetworking.h"
 
 @interface HomeViewController ()

@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 /**
- 문서 하나를 나타내는 Docuemt 데이터 객체
+ 메뉴 하나를 나타내는 데이터 객체
  */
-@interface DocItem : NSObject
+@interface MenuItem : NSObject
 @property (nonatomic, copy) NSString *documentId;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, assign) BOOL folded;

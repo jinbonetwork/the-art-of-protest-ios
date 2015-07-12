@@ -6,8 +6,8 @@
 //  Copyright (c) 2015년 JinboNet. All rights reserved.
 //
 
-#import "DocItem.h"
+#import "MenuItem.h"
 
-@implementation DocItem
+@implementation MenuItem
 
 @end
