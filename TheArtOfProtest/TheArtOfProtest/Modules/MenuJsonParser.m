@@ -25,7 +25,7 @@
 }
 
 /**
- 하나의 document Item을 parsing한다.
+ 하나의 menu Item을 parsing한다.
  */
 - (MenuItem*)parseItem:(NSDictionary*)data {
     MenuItem *item = [[MenuItem alloc] init];
