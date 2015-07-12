@@ -32,7 +32,6 @@
     item.documentId = [data valueForKey:MENU_JSON_DOCUMENT_ID];
     item.title = [data valueForKey:MENU_JSON_TITLE];
     item.folded = [[data valueForKey:MENU_JSON_FOLDED] boolValue];
-    item.content = [data valueForKey:MENU_JSON_CONTENT];
     
     NSArray *subMenusData = [data valueForKey:MENU_JSON_SUBMENUS];
     if (subMenusData != nil && [subMenusData count] > 0) {

@@ -15,6 +15,5 @@
 @property (nonatomic, copy) NSString *documentId;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, assign) BOOL folded;
-@property (nonatomic, copy) NSString *content;
 @property (nonatomic, strong) NSMutableArray *submenus;
 @end

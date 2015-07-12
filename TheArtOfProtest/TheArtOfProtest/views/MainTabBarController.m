@@ -30,6 +30,9 @@
     } failure:^(NSError *error) {
         int debug;
     }];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+    NSString *applicationSupportDirectory = [paths firstObject];
 }
 
 - (void)didReceiveMemoryWarning {
