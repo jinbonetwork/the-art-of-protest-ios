@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A928E4F41B529063006BBAD1 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A928E4F21B529063006BBAD1 /* ContentViewController.m */; };
+		A928E4F51B529063006BBAD1 /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A928E4F31B529063006BBAD1 /* ContentViewController.xib */; };
 		A956FA5F1B47B25A00F48FF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA5E1B47B25A00F48FF1 /* main.m */; };
 		A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA611B47B25A00F48FF1 /* AppDelegate.m */; };
 		A956FA651B47B25A00F48FF1 /* Documents.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A956FA631B47B25A00F48FF1 /* Documents.xcdatamodeld */; };
@@ -29,6 +31,9 @@
 		54E22E5AAFDE391C40C2CCC1 /* Pods-TheArtOfProtest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheArtOfProtest.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheArtOfProtest/Pods-TheArtOfProtest.release.xcconfig"; sourceTree = "<group>"; };
 		6EF1624C7E9633F109EE59F1 /* Pods-TheArtOfProtest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheArtOfProtest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheArtOfProtest/Pods-TheArtOfProtest.debug.xcconfig"; sourceTree = "<group>"; };
 		A31BA1CE601AB941201C9151 /* libPods-TheArtOfProtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheArtOfProtest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A928E4F11B529063006BBAD1 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentViewController.h; path = TheArtOfProtest/Views/ContentViewController.h; sourceTree = SOURCE_ROOT; };
+		A928E4F21B529063006BBAD1 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContentViewController.m; path = TheArtOfProtest/Views/ContentViewController.m; sourceTree = SOURCE_ROOT; };
+		A928E4F31B529063006BBAD1 /* ContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContentViewController.xib; path = TheArtOfProtest/Views/ContentViewController.xib; sourceTree = SOURCE_ROOT; };
 		A956FA591B47B25A00F48FF1 /* TheArtOfProtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheArtOfProtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A956FA5D1B47B25A00F48FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A956FA5E1B47B25A00F48FF1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -195,6 +200,9 @@
 		A9F04A621B4C26F600439606 /* ContentViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A928E4F11B529063006BBAD1 /* ContentViewController.h */,
+				A928E4F21B529063006BBAD1 /* ContentViewController.m */,
+				A928E4F31B529063006BBAD1 /* ContentViewController.xib */,
 			);
 			name = ContentViewController;
 			sourceTree = "<group>";
@@ -260,6 +268,7 @@
 			files = (
 				A9C2FB071B4ABE18008EDC2B /* HomeViewController.xib in Resources */,
 				A9C2FB021B4ABE09008EDC2B /* ManualViewController.xib in Resources */,
+				A928E4F51B529063006BBAD1 /* ContentViewController.xib in Resources */,
 				A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */,
 				A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */,
 				A97C99E21B5282620052EB34 /* Default-568h@2x.png in Resources */,
@@ -307,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */,
+				A928E4F41B529063006BBAD1 /* ContentViewController.m in Sources */,
 				A9E48AA51B51598C00122920 /* DocItem.m in Sources */,
 				A9C2FAFC1B4ABDC5008EDC2B /* MainTabBarController.m in Sources */,
 				A97BE2D01B5179CB00E4C389 /* MenuJsonParser.m in Sources */,
