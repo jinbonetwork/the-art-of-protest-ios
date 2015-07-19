@@ -1,39 +1,22 @@
 //
-//  MainTabBarController.m
+//  SearchViewController.m
 //  TheArtOfProtest
 //
-//  Created by HwangKyuman on 2015. 7. 6..
+//  Created by HwangKyuman on 2015. 7. 20..
 //  Copyright (c) 2015년 JinboNet. All rights reserved.
 //
 
-#import "MainTabBarController.h"
-#import "ServerCommunicator.h"
+#import "SearchViewController.h"
 
-@interface MainTabBarController ()
+@interface SearchViewController ()
 
 @end
 
-@implementation MainTabBarController
+@implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self testCode];
-    NSLog(@"ViewDidLoad");
     // Do any additional setup after loading the view from its nib.
-}
-
-- (void) testCode {
-    ServerCommunicator *communicator = [ServerCommunicator sharedCommunicator];
-    
-    [communicator getDocumentListAsync:^(NSArray *docList) {
-        int debug;
-        
-    } failure:^(NSError *error) {
-        int debug;
-    }];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-    NSString *applicationSupportDirectory = [paths firstObject];
 }
 
 - (void)didReceiveMemoryWarning {

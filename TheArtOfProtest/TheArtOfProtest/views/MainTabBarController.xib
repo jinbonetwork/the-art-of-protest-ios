@@ -18,15 +18,15 @@
                 <viewController id="ZP2-7d-wlE" userLabel="Home" customClass="HomeViewController">
                     <tabBarItem key="tabBarItem" title="홈" id="h3C-Xu-5ZI" userLabel="Home"/>
                 </viewController>
-                <navigationController id="Wdy-E0-gnn" userLabel="Navigation_Manual">
-                    <tabBarItem key="tabBarItem" title="매뉴얼" id="aTD-y4-ilu" userLabel="Manual"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dpm-hb-FQf">
+                <navigationController id="v6p-qw-VsZ" userLabel="Navigation_Manual">
+                    <tabBarItem key="tabBarItem" title="매뉴얼" id="07K-vt-qqV" userLabel="Manual"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kcr-kb-rz5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <viewControllers>
-                        <tableViewController id="a8c-Zr-ORD" userLabel="Manual" customClass="ManualViewController">
-                            <navigationItem key="navigationItem" id="aPw-Fz-giC"/>
+                        <tableViewController id="2jO-GL-9ZF" userLabel="Manual" customClass="ManualViewController">
+                            <navigationItem key="navigationItem" id="5yA-aQ-rZd"/>
                         </tableViewController>
                     </viewControllers>
                 </navigationController>
