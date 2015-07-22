@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tabBarController id="ZOx-0s-jDh" customClass="MainTabBarController">
             <nil key="simulatedBottomBarMetrics"/>
-            <tabBar key="tabBar" contentMode="scaleToFill" id="JzM-dY-b3d">
+            <tabBar key="tabBar" contentMode="scaleToFill" selectedItem="dYf-Os-pZV" id="JzM-dY-b3d">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -27,6 +27,18 @@
                     <viewControllers>
                         <tableViewController id="2jO-GL-9ZF" userLabel="Manual" customClass="ManualViewController">
                             <navigationItem key="navigationItem" id="5yA-aQ-rZd"/>
+                        </tableViewController>
+                    </viewControllers>
+                </navigationController>
+                <navigationController id="zPH-Yd-k5f" userLabel="Navigation_Search">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="dYf-Os-pZV"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Shy-2P-2rf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <tableViewController id="zxy-bD-rdX" customClass="SearchViewController">
+                            <navigationItem key="navigationItem" id="Een-UT-5XU"/>
                         </tableViewController>
                     </viewControllers>
                 </navigationController>
