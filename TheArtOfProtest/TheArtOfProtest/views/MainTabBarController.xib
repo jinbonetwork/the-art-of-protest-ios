@@ -9,17 +9,17 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tabBarController id="ZOx-0s-jDh" customClass="MainTabBarController">
             <nil key="simulatedBottomBarMetrics"/>
-            <tabBar key="tabBar" contentMode="scaleToFill" selectedItem="dYf-Os-pZV" id="JzM-dY-b3d">
+            <tabBar key="tabBar" contentMode="scaleToFill" selectedItem="h3C-Xu-5ZI" id="JzM-dY-b3d">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </tabBar>
             <viewControllers>
                 <viewController id="ZP2-7d-wlE" userLabel="Home" customClass="HomeViewController">
-                    <tabBarItem key="tabBarItem" title="홈" id="h3C-Xu-5ZI" userLabel="Home"/>
+                    <tabBarItem key="tabBarItem" title="처음" image="Tap_Home_Icon" id="h3C-Xu-5ZI" userLabel="Home"/>
                 </viewController>
                 <navigationController id="v6p-qw-VsZ" userLabel="Navigation_Manual">
-                    <tabBarItem key="tabBarItem" title="매뉴얼" id="07K-vt-qqV" userLabel="Manual"/>
+                    <tabBarItem key="tabBarItem" title="매뉴얼" image="Tab_Manual_Icon" id="07K-vt-qqV" userLabel="Manual"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kcr-kb-rz5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -30,8 +30,20 @@
                         </tableViewController>
                     </viewControllers>
                 </navigationController>
+                <navigationController id="ORT-S9-0B6" userLabel="BookMark">
+                    <tabBarItem key="tabBarItem" title="북마크" image="Tab_Bookmark_Icon" id="AKI-WI-qCN"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zdw-zV-Ys4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <tableViewController id="L0H-eI-EKg">
+                            <navigationItem key="navigationItem" title="Root View Controller" id="X6G-gQ-2lb"/>
+                        </tableViewController>
+                    </viewControllers>
+                </navigationController>
                 <navigationController id="zPH-Yd-k5f" userLabel="Navigation_Search">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="dYf-Os-pZV"/>
+                    <tabBarItem key="tabBarItem" title="검색" image="Tab_Search_Icon" id="dYf-Os-pZV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Shy-2P-2rf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -42,10 +54,29 @@
                         </tableViewController>
                     </viewControllers>
                 </navigationController>
+                <viewController id="S3i-UZ-lcB" userLabel="Info">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ftq-GW-NSH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ie5-6E-iXV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D2h-SJ-MPx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="정보" image="Tab_Info_Icon" id="aoN-A1-91f"/>
+                </viewController>
             </viewControllers>
             <connections>
                 <outlet property="mTabBar" destination="JzM-dY-b3d" id="Kqb-Jo-D0r"/>
             </connections>
         </tabBarController>
     </objects>
+    <resources>
+        <image name="Tab_Bookmark_Icon" width="25" height="25"/>
+        <image name="Tab_Info_Icon" width="25" height="25"/>
+        <image name="Tab_Manual_Icon" width="25" height="25"/>
+        <image name="Tab_Search_Icon" width="25" height="25"/>
+        <image name="Tap_Home_Icon" width="25" height="25"/>
+    </resources>
 </document>
