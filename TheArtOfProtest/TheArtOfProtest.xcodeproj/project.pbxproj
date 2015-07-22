@@ -11,8 +11,6 @@
 		A928E4F51B529063006BBAD1 /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A928E4F31B529063006BBAD1 /* ContentViewController.xib */; };
 		A928E4FA1B52933B006BBAD1 /* DocumentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A928E4F91B52933B006BBAD1 /* DocumentItem.m */; };
 		A928E4FD1B52A8FF006BBAD1 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A928E4FC1B52A8FF006BBAD1 /* FileManager.m */; };
-		A928E5071B5BF301006BBAD1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A928E5051B5BF301006BBAD1 /* SearchViewController.m */; };
-		A928E5081B5BF301006BBAD1 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A928E5061B5BF301006BBAD1 /* SearchViewController.xib */; };
 		A956FA5F1B47B25A00F48FF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA5E1B47B25A00F48FF1 /* main.m */; };
 		A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA611B47B25A00F48FF1 /* AppDelegate.m */; };
 		A956FA651B47B25A00F48FF1 /* Documents.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A956FA631B47B25A00F48FF1 /* Documents.xcdatamodeld */; };
@@ -42,9 +40,6 @@
 		A928E4F91B52933B006BBAD1 /* DocumentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentItem.m; sourceTree = "<group>"; };
 		A928E4FB1B52A8FF006BBAD1 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		A928E4FC1B52A8FF006BBAD1 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
-		A928E5041B5BF301006BBAD1 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		A928E5051B5BF301006BBAD1 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		A928E5061B5BF301006BBAD1 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A956FA591B47B25A00F48FF1 /* TheArtOfProtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheArtOfProtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A956FA5D1B47B25A00F48FF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A956FA5E1B47B25A00F48FF1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -104,9 +99,6 @@
 		A928E4FE1B5BEFC5006BBAD1 /* SearchViewContorller */ = {
 			isa = PBXGroup;
 			children = (
-				A928E5041B5BF301006BBAD1 /* SearchViewController.h */,
-				A928E5051B5BF301006BBAD1 /* SearchViewController.m */,
-				A928E5061B5BF301006BBAD1 /* SearchViewController.xib */,
 			);
 			name = SearchViewContorller;
 			sourceTree = "<group>";
@@ -298,7 +290,6 @@
 				A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */,
 				A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */,
 				A97C99E21B5282620052EB34 /* Default-568h@2x.png in Resources */,
-				A928E5081B5BF301006BBAD1 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +339,6 @@
 				A9C2FAFC1B4ABDC5008EDC2B /* MainTabBarController.m in Sources */,
 				A97BE2D01B5179CB00E4C389 /* MenuJsonParser.m in Sources */,
 				A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */,
-				A928E5071B5BF301006BBAD1 /* SearchViewController.m in Sources */,
 				A956FA5F1B47B25A00F48FF1 /* main.m in Sources */,
 				A9C2FB011B4ABE09008EDC2B /* ManualViewController.m in Sources */,
 				A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */,
