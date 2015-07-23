@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 문서를 보는 화면
+ */
 @interface ContentViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-
+@property (nonatomic, copy) NSString* content;
 @end

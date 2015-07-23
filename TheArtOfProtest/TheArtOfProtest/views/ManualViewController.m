@@ -10,6 +10,7 @@
 #import "AOPContentsManager.h"
 #import "PostItem.h"
 #import "CategoryMenuItem.h"
+#import "ContentViewController.h"
 
 @interface ManualViewController ()
 
@@ -89,17 +90,32 @@
     CategoryMenuItem *item = [categoryMenu objectAtIndex:section];
     return [item name];
 }
-/*
+
+
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // Pass the selected object to the new view controller.
+    int cnt = 0;
+    NSString* content = @"";
     
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
+    NSArray *postList = [[AOPContentsManager sharedManager] postList];
+    for(PostItem *item in postList) {
+        CategoryMenuItem *category = [categoryMenu objectAtIndex:indexPath.section];
+        if (item.categoryId == category.categoryID) {
+            if (cnt == indexPath.row) {
+                content = item.content;
+            }
+            cnt++;
+        }
+    }
+    
+    ContentViewController *contentVC =
+        [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
+    [contentVC setContent:content];
+    
+    [self.navigationController pushViewController:contentVC animated:YES];
+     
 }
-*/
 @end

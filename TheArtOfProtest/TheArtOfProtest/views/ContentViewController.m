@@ -16,11 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    /*
     NSString *fullUrl = @"http://m.naver.com";
     NSURL *reqObj = [NSURL URLWithString:fullUrl];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:reqObj];
     [self.webView loadRequest:requestObj];
+     */
+    
+    NSData *data = [self.content dataUsingEncoding:NSUTF8StringEncoding];
+    [self.webView loadData:data MIMEType: @"text/html" textEncodingName: @"UTF-8" baseURL:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
