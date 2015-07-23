@@ -26,6 +26,7 @@
  레이아웃을 초기화한다.
  */
 - (void)initLayout {
+    [self.navigationItem setTitle:@"매뉴얼"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
