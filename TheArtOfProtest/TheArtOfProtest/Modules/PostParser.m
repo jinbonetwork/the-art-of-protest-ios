@@ -35,6 +35,7 @@
 - (PostItem *)parsePost:(NSDictionary*)json {
     PostItem *item = [[PostItem alloc] init];
     item.postId = [[json valueForKey:TAG_POST_ID] integerValue];
+    item.title = [json valueForKey:TAG_POST_TITLE];
     item.modified = [json valueForKey:TAG_POST_MODIFIED];
     item.content = [json valueForKey:TAG_POST_CONTENT];
     

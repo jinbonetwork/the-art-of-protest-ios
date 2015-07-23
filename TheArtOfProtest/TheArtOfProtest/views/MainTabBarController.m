@@ -8,6 +8,7 @@
 
 #import "MainTabBarController.h"
 #import "ServerCommunicator.h"
+#import "AOPContentsManager.h"
 
 @interface MainTabBarController ()
 
@@ -18,37 +19,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self testCode];
-    NSLog(@"ViewDidLoad");
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void) testCode {
     ServerCommunicator *communicator = [ServerCommunicator sharedCommunicator];
     
-    [communicator getPostsAsync:^(NSArray *docList) {
-        int debug;
-        
-    } failure:^(NSError *error) {
-        int debug;
-    }];
+    [communicator getPostsAsync:^(NSArray *postList) {
+        [[AOPContentsManager sharedManager] setPostList:postList];
+    } failure:^(NSError *error) {}];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-    NSString *applicationSupportDirectory = [paths firstObject];
+    [communicator getCategoryMenusAsync:^(NSArray *docList) {
+        [[AOPContentsManager sharedManager] setCategoryMenuList:docList];
+    } failure:^(NSError *error) {}];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

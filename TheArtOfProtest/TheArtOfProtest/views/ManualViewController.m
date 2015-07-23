@@ -7,6 +7,9 @@
 //
 
 #import "ManualViewController.h"
+#import "AOPContentsManager.h"
+#import "PostItem.h"
+#import "CategoryMenuItem.h"
 
 @interface ManualViewController ()
 
@@ -16,12 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self initLayout];
+}
+
+/**
+ 레이아웃을 초기화한다.
+ */
+- (void)initLayout {
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,65 +37,59 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
+    return [categoryMenu count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    int cnt = 0;
+    
+    NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
+    NSArray *postList = [[AOPContentsManager sharedManager] postList];
+    for(PostItem *item in postList) {
+        CategoryMenuItem *category = [categoryMenu objectAtIndex:section];
+        if (item.categoryId == category.categoryID) {
+            ++cnt;
+        }
+    }
+    return cnt;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+   /* UITableViewCell *cell =
+        [tableView dequeueReusableCellWithIdentifier:@"identifier" forIndexPath:indexPath];*/
     
-    // Configure the cell...
+    UITableViewCell *cell;
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"identifier"];
+    }
     
+    int cnt = 0;
+    NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
+    NSArray *postList = [[AOPContentsManager sharedManager] postList];
+    for(PostItem *item in postList) {
+        CategoryMenuItem *category = [categoryMenu objectAtIndex:indexPath.section];
+        if (item.categoryId == category.categoryID) {
+            if (cnt == indexPath.row) {
+                cell.textLabel.text = item.title;
+                break;
+            }
+            cnt++;
+        }
+    }
+
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
+    CategoryMenuItem *item = [categoryMenu objectAtIndex:section];
+    return [item name];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 /*
 #pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
@@ -102,15 +101,4 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 */
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

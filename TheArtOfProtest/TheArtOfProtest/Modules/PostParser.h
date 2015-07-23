@@ -11,6 +11,7 @@
 
 #define TAG_POST_POSTS      @"posts"
 #define TAG_POST_ID         @"ID"
+#define TAG_POST_TITLE      @"title"
 #define TAG_POST_MODIFIED   @"modified"
 #define TAG_POST_CONTENT    @"content"
 #define TAG_POST_CATEGORIES @"categories"
