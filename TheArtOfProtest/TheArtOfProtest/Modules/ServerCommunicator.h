@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "MenuJsonParser.h"
 #import "CategoryMenuParser.h"
+#import "PostParser.h"
 #import "AFNetworking.h"
 
 #define BASE_CMS_URI @"https://public-api.wordpress.com/rest/v1.1/sites/theartofprotest.jinbo.net"
 #define REST_API_CATEGORIES @"categories"
-#define REST_API_DOCUMENTS @"documents"
+#define REST_API_WHOLE_DOCS @"posts/?category=manual&type=page&status=publish"
 
 /**
  Server와의 Communication을 담당하는 모듈
@@ -34,6 +35,12 @@
  Category 형태의 상위 메뉴 목록을 받아온다.
  */
 - (void)getCategoryMenusAsync:(void (^)(NSArray *docList))success
+                      failure:(void (^)(NSError *error))failure;
+
+/**
+ 전체 문서 목록을 받아온다.
+ */
+- (void)getPostsAsync:(void (^)(NSArray *docList))success
                       failure:(void (^)(NSError *error))failure;
 
 

@@ -29,6 +29,8 @@
 		A9C9ECB61B5FE4DE0034C8F9 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C9ECB41B5FE4DE0034C8F9 /* SearchViewController.xib */; };
 		A9C9ECBB1B5FF29A0034C8F9 /* CategoryMenuParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C9ECBA1B5FF29A0034C8F9 /* CategoryMenuParser.m */; };
 		A9C9ECBE1B5FF6AA0034C8F9 /* CategoryMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C9ECBD1B5FF6AA0034C8F9 /* CategoryMenuItem.m */; };
+		A9C9ECC11B613AE90034C8F9 /* PostItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C9ECC01B613AE90034C8F9 /* PostItem.m */; };
+		A9C9ECC41B613D5B0034C8F9 /* PostParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C9ECC31B613D5B0034C8F9 /* PostParser.m */; };
 		A9E48AA51B51598C00122920 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E48AA41B51598C00122920 /* MenuItem.m */; };
 		C54A20A5BA84F34EAC8F51CA /* libPods-TheArtOfProtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A31BA1CE601AB941201C9151 /* libPods-TheArtOfProtest.a */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,10 @@
 		A9C9ECBA1B5FF29A0034C8F9 /* CategoryMenuParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryMenuParser.m; sourceTree = "<group>"; };
 		A9C9ECBC1B5FF6AA0034C8F9 /* CategoryMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryMenuItem.h; sourceTree = "<group>"; };
 		A9C9ECBD1B5FF6AA0034C8F9 /* CategoryMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryMenuItem.m; sourceTree = "<group>"; };
+		A9C9ECBF1B613AE90034C8F9 /* PostItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostItem.h; sourceTree = "<group>"; };
+		A9C9ECC01B613AE90034C8F9 /* PostItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostItem.m; sourceTree = "<group>"; };
+		A9C9ECC21B613D5B0034C8F9 /* PostParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostParser.h; sourceTree = "<group>"; };
+		A9C9ECC31B613D5B0034C8F9 /* PostParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostParser.m; sourceTree = "<group>"; };
 		A9E48AA31B51598C00122920 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		A9E48AA41B51598C00122920 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +218,8 @@
 				A928E4F91B52933B006BBAD1 /* DocumentItem.m */,
 				A9C9ECBC1B5FF6AA0034C8F9 /* CategoryMenuItem.h */,
 				A9C9ECBD1B5FF6AA0034C8F9 /* CategoryMenuItem.m */,
+				A9C9ECBF1B613AE90034C8F9 /* PostItem.h */,
+				A9C9ECC01B613AE90034C8F9 /* PostItem.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -229,6 +237,8 @@
 				A928E4FC1B52A8FF006BBAD1 /* FileManager.m */,
 				A9C9ECB91B5FF29A0034C8F9 /* CategoryMenuParser.h */,
 				A9C9ECBA1B5FF29A0034C8F9 /* CategoryMenuParser.m */,
+				A9C9ECC21B613D5B0034C8F9 /* PostParser.h */,
+				A9C9ECC31B613D5B0034C8F9 /* PostParser.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -359,9 +369,11 @@
 				A97BE2D01B5179CB00E4C389 /* MenuJsonParser.m in Sources */,
 				A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */,
 				A9C9ECB51B5FE4DE0034C8F9 /* SearchViewController.m in Sources */,
+				A9C9ECC11B613AE90034C8F9 /* PostItem.m in Sources */,
 				A956FA5F1B47B25A00F48FF1 /* main.m in Sources */,
 				A9C2FB011B4ABE09008EDC2B /* ManualViewController.m in Sources */,
 				A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */,
+				A9C9ECC41B613D5B0034C8F9 /* PostParser.m in Sources */,
 				A9C2FB061B4ABE18008EDC2B /* HomeViewController.m in Sources */,
 				A9C9ECBB1B5FF29A0034C8F9 /* CategoryMenuParser.m in Sources */,
 				A956FA651B47B25A00F48FF1 /* Documents.xcdatamodeld in Sources */,

@@ -25,7 +25,7 @@
 - (void) testCode {
     ServerCommunicator *communicator = [ServerCommunicator sharedCommunicator];
     
-    [communicator getCategoryMenusAsync:^(NSArray *docList) {
+    [communicator getPostsAsync:^(NSArray *docList) {
         int debug;
         
     } failure:^(NSError *error) {

@@ -44,6 +44,28 @@
     [operation start];
 }
 
+
+/**
+ 전체 문서 목록을 받아온다.
+ */
+- (void)getPostsAsync:(void (^)(NSArray *docList))success
+              failure:(void (^)(NSError *error))failure {
+    AFHTTPRequestOperation *operation =
+    [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_WHOLE_DOCS]]];
+    
+    [operation setCompletionBlockWithSuccess:
+     ^(AFHTTPRequestOperation *operation, id responseObject) {
+         PostParser *parser = [[PostParser alloc] init];
+         NSArray *result = [parser parsePostList:(NSDictionary*)responseObject];
+         success(result);
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure(error);
+     }];
+    
+    [operation start];
+}
+
 - (void)getDocumentListAsync:(void (^)(NSArray *docList))success
                          failure:(void (^)(NSError *error))failure {
     
