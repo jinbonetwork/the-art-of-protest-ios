@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import "SplashViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    MainTabBarController *vc = [[[NSBundle mainBundle] loadNibNamed:@"MainTabBarController" owner:nil options:nil] objectAtIndex:0];
+    //MainTabBarController *vc = [[[NSBundle mainBundle] loadNibNamed:@"MainTabBarController" owner:nil options:nil] objectAtIndex:0];
+    SplashViewController *vc = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     return YES;
