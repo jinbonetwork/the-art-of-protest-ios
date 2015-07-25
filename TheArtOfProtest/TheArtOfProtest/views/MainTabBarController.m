@@ -22,15 +22,18 @@
 }
 
 - (void) testCode {
-    ServerCommunicator *communicator = [ServerCommunicator sharedCommunicator];
+    AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
+    [contentsManager initContents:^{
+        int debug;
+        AOPContentsManager *manager = [AOPContentsManager sharedManager];
+        debug = 1;
+    } progress:^(NSInteger percent) {
+        
+    } failure:^(NSError *error) {
+        int debug;
+        debug = 1;
+    }];
     
-    [communicator getPostsAsync:^(NSArray *postList) {
-        [[AOPContentsManager sharedManager] setPostList:postList];
-    } failure:^(NSError *error) {}];
-    
-    [communicator getCategoryMenusAsync:^(NSArray *docList) {
-        [[AOPContentsManager sharedManager] setCategoryMenuList:docList];
-    } failure:^(NSError *error) {}];
 }
 
 - (void)didReceiveMemoryWarning {

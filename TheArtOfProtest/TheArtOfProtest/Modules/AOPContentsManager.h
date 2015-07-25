@@ -39,7 +39,9 @@
 /**
  최초로 콘텐츠를 초기화 한다.
  */
-- (void)initContents;
+- (void)initContents:(void(^)(void))success
+            progress:(void(^)(NSInteger percent))progress
+             failure:(void(^)(NSError *error))failure;
 
 /**
  콘텐츠 업데이트가 필요한지 확인한다.
@@ -49,8 +51,8 @@
 /**
  콘텐츠를 업데이트 한다.
  */
-- (void)updateContents;
-
+- (void)updateContents:(void(^)(void))success
+               failure:(void(^)(NSError *error))failure;
 
 
 @end

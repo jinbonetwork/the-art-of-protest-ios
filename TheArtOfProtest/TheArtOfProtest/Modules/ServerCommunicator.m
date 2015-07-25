@@ -12,7 +12,7 @@
 @implementation ServerCommunicator
 
 /**
- Server Commucator의 싱글톤 객체를 반환한다.'
+ Server Commucator의 싱글톤 객체를 반환한다.
  */
 + (id)sharedCommunicator {
     static ServerCommunicator *communicator = nil;
@@ -26,7 +26,7 @@
 /**
  Category 형태의 상위 메뉴 목록을 받아온다.
  */
-- (void)getCategoryMenusAsync:(void (^)(NSArray *docList))success
+- (void)getCategoryMenusAsync:(void (^)(NSArray *categoryMenuList))success
                       failure:(void (^)(NSError *error))failure {
     AFHTTPRequestOperation *operation =
         [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_CATEGORIES]]];
@@ -48,7 +48,7 @@
 /**
  전체 문서 목록을 받아온다.
  */
-- (void)getPostsAsync:(void (^)(NSArray *docList))success
+- (void)getPostsAsync:(void (^)(NSArray *postList))success
               failure:(void (^)(NSError *error))failure {
     AFHTTPRequestOperation *operation =
     [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_WHOLE_DOCS]]];

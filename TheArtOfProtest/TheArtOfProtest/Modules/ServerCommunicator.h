@@ -34,13 +34,13 @@
 /**
  Category 형태의 상위 메뉴 목록을 받아온다.
  */
-- (void)getCategoryMenusAsync:(void (^)(NSArray *docList))success
+- (void)getCategoryMenusAsync:(void (^)(NSArray *categoryMenuList))success
                       failure:(void (^)(NSError *error))failure;
 
 /**
  전체 문서 목록을 받아온다.
  */
-- (void)getPostsAsync:(void (^)(NSArray *docList))success
+- (void)getPostsAsync:(void (^)(NSArray *postList))success
                       failure:(void (^)(NSError *error))failure;
 
 
