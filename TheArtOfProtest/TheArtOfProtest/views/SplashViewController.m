@@ -7,6 +7,7 @@
 //
 
 #import "SplashViewController.h"
+#import "AOPContentsManager.h"
 
 @interface SplashViewController ()
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
+    [self initContents];
 }
 
 - (void)initUI {
@@ -32,6 +34,17 @@
     }
     
     [self.splashImage setImage:[UIImage imageNamed:imageName]];
+}
+
+- (void)initContents {
+    AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
+    [contentsManager initContents:^{
+        [self.appInitDelegate checkAndInitAppDone];
+    } progress:^(NSInteger percent) {
+        
+    } failure:^(NSError *error) {
+        [self.appInitDelegate checkAndInitAppDone];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

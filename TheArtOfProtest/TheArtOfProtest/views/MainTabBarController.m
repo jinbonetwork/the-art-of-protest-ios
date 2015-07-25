@@ -18,22 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self testCode];
-}
-
-- (void) testCode {
-    AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
-    [contentsManager initContents:^{
-        int debug;
-        AOPContentsManager *manager = [AOPContentsManager sharedManager];
-        debug = 1;
-    } progress:^(NSInteger percent) {
-        
-    } failure:^(NSError *error) {
-        int debug;
-        debug = 1;
-    }];
-    
 }
 
 - (void)didReceiveMemoryWarning {

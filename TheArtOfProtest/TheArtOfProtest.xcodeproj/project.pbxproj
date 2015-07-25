@@ -67,6 +67,7 @@
 		A9A9BF881B63B7E200BD0D9E /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		A9A9BF8B1B63B9BE00BD0D9E /* DeviceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceConfig.h; sourceTree = "<group>"; };
 		A9A9BF8C1B63B9BE00BD0D9E /* DeviceConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceConfig.m; sourceTree = "<group>"; };
+		A9A9BF901B63C01F00BD0D9E /* AppInitDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInitDelegate.h; sourceTree = "<group>"; };
 		A9C2FAF91B4ABDC5008EDC2B /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		A9C2FAFA1B4ABDC5008EDC2B /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		A9C2FB031B4ABE18008EDC2B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -153,6 +154,7 @@
 		A956FA5B1B47B25A00F48FF1 /* TheArtOfProtest */ = {
 			isa = PBXGroup;
 			children = (
+				A9A9BF8E1B63BEF200BD0D9E /* Delegates */,
 				A9E48AA61B5169CA00122920 /* Modules */,
 				A9E48AA21B5158E400122920 /* Data */,
 				A9C2FAEE1B4ABB75008EDC2B /* Views */,
@@ -182,6 +184,14 @@
 				A9A9BF881B63B7E200BD0D9E /* SplashViewController.xib */,
 			);
 			name = SplashViewController;
+			sourceTree = "<group>";
+		};
+		A9A9BF8E1B63BEF200BD0D9E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A9A9BF901B63C01F00BD0D9E /* AppInitDelegate.h */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		A9C2FAEE1B4ABB75008EDC2B /* Views */ = {

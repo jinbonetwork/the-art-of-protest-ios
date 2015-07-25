@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "DeviceConfig.h"
+#import "AppInitDelegate.h"
 
 @interface SplashViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIImageView *splashImage;
+@property (assign, nonatomic) id<AppInitDelegate> appInitDelegate;
 
 @end

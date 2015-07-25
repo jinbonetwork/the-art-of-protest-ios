@@ -11,7 +11,6 @@
 #import "SplashViewController.h"
 
 @interface AppDelegate ()
-
 @end
 
 @implementation AppDelegate
@@ -20,8 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    //MainTabBarController *vc = [[[NSBundle mainBundle] loadNibNamed:@"MainTabBarController" owner:nil options:nil] objectAtIndex:0];
     SplashViewController *vc = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+    vc.appInitDelegate = self;
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     return YES;
@@ -49,6 +48,18 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+#pragma mark - App Init Delegate
+-(void) checkAndInitAppDone {
+    MainTabBarController *tabBarVC = [[[NSBundle mainBundle] loadNibNamed:@"MainTabBarController" owner:nil options:nil] objectAtIndex:0];
+    
+    // TabBar로 전환한다.
+    [UIView transitionWithView:self.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromBottom
+                    animations:^{self.window.rootViewController = tabBarVC;}
+                    completion:nil];
 }
 
 #pragma mark - Core Data stack

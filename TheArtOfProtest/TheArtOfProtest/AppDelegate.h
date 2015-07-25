@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "AppInitDelegate.h"
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, AppInitDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
