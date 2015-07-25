@@ -13,8 +13,10 @@
  */
 @interface PostItem : NSObject
 @property (nonatomic, assign) NSInteger postId;
+@property (nonatomic, assign) NSInteger menuOrder;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *modified;
+@property (nonatomic, copy) NSString *excerpt;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *categoryName;
 @property (nonatomic, assign) NSInteger categoryId;
