@@ -10,4 +10,11 @@
 
 @implementation PostItem
 
+- (id)init {
+    if(self = [super init]) {
+        _isBookMarked = false;
+    }
+    return self;
+}
+
 @end

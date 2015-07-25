@@ -10,4 +10,11 @@
 
 @implementation CategoryMenuItem
 
+- (id)init {
+    if(self = [super init]) {
+        _categoryOrder = NSIntegerMax;
+    }
+    return self;
+}
+
 @end

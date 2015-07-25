@@ -24,7 +24,7 @@
 @property (copy) void (^initContentsFailure)(NSError *error);
 
 
-// private method들
+// private method들. 주석은 implementation 된 곳에서 볼 수 이따고 한다.
 - (void)getPostsFromServerForInit;
 - (void)rectifyCategoryAndPosts;
 
@@ -96,7 +96,36 @@
  카테고리 메뉴 목록과 Post(문서) 목록을 앱에서 사용할 수 있도록 정제한다.
  */
 - (void)rectifyCategoryAndPosts {
+    
+    // post 들을 Menu Order 순으로 정렬한다.
+    NSSortDescriptor *postSortDescriptor =
+        [NSSortDescriptor sortDescriptorWithKey:@"menuOrder" ascending:YES];
+    self.postList = [self.postList
+                     sortedArrayUsingDescriptors:@[postSortDescriptor]];
+    
+    
+    // Category 가 가지고 있는 첫번째 Post의 Menu Order를 Category Order로 정한다.
+    for (CategoryMenuItem *category in self.categoryMenuList) {
+        for (PostItem *post in self.postList) {
+            if(post.categoryId == category.categoryID) {
+                category.categoryOrder = post.menuOrder;
+                break;
+            }
+        }
+    }
+    
+    // category 들을 Cetegory Order 순으로 정렬한다.
+    NSSortDescriptor *categorySortDescriptor =
+        [NSSortDescriptor sortDescriptorWithKey:@"categoryOrder" ascending:YES];
+    self.categoryMenuList = [self.categoryMenuList
+                             sortedArrayUsingDescriptors:@[categorySortDescriptor]];
+    
+    int debug = 1;
     self.initContentsSuccess();
 }
 
 @end
+
+
+
+
