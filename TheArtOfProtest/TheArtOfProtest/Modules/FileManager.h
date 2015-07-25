@@ -16,6 +16,11 @@
 @interface FileManager : NSObject
 
 /**
+ 이 앱에서 사용할 파일 시스템을 초기화한다.
+ */
+- (void)initFileSystem;
+
+/**
  Menu Json 파일을 저장한다. 성공여부 반환.
  */
 - (BOOL)saveMenuJson:(NSDictionary*)json;

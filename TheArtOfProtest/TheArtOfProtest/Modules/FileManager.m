@@ -11,6 +11,15 @@
 @implementation FileManager
 
 /**
+ 이 앱에서 사용할 파일 시스템을 초기화한다.
+ */
+- (void)initFileSystem {
+    NSString* rootPath = [self getAppSupportRoot];
+    [[NSFileManager defaultManager]
+        createDirectoryAtPath:rootPath withIntermediateDirectories:YES attributes: nil error:nil];
+}
+
+/**
  Menu Json 파일을 저장한다.
  */
 - (BOOL)saveMenuJson:(NSDictionary*)json {
