@@ -20,4 +20,5 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *categoryName;
 @property (nonatomic, assign) NSInteger categoryId;
+@property (nonatomic, assign) BOOL isBookMarked;
 @end

@@ -14,4 +14,5 @@
 @interface CategoryMenuItem : NSObject
 @property (nonatomic, assign) NSInteger categoryID;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, assign) NSInteger categoryOrder;
 @end
