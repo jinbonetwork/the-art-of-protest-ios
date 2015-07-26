@@ -55,11 +55,7 @@
                                                          NSApplicationSupportDirectory,
                                                          NSUserDomainMask,
                                                          YES);
-    
-    //TODO : Application Support 폴더 만드는 것을 여기 말고 초기화 하는 부분으로 옮기던지 해야함. 매번 만들 필요는 ㄴㄴ
-    NSString* path = [paths firstObject];
-    [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes: nil error:nil];
-    return path;
+    return [paths firstObject];
 }
 
 @end

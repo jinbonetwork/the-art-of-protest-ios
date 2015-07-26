@@ -11,6 +11,9 @@
 #import "CoreDataManager.h"
 #import "FileManager.h"
 
+#define USER_DEFAULT_KEY_APP_INITED      @"user_default_key_app_inited"
+#define USER_DEFAULT_KEY_CONTENTS_INITED @"user_default_key_contents_inited"
+
 @interface AOPContentsManager ()
 
 // 서버, DB, 파일 시스템과 통신하기 위한 모듈들
@@ -55,6 +58,28 @@
     }
     return self;
 }
+
+/**
+ 앱의 기본 내용들이 초기화 되었는지 확인한다. ex)필요한 리소스 파일들 Application Support 폴더로 옮기기 등
+ */
+- (BOOL)isAppInitialized {
+    NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+    return [sud boolForKey:USER_DEFAULT_KEY_APP_INITED];
+}
+
+/**
+ 앱의 기본 내용들 초기화 한다.
+ */
+- (void)initApp {
+    // 파일 시스템 초기화
+    [self.fileManager initFileSystem];
+
+    // 레지스트리값 저장
+    NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+    [sud setBool:YES forKey:USER_DEFAULT_KEY_APP_INITED];
+    [sud synchronize];
+}
+
 
 /**
  최초로 콘텐츠를 초기화 한다.  

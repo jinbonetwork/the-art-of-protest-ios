@@ -38,6 +38,12 @@
 
 - (void)initContents {
     AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
+    
+    //  앱의 기본 내용이 초기화가 안되어 있으면 초기화
+    if (![contentsManager isAppInitialized]) {
+        [contentsManager initApp];
+    }
+    
     [contentsManager initContents:^{
         [self.appInitDelegate checkAndInitAppDone];
     } progress:^(NSInteger percent) {
