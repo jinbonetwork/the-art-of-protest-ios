@@ -23,24 +23,45 @@
 }
 
 /**
- Document Item을 Insert한다. 이미 존재하는 documentId에 대해서는 업데이트 한다.
+ 문서(Post) 하나를 DB에 삽입한다.
  */
-- (void)insertDoc:(DocumentItem*)doc {
+- (void)inserPost:(PostItem*)post {
+}
+
+/**
+ 전체 문서(Post)를 받아온다.
+ */
+- (NSArray*)getAllPosts {
+    return [NSArray array];
+}
+
+/**
+ 특정 Id를 가진 Post를 가져온다.
+ */
+- (PostItem*)getPostWithId:(NSInteger)docId {
+    return [[PostItem alloc] init];
+}
+
+/**
+ 카테고리 메뉴 하나를 DB에 삽입한다.
+ */
+- (void)insertCategoryMenu:(CategoryMenuItem*)categoryMenu {
     
 }
 
 /**
- 해당 document ID를 가진 document item을 반환한다. 없을 경우 nil을 반환
+ 전체 카테고리 메뉴를 가져온다.
  */
-- (DocumentItem*)getDocWithId:(NSString*)docId {
-    return [[DocumentItem alloc] init];
+- (NSArray*)getAllCategoryMenu {
+    return [NSArray array];
 }
 
 /**
- 제목이나 내용에 keyword를 포함한 document 목록을 반환한다. 검색시 사용. 없을 경우 empty array 반환
+ 특정 ID를 가진 Cateory 메뉴를 가져온다.
  */
-- (NSArray*)searchDocWithKeyword:(NSString*)keyword {
-    return [NSArray array];
+- (CategoryMenuItem*)getCategoryMenuItemWithId:(NSInteger)categoryId {
+    return [[CategoryMenuItem alloc] init];
 }
+
 
 @end
