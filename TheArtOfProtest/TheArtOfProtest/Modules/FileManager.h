@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define FILE_NAME_MENU_JSON @"menu.json"
+#define FILE_NAME_STYLE_CSS @"style.css"
 
 /**
  로컬에 저장되는 파일을 관리하는 모듈
@@ -29,6 +30,16 @@
  Menu Json 경로를 얻어온다.
  */
 - (NSString*)getMenuJsonPath;
+
+/**
+ 메인 번들에 포함되어있는 필요한 파일들 ~/Library/Application Support/ 폴더로 복사하는 작업을 진행한다.
+ */
+- (void)copyBundleFilesToAppSupportDir;
+
+/**
+ ~/Library/Application Support/style.css 파일. 문서 콘텐츠에 사용되는 css 파일
+ */
+- (NSString*)getContentCssFilePath;
 
 /**
  앱 자료를 저장하는 기본 루트인 ~/Library/Application Supprt/ 경로를 얻어온다.

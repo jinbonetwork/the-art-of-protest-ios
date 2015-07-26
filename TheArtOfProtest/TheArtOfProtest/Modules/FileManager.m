@@ -47,6 +47,22 @@
     return [NSString pathWithComponents:@[[self getAppSupportRoot],FILE_NAME_MENU_JSON]];
 }
 
+
+/**
+ 메인 번들에 포함되어있는 필요한 파일들 ~/Library/Application Support/ 폴더로 복사하는 작업을 진행한다.
+ */
+- (void)copyBundleFilesToAppSupportDir {
+    NSString* bundleCSS = [[NSBundle mainBundle] pathForResource:@"style" ofType:@"css"];
+    [[NSFileManager defaultManager] copyItemAtPath:bundleCSS toPath:[self getContentCssFilePath] error:nil];
+}
+
+/**
+ ~/Library/Application Support/style.css 파일. 문서 콘텐츠에 사용되는 css 파일
+ */
+- (NSString*)getContentCssFilePath {
+    return [NSString pathWithComponents:@[[self getAppSupportRoot], FILE_NAME_STYLE_CSS]];
+}
+
 /**
  앱 자료를 저장하는 기본 루트인 ~/Library/Application Supprt/ 경로를 얻어온다.
  */

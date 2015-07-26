@@ -74,6 +74,7 @@
 - (void)initApp {
     // 파일 시스템 초기화
     [self.fileManager initFileSystem];
+    [self.fileManager copyBundleFilesToAppSupportDir];
 
     // 레지스트리값 저장
     NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
