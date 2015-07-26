@@ -44,13 +44,20 @@
         [contentsManager initApp];
     }
     
-    [contentsManager initContents:^{
+    if ([contentsManager isContentInitialized]) {
+        [contentsManager loadCategoryAndPosts];
         [self.appInitDelegate checkAndInitAppDone];
-    } progress:^(NSInteger percent) {
+    } else {
+    
+        [contentsManager initContents:^{
+            [self.appInitDelegate checkAndInitAppDone];
+        } progress:^(NSInteger percent) {
         
-    } failure:^(NSError *error) {
-        [self.appInitDelegate checkAndInitAppDone];
-    }];
+        } failure:^(NSError *error) {
+            [self.appInitDelegate checkAndInitAppDone];
+        }];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

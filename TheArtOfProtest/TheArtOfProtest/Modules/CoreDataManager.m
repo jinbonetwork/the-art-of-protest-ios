@@ -8,6 +8,9 @@
 
 #import "CoreDataManager.h"
 
+#define CATEGORY_MENU_ENTITY_NAME @"CategoryMenus"
+#define POST_MENU_ENTITY_NAME     @"Posts"
+
 @implementation CoreDataManager
 
 /**
@@ -27,7 +30,8 @@
  */
 - (void)insertPost:(PostItem*)post {
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSManagedObject *postObj = [NSEntityDescription insertNewObjectForEntityForName:@"Posts" inManagedObjectContext:context];
+    NSManagedObject *postObj = [NSEntityDescription insertNewObjectForEntityForName:POST_MENU_ENTITY_NAME
+                                                             inManagedObjectContext:context];
 
     [postObj setValue:[NSNumber numberWithInteger:post.categoryId] forKey:@"categoryId"];
     [postObj setValue:post.categoryName forKey:@"categoryName"];
@@ -47,7 +51,15 @@
  전체 문서(Post)를 받아온다.
  */
 - (NSArray*)getAllPosts {
-    return [NSArray array];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
+                                    initWithEntityName:POST_MENU_ENTITY_NAME];
+    NSArray *ary = [context executeFetchRequest:fetchRequest error:nil];
+    NSMutableArray *posts = [NSMutableArray array];
+    for (NSManagedObject* obj in ary) {
+        [posts addObject:[self convertObjectToPost:obj]];
+    }
+    return posts;
 }
 
 /**
@@ -62,7 +74,8 @@
  */
 - (void)insertCategoryMenu:(CategoryMenuItem*)categoryMenu {
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSManagedObject *categoryObj = [NSEntityDescription insertNewObjectForEntityForName:@"CategoryMenus" inManagedObjectContext:context];
+    NSManagedObject *categoryObj = [NSEntityDescription insertNewObjectForEntityForName:CATEGORY_MENU_ENTITY_NAME
+                                                                 inManagedObjectContext:context];
     
     [categoryObj setValue:[NSNumber numberWithInteger:categoryMenu.categoryID] forKey:@"categoryId"];
     [categoryObj setValue:[NSNumber numberWithInteger:categoryMenu.categoryOrder] forKey:@"categoryOrder"];
@@ -76,7 +89,15 @@
  전체 카테고리 메뉴를 가져온다.
  */
 - (NSArray*)getAllCategoryMenu {
-    return [NSArray array];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:CATEGORY_MENU_ENTITY_NAME];
+    
+    NSArray *ary = [context executeFetchRequest:fetchRequest error:nil];
+    NSMutableArray *categories = [NSMutableArray array];
+    for (NSManagedObject* obj in ary) {
+        [categories addObject:[self convertObjectToCategoryMenu:obj]];
+    }
+    return categories;
 }
 
 /**
@@ -94,6 +115,38 @@
         context = [delegate managedObjectContext];
     }
     return context;
+}
+
+/**
+ managed object를 포스트 아이템으로 전환한다.
+ */
+- (PostItem *)convertObjectToPost:(NSManagedObject*)object {
+    PostItem *item = [[PostItem alloc] init];
+
+    item.categoryId = [[object valueForKey:@"categoryId"] integerValue];
+    item.categoryName = [object valueForKey:@"categoryName"];
+    item.content = [object valueForKey:@"content"];
+    item.excerpt = [object valueForKey:@"excerpt"];
+    item.isBookMarked = [[object valueForKey:@"isBookMarked"] boolValue];
+    item.menuOrder = [[object valueForKey:@"menuOrder"] integerValue];
+    item.modified = [object valueForKey:@"modified"];
+    item.postId = [[object valueForKey:@"postId"] integerValue];
+    item.title = [object valueForKey:@"title"];
+    
+    return item;
+}
+
+/**
+ managed object를 카테고리 메뉴 아이템으로 전환한다.
+ */
+- (CategoryMenuItem*)convertObjectToCategoryMenu:(NSManagedObject*)object {
+    CategoryMenuItem *item = [[CategoryMenuItem alloc] init];
+
+    item.categoryID = [[object valueForKey:@"categoryId"] integerValue];
+    item.name = [object valueForKey:@"name"];
+    item.categoryOrder = [[object valueForKey:@"categoryOrder"] integerValue];
+    
+    return item;
 }
 
 

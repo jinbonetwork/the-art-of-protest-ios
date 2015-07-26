@@ -54,5 +54,9 @@
 - (void)updateContents:(void(^)(void))success
                failure:(void(^)(NSError *error))failure;
 
+/**
+ 저장된 콘텐츠들을 불러온다.
+ */
+- (void) loadCategoryAndPosts;
 
 @end

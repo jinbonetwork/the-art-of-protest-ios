@@ -173,6 +173,14 @@
     }
     self.initContentsSuccess();
 }
+
+/**
+ 카테고리와 메뉴 목록을 DB로 부터 불러온다.
+ */
+- (void) loadCategoryAndPosts {
+    self.categoryMenuList = [self.coreDataManager getAllCategoryMenu];
+    self.postList = [self.coreDataManager getAllPosts];
+}
 @end
 
 
