@@ -30,6 +30,7 @@
 // private method들. 주석은 implementation 된 곳에서 볼 수 이따고 한다.
 - (void)getPostsFromServerForInit;
 - (void)rectifyCategoryAndPosts;
+- (void)saveCategoryAndPosts;
 
 @end
 
@@ -112,6 +113,7 @@
     [self.serverCommunicator getPostsAsync:^(NSArray *postList) {
         self.postList = postList;
         [self rectifyCategoryAndPosts];
+        [self saveCategoryAndPosts];
     } failure:^(NSError *error) {
         self.initContentsFailure(error);
     }];
@@ -146,9 +148,20 @@
                              sortedArrayUsingDescriptors:@[categorySortDescriptor]];
     
     int debug = 1;
-    self.initContentsSuccess();
 }
 
+/**
+ 카테고리와 메뉴 목록을 DB에 저장한다.
+ */
+- (void)saveCategoryAndPosts {
+    for (CategoryMenuItem *category in self.categoryMenuList) {
+        [self.coreDataManager insertCategoryMenu:category];
+    }
+    for (PostItem *post in self.postList) {
+        [self.coreDataManager insertPost:post];
+    }
+    self.initContentsSuccess();
+}
 @end
 
 

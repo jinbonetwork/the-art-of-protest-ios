@@ -10,6 +10,7 @@
 #import "DocumentItem.h"
 #import "PostItem.h"
 #import "CategoryMenuItem.h"
+#import "AppDelegate.h"
 
 /**
  문서들을 저장해 놓는 DB인 Core Data와의 통신을 담당하는 모듈
@@ -19,7 +20,7 @@
 /**
  문서(Post) 하나를 DB에 삽입한다.
  */
-- (void)inserPost:(PostItem*)post;
+- (void)insertPost:(PostItem*)post;
 
 /**
  전체 문서(Post)를 받아온다.

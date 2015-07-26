@@ -25,7 +25,22 @@
 /**
  문서(Post) 하나를 DB에 삽입한다.
  */
-- (void)inserPost:(PostItem*)post {
+- (void)insertPost:(PostItem*)post {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *postObj = [NSEntityDescription insertNewObjectForEntityForName:@"Posts" inManagedObjectContext:context];
+
+    [postObj setValue:[NSNumber numberWithInteger:post.postId] forKey:@"categoryId"];
+    [postObj setValue:post.categoryName forKey:@"categoryName"];
+    [postObj setValue:post.content forKey:@"content"];
+    [postObj setValue:post.excerpt forKey:@"excerpt"];
+    [postObj setValue:[NSNumber numberWithBool:post.isBookMarked] forKey:@"isBookMarked"];
+    [postObj setValue:[NSNumber numberWithInteger:post.menuOrder] forKey:@"menuOrder"];
+    [postObj setValue:post.modified forKey:@"modified"];
+    [postObj setValue:[NSNumber numberWithInteger:post.postId] forKey:@"postId"];
+    [postObj setValue:post.title forKey:@"title"];
+    
+    NSError *error = nil;
+    [context save:&error];
 }
 
 /**
@@ -46,7 +61,15 @@
  카테고리 메뉴 하나를 DB에 삽입한다.
  */
 - (void)insertCategoryMenu:(CategoryMenuItem*)categoryMenu {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *categoryObj = [NSEntityDescription insertNewObjectForEntityForName:@"CategoryMenus" inManagedObjectContext:context];
     
+    [categoryObj setValue:[NSNumber numberWithInteger:categoryMenu.categoryID] forKey:@"categoryId"];
+    [categoryObj setValue:[NSNumber numberWithInteger:categoryMenu.categoryOrder] forKey:@"categoryOrder"];
+    [categoryObj setValue:categoryMenu.name forKey:@"name"];
+    
+    NSError *error = nil;
+    [context save:&error];
 }
 
 /**
@@ -61,6 +84,16 @@
  */
 - (CategoryMenuItem*)getCategoryMenuItemWithId:(NSInteger)categoryId {
     return [[CategoryMenuItem alloc] init];
+}
+
+#pragma mark - private methods
+- (NSManagedObjectContext*) managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
 }
 
 
