@@ -57,6 +57,23 @@
 }
 
 /**
+ postId의 폴더 경로를 가지고 온다.
+ */
+- (NSString*)getDirOfPostId:(NSInteger)postId {
+    NSString *idStr = [NSString stringWithFormat:@"%ld", (long)postId];
+    return [NSString pathWithComponents:@[[self getAppSupportRoot], idStr]];
+}
+
+/**
+ 해당 ID를 가지고 있는 Post의 폴더를 생성한다.
+ */
+- (void)makePostDir:(NSInteger)postId {
+       [[NSFileManager defaultManager]
+     createDirectoryAtPath:[self getDirOfPostId:postId]
+        withIntermediateDirectories:YES attributes: nil error:nil];
+}
+
+/**
  ~/Library/Application Support/style.css 파일. 문서 콘텐츠에 사용되는 css 파일
  */
 - (NSString*)getContentCssFilePath {

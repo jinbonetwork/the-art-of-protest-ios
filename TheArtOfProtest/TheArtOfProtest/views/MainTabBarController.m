@@ -7,7 +7,7 @@
 //
 
 #import "MainTabBarController.h"
-#import "ServerCommunicator.h"
+#import "PostCacheWorker.h"
 #import "AOPContentsManager.h"
 
 @interface MainTabBarController ()
@@ -18,6 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    AOPContentsManager *manager = [AOPContentsManager sharedManager];
+    
+    PostCacheWorker *worker  = [[PostCacheWorker alloc] init];
+    
+    [worker cachePost:[manager.postList objectAtIndex:1]];
+                                
 }
 
 - (void)didReceiveMemoryWarning {

@@ -21,6 +21,10 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="K7B-F0-7oK">
+                    <rect key="frame" x="178" y="158" width="150" height="2"/>
+                    <color key="progressTintColor" red="1" green="1" blue="1" alpha="0.57000000000000006" colorSpace="calibratedRGB"/>
+                </progressView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

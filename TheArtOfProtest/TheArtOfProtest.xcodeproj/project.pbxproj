@@ -36,6 +36,7 @@
 		A9E48AA51B51598C00122920 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E48AA41B51598C00122920 /* MenuItem.m */; };
 		A9EA73BE1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9EA73BC1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodeld */; };
 		A9EA73C01B64F68F00ECE913 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = A9EA73BF1B64F68F00ECE913 /* style.css */; };
+		A9EA73C31B64FBB300ECE913 /* PostCacheWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EA73C21B64FBB300ECE913 /* PostCacheWorker.m */; };
 		C54A20A5BA84F34EAC8F51CA /* libPods-TheArtOfProtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A31BA1CE601AB941201C9151 /* libPods-TheArtOfProtest.a */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,8 @@
 		A9E48AA41B51598C00122920 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		A9EA73BD1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheArtOfProtest.xcdatamodel; sourceTree = "<group>"; };
 		A9EA73BF1B64F68F00ECE913 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		A9EA73C11B64FBB300ECE913 /* PostCacheWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCacheWorker.h; sourceTree = "<group>"; };
+		A9EA73C21B64FBB300ECE913 /* PostCacheWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCacheWorker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +278,8 @@
 				A9C9ECCB1B614F870034C8F9 /* AOPContentsManager.m */,
 				A9A9BF8B1B63B9BE00BD0D9E /* DeviceConfig.h */,
 				A9A9BF8C1B63B9BE00BD0D9E /* DeviceConfig.m */,
+				A9EA73C11B64FBB300ECE913 /* PostCacheWorker.h */,
+				A9EA73C21B64FBB300ECE913 /* PostCacheWorker.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */,
 				A9C9ECC41B613D5B0034C8F9 /* PostParser.m in Sources */,
 				A9C2FB061B4ABE18008EDC2B /* HomeViewController.m in Sources */,
+				A9EA73C31B64FBB300ECE913 /* PostCacheWorker.m in Sources */,
 				A9EA73BE1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodeld in Sources */,
 				A9C9ECBB1B5FF29A0034C8F9 /* CategoryMenuParser.m in Sources */,
 				A9A9BF891B63B7E200BD0D9E /* SplashViewController.m in Sources */,
