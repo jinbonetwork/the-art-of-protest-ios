@@ -29,7 +29,7 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *postObj = [NSEntityDescription insertNewObjectForEntityForName:@"Posts" inManagedObjectContext:context];
 
-    [postObj setValue:[NSNumber numberWithInteger:post.postId] forKey:@"categoryId"];
+    [postObj setValue:[NSNumber numberWithInteger:post.categoryId] forKey:@"categoryId"];
     [postObj setValue:post.categoryName forKey:@"categoryName"];
     [postObj setValue:post.content forKey:@"content"];
     [postObj setValue:post.excerpt forKey:@"excerpt"];

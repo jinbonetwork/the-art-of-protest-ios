@@ -13,7 +13,6 @@
 		A928E4FD1B52A8FF006BBAD1 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A928E4FC1B52A8FF006BBAD1 /* FileManager.m */; };
 		A956FA5F1B47B25A00F48FF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA5E1B47B25A00F48FF1 /* main.m */; };
 		A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA611B47B25A00F48FF1 /* AppDelegate.m */; };
-		A956FA651B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A956FA631B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodeld */; };
 		A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A956FA6C1B47B25A00F48FF1 /* Images.xcassets */; };
 		A97BE2D01B5179CB00E4C389 /* MenuJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2CF1B5179CB00E4C389 /* MenuJsonParser.m */; };
 		A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D41B517CA300E4C389 /* ServerCommunicator.m */; };
@@ -35,6 +34,7 @@
 		A9C9ECC91B6147250034C8F9 /* ManualViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C9ECC71B6147250034C8F9 /* ManualViewController.xib */; };
 		A9C9ECCC1B614F870034C8F9 /* AOPContentsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C9ECCB1B614F870034C8F9 /* AOPContentsManager.m */; };
 		A9E48AA51B51598C00122920 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E48AA41B51598C00122920 /* MenuItem.m */; };
+		A9EA73BE1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9EA73BC1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodeld */; };
 		C54A20A5BA84F34EAC8F51CA /* libPods-TheArtOfProtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A31BA1CE601AB941201C9151 /* libPods-TheArtOfProtest.a */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +54,6 @@
 		A956FA5E1B47B25A00F48FF1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A956FA601B47B25A00F48FF1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A956FA611B47B25A00F48FF1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A956FA641B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheArtOfProtest.xcdatamodel; sourceTree = "<group>"; };
 		A956FA6C1B47B25A00F48FF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A97BE2CE1B5179CB00E4C389 /* MenuJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuJsonParser.h; sourceTree = "<group>"; };
 		A97BE2CF1B5179CB00E4C389 /* MenuJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuJsonParser.m; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		A9C9ECCB1B614F870034C8F9 /* AOPContentsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPContentsManager.m; sourceTree = "<group>"; };
 		A9E48AA31B51598C00122920 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		A9E48AA41B51598C00122920 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		A9EA73BD1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheArtOfProtest.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +161,8 @@
 				A956FA601B47B25A00F48FF1 /* AppDelegate.h */,
 				A956FA611B47B25A00F48FF1 /* AppDelegate.m */,
 				A956FA6C1B47B25A00F48FF1 /* Images.xcassets */,
-				A956FA631B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodeld */,
 				A956FA5C1B47B25A00F48FF1 /* Supporting Files */,
+				A9EA73BC1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodeld */,
 			);
 			path = TheArtOfProtest;
 			sourceTree = "<group>";
@@ -409,9 +409,9 @@
 				A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */,
 				A9C9ECC41B613D5B0034C8F9 /* PostParser.m in Sources */,
 				A9C2FB061B4ABE18008EDC2B /* HomeViewController.m in Sources */,
+				A9EA73BE1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodeld in Sources */,
 				A9C9ECBB1B5FF29A0034C8F9 /* CategoryMenuParser.m in Sources */,
 				A9A9BF891B63B7E200BD0D9E /* SplashViewController.m in Sources */,
-				A956FA651B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodeld in Sources */,
 				A928E4FA1B52933B006BBAD1 /* DocumentItem.m in Sources */,
 				A928E4FD1B52A8FF006BBAD1 /* FileManager.m in Sources */,
 				A9A9BF8D1B63B9BE00BD0D9E /* DeviceConfig.m in Sources */,
@@ -552,12 +552,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A956FA631B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodeld */ = {
+		A9EA73BC1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A956FA641B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodel */,
+				A9EA73BD1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodel */,
 			);
-			currentVersion = A956FA641B47B25A00F48FF1 /* TheArtOfProtest.xcdatamodel */;
+			currentVersion = A9EA73BD1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodel */;
 			path = TheArtOfProtest.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

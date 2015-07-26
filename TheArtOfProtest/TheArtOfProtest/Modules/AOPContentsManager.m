@@ -83,6 +83,14 @@
 
 
 /**
+ 콘텐츠가 최초 한번이라도 초기화 되었는지 확인한다.
+ */
+- (BOOL)isContentInitialized {
+    NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+    return [sud boolForKey:USER_DEFAULT_KEY_CONTENTS_INITED];
+}
+
+/**
  최초로 콘텐츠를 초기화 한다.  
  1) 카테고리 메뉴 API 호출
  2) Posts(문서) API 호출
@@ -114,6 +122,10 @@
         self.postList = postList;
         [self rectifyCategoryAndPosts];
         [self saveCategoryAndPosts];
+        
+        NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+        [sud setBool:YES forKey:USER_DEFAULT_KEY_CONTENTS_INITED];
+        [sud synchronize];
     } failure:^(NSError *error) {
         self.initContentsFailure(error);
     }];
@@ -147,7 +159,6 @@
     self.categoryMenuList = [self.categoryMenuList
                              sortedArrayUsingDescriptors:@[categorySortDescriptor]];
     
-    int debug = 1;
 }
 
 /**
