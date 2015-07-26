@@ -10,6 +10,7 @@
 #import "ServerCommunicator.h"
 #import "CoreDataManager.h"
 #import "FileManager.h"
+#import "PostCacheWorker.h"
 
 #define USER_DEFAULT_KEY_APP_INITED      @"user_default_key_app_inited"
 #define USER_DEFAULT_KEY_CONTENTS_INITED @"user_default_key_contents_inited"
@@ -122,11 +123,15 @@
     [self.serverCommunicator getPostsAsync:^(NSArray *postList) {
         self.postList = postList;
         [self rectifyCategoryAndPosts];
+        [self cachePosts];
         [self saveCategoryAndPosts];
         
         NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
         [sud setBool:YES forKey:USER_DEFAULT_KEY_CONTENTS_INITED];
         [sud synchronize];
+        
+        [self cachePosts];
+        self.initContentsSuccess();
     } failure:^(NSError *error) {
         self.initContentsFailure(error);
     }];
@@ -172,7 +177,20 @@
     for (PostItem *post in self.postList) {
         [self.coreDataManager insertPost:post];
     }
-    self.initContentsSuccess();
+
+}
+
+/**
+ 문서들을 캐싱한다.
+ */
+- (void)cachePosts {
+    
+    PostCacheWorker *worker = [[PostCacheWorker alloc] init];
+    
+    for (PostItem* post in self.postList) {
+        NSString *newContent = [worker cachePost:post];
+        post.content = newContent;
+    }
 }
 
 /**
