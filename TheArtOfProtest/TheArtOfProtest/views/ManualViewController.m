@@ -85,10 +85,34 @@
     return cell;
 }
 
+/*
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
     CategoryMenuItem *item = [categoryMenu objectAtIndex:section];
     return [item name];
+}
+ */
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    UIView *view = [UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 75);
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 75)];
+    /* Create custom view to display section header... */
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 50)];
+    [label setFont:[UIFont boldSystemFontOfSize:21]];
+    
+    NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
+    CategoryMenuItem *item = [categoryMenu objectAtIndex:section];
+    NSString *string = [item name];
+    /* Section header is in 0th index... */
+    [label setText:string];
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor colorWithRed:1/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
+    return view;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 75;
 }
 
 
