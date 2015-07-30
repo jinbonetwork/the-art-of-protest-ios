@@ -129,8 +129,6 @@
         NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
         [sud setBool:YES forKey:USER_DEFAULT_KEY_CONTENTS_INITED];
         [sud synchronize];
-        
-        [self cachePosts];
         self.initContentsSuccess();
     } failure:^(NSError *error) {
         self.initContentsFailure(error);

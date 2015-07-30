@@ -7,6 +7,7 @@
 //
 
 #import "ContentViewController.h"
+#import "FileManager.h"
 
 @interface ContentViewController ()
 
@@ -16,15 +17,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /*
-    NSString *fullUrl = @"http://m.naver.com";
-    NSURL *reqObj = [NSURL URLWithString:fullUrl];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:reqObj];
-    [self.webView loadRequest:requestObj];
-     */
+    
+    FileManager *fileManager = [[FileManager alloc] init];
+    NSString *path = [fileManager getAppSupportRoot];
+    NSURL* baseURL = [NSURL fileURLWithPath:path];
     
     NSData *data = [self.content dataUsingEncoding:NSUTF8StringEncoding];
-    [self.webView loadData:data MIMEType: @"text/html" textEncodingName: @"UTF-8" baseURL:nil];
+    [self.webView loadData:data MIMEType: @"text/html" textEncodingName: @"UTF-8" baseURL:baseURL];
+    
+}
+
+- (void)initWebView {
     
 }
 

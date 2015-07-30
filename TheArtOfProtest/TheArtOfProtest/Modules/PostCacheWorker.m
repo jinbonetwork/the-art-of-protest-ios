@@ -104,6 +104,7 @@
         NSString *localPath = [NSString
                               stringWithFormat:@"%d/%d.%@",postId,cnt,[url pathExtension]];
         content = [content stringByReplacingOccurrencesOfString:url withString:localPath];
+        ++cnt;
     }
     
     return content;
