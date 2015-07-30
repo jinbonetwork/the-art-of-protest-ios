@@ -32,6 +32,7 @@
 - (void)getPostsFromServerForInit;
 - (void)rectifyCategoryAndPosts;
 - (void)saveCategoryAndPosts;
+- (void)sortCategoryAndPosts;
 
 @end
 
@@ -140,13 +141,6 @@
  */
 - (void)rectifyCategoryAndPosts {
     
-    // post 들을 Menu Order 순으로 정렬한다.
-    NSSortDescriptor *postSortDescriptor =
-        [NSSortDescriptor sortDescriptorWithKey:@"menuOrder" ascending:YES];
-    self.postList = [self.postList
-                     sortedArrayUsingDescriptors:@[postSortDescriptor]];
-    
-    
     // Category 가 가지고 있는 첫번째 Post의 Menu Order를 Category Order로 정한다.
     for (CategoryMenuItem *category in self.categoryMenuList) {
         for (PostItem *post in self.postList) {
@@ -157,12 +151,25 @@
         }
     }
     
+    [self sortCategoryAndPosts];
+}
+
+/**
+ 카테고리와 Post 목록을 정렬한다.
+ */
+- (void)sortCategoryAndPosts {
+    
+    // post 들을 Menu Order 순으로 정렬한다.
+    NSSortDescriptor *postSortDescriptor =
+    [NSSortDescriptor sortDescriptorWithKey:@"menuOrder" ascending:YES];
+    self.postList = [self.postList
+                     sortedArrayUsingDescriptors:@[postSortDescriptor]];
+
     // category 들을 Cetegory Order 순으로 정렬한다.
     NSSortDescriptor *categorySortDescriptor =
-        [NSSortDescriptor sortDescriptorWithKey:@"categoryOrder" ascending:YES];
+    [NSSortDescriptor sortDescriptorWithKey:@"categoryOrder" ascending:YES];
     self.categoryMenuList = [self.categoryMenuList
                              sortedArrayUsingDescriptors:@[categorySortDescriptor]];
-    
 }
 
 /**
@@ -175,7 +182,6 @@
     for (PostItem *post in self.postList) {
         [self.coreDataManager insertPost:post];
     }
-
 }
 
 /**
@@ -197,6 +203,7 @@
 - (void) loadCategoryAndPosts {
     self.categoryMenuList = [self.coreDataManager getAllCategoryMenu];
     self.postList = [self.coreDataManager getAllPosts];
+    [self sortCategoryAndPosts];
 }
 @end
 
