@@ -57,6 +57,11 @@
 /**
  저장된 콘텐츠들을 불러온다.
  */
-- (void) loadCategoryAndPosts;
+- (void)loadCategoryAndPosts;
+
+/**
+ 특정 keyword를 가진 post 목록을 가져온다
+ */
+- (NSArray*)searchPostsWithKeyword:(NSString*)keyword;
 
 @end

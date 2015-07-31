@@ -14,6 +14,8 @@
 		A956FA5F1B47B25A00F48FF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA5E1B47B25A00F48FF1 /* main.m */; };
 		A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA611B47B25A00F48FF1 /* AppDelegate.m */; };
 		A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A956FA6C1B47B25A00F48FF1 /* Images.xcassets */; };
+		A95D942A1B6BD2EB0082A572 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95D94281B6BD2EB0082A572 /* SearchViewController.m */; };
+		A95D942B1B6BD2EB0082A572 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95D94291B6BD2EB0082A572 /* SearchViewController.xib */; };
 		A97BE2D01B5179CB00E4C389 /* MenuJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2CF1B5179CB00E4C389 /* MenuJsonParser.m */; };
 		A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D41B517CA300E4C389 /* ServerCommunicator.m */; };
 		A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D71B51904800E4C389 /* CoreDataManager.m */; };
@@ -24,8 +26,6 @@
 		A9C2FB061B4ABE18008EDC2B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C2FB041B4ABE18008EDC2B /* HomeViewController.m */; };
 		A9C2FB071B4ABE18008EDC2B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2FB051B4ABE18008EDC2B /* HomeViewController.xib */; };
 		A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C2FB081B4AC09A008EDC2B /* MainTabBarController.xib */; };
-		A9C9ECB51B5FE4DE0034C8F9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C9ECB31B5FE4DE0034C8F9 /* SearchViewController.m */; };
-		A9C9ECB61B5FE4DE0034C8F9 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C9ECB41B5FE4DE0034C8F9 /* SearchViewController.xib */; };
 		A9C9ECBB1B5FF29A0034C8F9 /* CategoryMenuParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C9ECBA1B5FF29A0034C8F9 /* CategoryMenuParser.m */; };
 		A9C9ECBE1B5FF6AA0034C8F9 /* CategoryMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C9ECBD1B5FF6AA0034C8F9 /* CategoryMenuItem.m */; };
 		A9C9ECC11B613AE90034C8F9 /* PostItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C9ECC01B613AE90034C8F9 /* PostItem.m */; };
@@ -57,6 +57,9 @@
 		A956FA601B47B25A00F48FF1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A956FA611B47B25A00F48FF1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A956FA6C1B47B25A00F48FF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A95D94271B6BD2EB0082A572 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		A95D94281B6BD2EB0082A572 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		A95D94291B6BD2EB0082A572 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A97BE2CE1B5179CB00E4C389 /* MenuJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuJsonParser.h; sourceTree = "<group>"; };
 		A97BE2CF1B5179CB00E4C389 /* MenuJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuJsonParser.m; sourceTree = "<group>"; };
 		A97BE2D31B517CA300E4C389 /* ServerCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerCommunicator.h; sourceTree = "<group>"; };
@@ -75,9 +78,6 @@
 		A9C2FB041B4ABE18008EDC2B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		A9C2FB051B4ABE18008EDC2B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		A9C2FB081B4AC09A008EDC2B /* MainTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
-		A9C9ECB21B5FE4DE0034C8F9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		A9C9ECB31B5FE4DE0034C8F9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		A9C9ECB41B5FE4DE0034C8F9 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A9C9ECB91B5FF29A0034C8F9 /* CategoryMenuParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryMenuParser.h; sourceTree = "<group>"; };
 		A9C9ECBA1B5FF29A0034C8F9 /* CategoryMenuParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryMenuParser.m; sourceTree = "<group>"; };
 		A9C9ECBC1B5FF6AA0034C8F9 /* CategoryMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryMenuItem.h; sourceTree = "<group>"; };
@@ -131,9 +131,9 @@
 		A928E4FE1B5BEFC5006BBAD1 /* SearchViewContorller */ = {
 			isa = PBXGroup;
 			children = (
-				A9C9ECB21B5FE4DE0034C8F9 /* SearchViewController.h */,
-				A9C9ECB31B5FE4DE0034C8F9 /* SearchViewController.m */,
-				A9C9ECB41B5FE4DE0034C8F9 /* SearchViewController.xib */,
+				A95D94271B6BD2EB0082A572 /* SearchViewController.h */,
+				A95D94281B6BD2EB0082A572 /* SearchViewController.m */,
+				A95D94291B6BD2EB0082A572 /* SearchViewController.xib */,
 			);
 			name = SearchViewContorller;
 			sourceTree = "<group>";
@@ -359,8 +359,8 @@
 				A928E4F51B529063006BBAD1 /* ContentViewController.xib in Resources */,
 				A9A9BF8A1B63B7E200BD0D9E /* SplashViewController.xib in Resources */,
 				A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */,
+				A95D942B1B6BD2EB0082A572 /* SearchViewController.xib in Resources */,
 				A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */,
-				A9C9ECB61B5FE4DE0034C8F9 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +412,7 @@
 				A9C9ECC81B6147250034C8F9 /* ManualViewController.m in Sources */,
 				A97BE2D01B5179CB00E4C389 /* MenuJsonParser.m in Sources */,
 				A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */,
-				A9C9ECB51B5FE4DE0034C8F9 /* SearchViewController.m in Sources */,
+				A95D942A1B6BD2EB0082A572 /* SearchViewController.m in Sources */,
 				A9C9ECC11B613AE90034C8F9 /* PostItem.m in Sources */,
 				A956FA5F1B47B25A00F48FF1 /* main.m in Sources */,
 				A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */,

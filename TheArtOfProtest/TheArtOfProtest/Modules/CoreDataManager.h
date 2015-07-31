@@ -33,6 +33,11 @@
 - (PostItem*)getPostWithId:(NSInteger)docId;
 
 /**
+ 특정 Keyword를 가진 Post를 검색한다.
+ */
+- (NSArray*)searchPostsWithKeyword:(NSString*)keyword;
+
+/**
  카테고리 메뉴 하나를 DB에 삽입한다.
  */
 - (void)insertCategoryMenu:(CategoryMenuItem*)categoryMenu;

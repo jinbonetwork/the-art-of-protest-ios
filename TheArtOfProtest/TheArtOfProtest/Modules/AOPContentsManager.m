@@ -205,6 +205,13 @@
     self.postList = [self.coreDataManager getAllPosts];
     [self sortCategoryAndPosts];
 }
+
+/**
+ 특정 keyword를 가진 post 목록을 가져온다
+ */
+- (NSArray*)searchPostsWithKeyword:(NSString*)keyword {
+    return [self.coreDataManager searchPostsWithKeyword:keyword];
+}
 @end
 
 

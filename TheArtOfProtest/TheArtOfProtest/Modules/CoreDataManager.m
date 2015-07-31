@@ -70,6 +70,25 @@
 }
 
 /**
+ 특정 Keyword를 가진 Post를 검색한다.
+ */
+- (NSArray*)searchPostsWithKeyword:(NSString*)keyword {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
+                                    initWithEntityName:POST_MENU_ENTITY_NAME];
+    NSPredicate *predicate = [NSPredicate
+                                 predicateWithFormat:@"(title CONTAINS[cd] %@) OR (content CONTAINS[cd] %@)",keyword, keyword];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray *ary = [context executeFetchRequest:fetchRequest error:nil];
+    NSMutableArray *posts = [NSMutableArray array];
+    for (NSManagedObject* obj in ary) {
+        [posts addObject:[self convertObjectToPost:obj]];
+    }
+    return posts;
+}
+
+/**
  카테고리 메뉴 하나를 DB에 삽입한다.
  */
 - (void)insertCategoryMenu:(CategoryMenuItem*)categoryMenu {
