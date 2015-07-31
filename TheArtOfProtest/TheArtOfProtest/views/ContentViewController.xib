@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContentViewController">
             <connections>
+                <outlet property="btnBookMark" destination="uvD-nO-QuO" id="kVf-wJ-2Yf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="SEh-rD-NJ6" id="lTL-x2-ALi"/>
             </connections>
@@ -29,5 +30,15 @@
                 <constraint firstAttribute="bottom" secondItem="SEh-rD-NJ6" secondAttribute="bottom" id="cua-Uz-Fc0"/>
             </constraints>
         </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uvD-nO-QuO" userLabel="bookMarkBtn">
+            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" image="bookmark_unmarked">
+                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+        </button>
     </objects>
+    <resources>
+        <image name="bookmark_unmarked" width="24" height="24"/>
+    </resources>
 </document>

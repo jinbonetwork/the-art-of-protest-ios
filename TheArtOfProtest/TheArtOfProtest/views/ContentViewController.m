@@ -25,6 +25,8 @@
     NSData *data = [self.content dataUsingEncoding:NSUTF8StringEncoding];
     [self.webView loadData:data MIMEType: @"text/html" textEncodingName: @"UTF-8" baseURL:baseURL];
     
+    UIBarButtonItem *bookMark = [[UIBarButtonItem alloc] initWithCustomView:self.btnBookMark];
+    self.navigationItem.rightBarButtonItem = bookMark;
 }
 
 - (void)initWebView {
