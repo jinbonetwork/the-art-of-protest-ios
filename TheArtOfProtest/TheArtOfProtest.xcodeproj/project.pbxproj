@@ -16,6 +16,8 @@
 		A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A956FA6C1B47B25A00F48FF1 /* Images.xcassets */; };
 		A95D942A1B6BD2EB0082A572 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95D94281B6BD2EB0082A572 /* SearchViewController.m */; };
 		A95D942B1B6BD2EB0082A572 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95D94291B6BD2EB0082A572 /* SearchViewController.xib */; };
+		A95D942D1B6BDE840082A572 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95D942C1B6BDE840082A572 /* SearchResultCell.xib */; };
+		A95D94301B6BDFB20082A572 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A95D942F1B6BDFB20082A572 /* SearchResultCell.m */; };
 		A97BE2D01B5179CB00E4C389 /* MenuJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2CF1B5179CB00E4C389 /* MenuJsonParser.m */; };
 		A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D41B517CA300E4C389 /* ServerCommunicator.m */; };
 		A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D71B51904800E4C389 /* CoreDataManager.m */; };
@@ -60,6 +62,9 @@
 		A95D94271B6BD2EB0082A572 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		A95D94281B6BD2EB0082A572 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		A95D94291B6BD2EB0082A572 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		A95D942C1B6BDE840082A572 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		A95D942E1B6BDFB20082A572 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
+		A95D942F1B6BDFB20082A572 /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
 		A97BE2CE1B5179CB00E4C389 /* MenuJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuJsonParser.h; sourceTree = "<group>"; };
 		A97BE2CF1B5179CB00E4C389 /* MenuJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuJsonParser.m; sourceTree = "<group>"; };
 		A97BE2D31B517CA300E4C389 /* ServerCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerCommunicator.h; sourceTree = "<group>"; };
@@ -134,6 +139,9 @@
 				A95D94271B6BD2EB0082A572 /* SearchViewController.h */,
 				A95D94281B6BD2EB0082A572 /* SearchViewController.m */,
 				A95D94291B6BD2EB0082A572 /* SearchViewController.xib */,
+				A95D942C1B6BDE840082A572 /* SearchResultCell.xib */,
+				A95D942E1B6BDFB20082A572 /* SearchResultCell.h */,
+				A95D942F1B6BDFB20082A572 /* SearchResultCell.m */,
 			);
 			name = SearchViewContorller;
 			sourceTree = "<group>";
@@ -357,6 +365,7 @@
 				A9EA73C01B64F68F00ECE913 /* style.css in Resources */,
 				A9C2FB071B4ABE18008EDC2B /* HomeViewController.xib in Resources */,
 				A928E4F51B529063006BBAD1 /* ContentViewController.xib in Resources */,
+				A95D942D1B6BDE840082A572 /* SearchResultCell.xib in Resources */,
 				A9A9BF8A1B63B7E200BD0D9E /* SplashViewController.xib in Resources */,
 				A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */,
 				A95D942B1B6BD2EB0082A572 /* SearchViewController.xib in Resources */,
@@ -425,6 +434,7 @@
 				A928E4FA1B52933B006BBAD1 /* DocumentItem.m in Sources */,
 				A928E4FD1B52A8FF006BBAD1 /* FileManager.m in Sources */,
 				A9A9BF8D1B63B9BE00BD0D9E /* DeviceConfig.m in Sources */,
+				A95D94301B6BDFB20082A572 /* SearchResultCell.m in Sources */,
 				A9C9ECBE1B5FF6AA0034C8F9 /* CategoryMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

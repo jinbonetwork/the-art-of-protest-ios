@@ -151,7 +151,19 @@
         }
     }
     
+    // post와 category를 정렬한다.
     [self sortCategoryAndPosts];
+    
+    // HTML로 부터 plain 문자열을 얻는다.
+    for (PostItem *post in self.postList) {
+        post.excerpt = [[[NSAttributedString alloc]
+                        initWithData:
+                        [post.excerpt dataUsingEncoding:NSUTF8StringEncoding]
+                        options:@{
+                                  NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                                  NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]}
+                        documentAttributes:nil error:nil] string];
+    }
 }
 
 /**

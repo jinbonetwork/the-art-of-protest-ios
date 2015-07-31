@@ -8,15 +8,19 @@
 
 #import "SearchViewController.h"
 #import "AOPContentsManager.h"
+#import "SearchResultCell.h"
+#import "PostItem.h"
+#import "ContentViewController.h"
 
 @interface SearchViewController ()
-
+@property (strong, nonatomic) NSArray *searchedPosts;
 @end
 
 @implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.searchedPosts = [NSArray array];
     [self initLayout];
 }
 
@@ -31,10 +35,14 @@
     
     self.navigationItem.titleView = self.searchBar;
     
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    BOOL selectable = self.tableView.allowsSelection;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
+    self.tableView.allowsSelectionDuringEditing = YES;
     
     [self.view addGestureRecognizer:tap];
 }
@@ -42,12 +50,52 @@
 #pragma mark - Search Bar Delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     NSString *keyword = searchBar.text;
-    NSArray* searchResult = [[AOPContentsManager sharedManager] searchPostsWithKeyword:keyword];
+    self.searchedPosts = [[AOPContentsManager sharedManager] searchPostsWithKeyword:keyword];
+    [self.tableView reloadData];
+    [self dismissKeyboard];
+}
+
+#pragma mark - TableView Related Delgates
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.searchedPosts == nil) {
+        return 0;
+    }
+    return self.searchedPosts.count;
+}
+
+- (UITableViewCell*)tableView:(UITableView*)tableView
+                  cellForRowAtIndexPath:(NSIndexPath*)indexPath {
+    SearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResultCell"];
+    if (!cell) {
+        [tableView registerNib:[UINib nibWithNibName:@"SearchResultCell" bundle:nil] forCellReuseIdentifier:@"searchResultCell"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"searchResultCell"];
+    }
+    
+    PostItem *item = [self.searchedPosts objectAtIndex:indexPath.row];
+    cell.titleLabel.text = item.title;
+    cell.excerptLable.text = item.excerpt;
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostItem *item = [self.searchedPosts objectAtIndex:indexPath.row];
+    
+    ContentViewController *contentVC =
+    [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
+    [contentVC setContent:item.content];
+    
+    [self.navigationController pushViewController:contentVC animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 106;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)dismissKeyboard {
