@@ -22,8 +22,16 @@
     NSString *path = [fileManager getAppSupportRoot];
     NSURL* baseURL = [NSURL fileURLWithPath:path];
     
-    NSData *data = [self.post.content dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *html= [NSString stringWithFormat:@"%@%@%@",@"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\"/></head><body>",self.post.content,@"</body></html>"];
+
+    NSLog(html);
+    
+    
+    NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
     [self.webView loadData:data MIMEType: @"text/html" textEncodingName: @"UTF-8" baseURL:baseURL];
+    
+    
     
     if (self.post.isBookMarked) {
         [self.btnBookMark setImage:[UIImage imageNamed:@"bookmark_marked"] forState:UIControlStateNormal];
