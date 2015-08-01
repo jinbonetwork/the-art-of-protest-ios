@@ -47,7 +47,7 @@
 /**
  콘텐츠 업데이트가 필요한지 확인한다.
  */
-- (BOOL)checkUpdate;
+- (void)checkUpdate:(void(^)(BOOL needUpdate, NSString* modifiedDate))done;
 
 /**
  콘텐츠를 업데이트 한다.

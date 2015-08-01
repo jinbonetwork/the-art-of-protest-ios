@@ -46,9 +46,18 @@
     
     if ([contentsManager isContentInitialized]) {
         [contentsManager loadCategoryAndPosts];
-        [self.appInitDelegate checkAndInitAppDone];
+        [contentsManager checkUpdate:^(BOOL needUpdate, NSString* modifiedDate) {
+            if (needUpdate) {
+                [contentsManager updateContents:^{
+                    [self.appInitDelegate checkAndInitAppDone];
+                } failure:^(NSError *error) {
+                    [self.appInitDelegate checkAndInitAppDone];
+                }];
+            } else {
+                [self.appInitDelegate checkAndInitAppDone];
+            }
+        }];
     } else {
-    
         [contentsManager initContents:^{
             [self.appInitDelegate checkAndInitAppDone];
         } progress:^(NSInteger percent) {

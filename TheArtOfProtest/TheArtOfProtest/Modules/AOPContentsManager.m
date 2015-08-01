@@ -28,11 +28,7 @@
 @property (copy) void (^initContentsProgress)(NSInteger percent);
 @property (copy) void (^initContentsFailure)(NSError *error);
 
-// private method들. 주석은 implementation 된 곳에서 볼 수 이따고 한다.
-- (void)getPostsFromServerForInit;
-- (void)rectifyCategoryAndPosts;
-- (void)saveCategoryAndPosts;
-- (void)sortCategoryAndPosts;
+@property (nonatomic, strong) NSString* lastModifiedRemote;
 
 @end
 
@@ -126,8 +122,8 @@
     [self.serverCommunicator getPostsAsync:^(NSArray *postList) {
         self.postList = postList;
         [self rectifyCategoryAndPosts];
-        [self cachePosts];
-        [self saveCategoryAndPosts];
+        [self saveCategoryMenuList];
+        [self savePosts];
         
         NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
         [sud setBool:YES forKey:USER_DEFAULT_KEY_CONTENTS_INITED];
@@ -158,14 +154,21 @@
     
     // HTML로 부터 plain 문자열을 얻는다.
     for (PostItem *post in self.postList) {
-        post.excerpt = [[[NSAttributedString alloc]
-                        initWithData:
-                        [post.excerpt dataUsingEncoding:NSUTF8StringEncoding]
-                        options:@{
-                                  NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                                  NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]}
-                        documentAttributes:nil error:nil] string];
+        post.excerpt = [self getPlainStringFromHtmlString:post.excerpt];
     }
+}
+
+/**
+ HTML 문자열로 부턴 Plain Text만 얻어낸다.
+ */
+- (NSString*) getPlainStringFromHtmlString:(NSString*)htmlString {
+    return [[[NSAttributedString alloc]
+             initWithData:
+             [htmlString dataUsingEncoding:NSUTF8StringEncoding]
+             options:@{
+                       NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                       NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]}
+             documentAttributes:nil error:nil] string];
 }
 
 /**
@@ -187,14 +190,29 @@
 }
 
 /**
- 카테고리와 메뉴 목록을 DB에 저장한다.
+ 카테고리 목록을 DB에 저장한다.
  */
-- (void)saveCategoryAndPosts {
+- (void)saveCategoryMenuList {
     for (CategoryMenuItem *category in self.categoryMenuList) {
         [self.coreDataManager insertCategoryMenu:category];
     }
+}
+
+/**
+ 포스트를 DB에 저장하고 필요한 자료들을 Caching 한다.
+ */
+- (void)savePosts {
+    
+    PostCacheWorker *worker = [[PostCacheWorker alloc] init];
+    
     for (PostItem *post in self.postList) {
+        // Caching
+        NSString *newContent = [worker cachePost:post];
+        post.content = newContent;
+        
+        // DB 삽입
         [self.coreDataManager insertPost:post];
+        
         // lastModified 값이 더 크면 갱신
         if (self.lastModified == nil || [post.modified compare:self.lastModified] == NSOrderedDescending) {
             self.lastModified = post.modified;
@@ -203,16 +221,71 @@
 }
 
 /**
- 문서들을 캐싱한다.
+ 콘텐츠 업데이트가 필요한지 확인한다.
  */
-- (void)cachePosts {
+- (void)checkUpdate:(void(^)(BOOL needUpdate, NSString *modifiedDate))done {
+    [self.serverCommunicator getVersionAsync:^(NSString *modified) {
+        BOOL needUpdate = (self.lastModified == nil || [modified compare:self.lastModified] == NSOrderedDescending);
+        self.lastModifiedRemote = modified;
+        done(needUpdate,modified);
+    } failure:^(NSError *error) {
+        done(NO,nil); // 버전체크에 실패한 경우는 일단 후에 요청도 실패할 확률이 높으므로 스킵하도록 한다.
+    }];
+}
+
+/**
+ 콘텐츠를 업데이트 한다.
+ */
+- (void)updateContents:(void(^)(void))success
+               failure:(void(^)(NSError *error))failure {
     
-    PostCacheWorker *worker = [[PostCacheWorker alloc] init];
+    [self loadCategoryAndPosts];
     
+    [self.serverCommunicator getPostsAsync:^(NSArray *postList) {
+        
+        PostCacheWorker *cacheWorker = [[PostCacheWorker alloc] init];
+        for (PostItem *currPost in postList) {
+            
+            BOOL isUpdatedPost = YES;
+            PostItem *prevPost = [self getPostHasId:currPost.postId];
+            if (prevPost != nil) {
+                if([currPost.modified isEqualToString:prevPost.modified]) {
+                    isUpdatedPost = NO;
+                }
+                currPost.isBookMarked = prevPost.isBookMarked;
+            }
+            
+            if (isUpdatedPost) { // 새 포스트(업데이트 또는 새로추가) 의 경우에는 필요한 작업들을 해준다.
+                currPost.excerpt = [self getPlainStringFromHtmlString:currPost.excerpt];
+                [cacheWorker cachePost:currPost];
+                [self.coreDataManager insertPost:currPost];
+            }
+        }
+        
+        //기존 postList에 새 postList 대입하고 다시 정렬을 한 번 해준다.
+        self.postList = postList;
+        [self sortCategoryAndPosts];
+        
+        //최종 업데이트 날짜 수정
+        if (self.lastModifiedRemote != nil) {
+            [self setLastModified:self.lastModifiedRemote];
+        }
+        success();
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+/**
+ 해당 ID를 가진 post를 가져온다.
+ */
+- (PostItem*)getPostHasId:(NSInteger)postId {
     for (PostItem* post in self.postList) {
-        NSString *newContent = [worker cachePost:post];
-        post.content = newContent;
+        if (post.postId == postId)
+            return post;
     }
+    return nil;
 }
 
 /**
