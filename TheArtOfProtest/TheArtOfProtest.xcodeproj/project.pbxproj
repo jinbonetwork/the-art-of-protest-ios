@@ -13,11 +13,11 @@
 		A956FA5F1B47B25A00F48FF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA5E1B47B25A00F48FF1 /* main.m */; };
 		A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA611B47B25A00F48FF1 /* AppDelegate.m */; };
 		A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A956FA6C1B47B25A00F48FF1 /* Images.xcassets */; };
-		A95D942A1B6BD2EB0082A572 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95D94281B6BD2EB0082A572 /* SearchViewController.m */; };
-		A95D942B1B6BD2EB0082A572 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95D94291B6BD2EB0082A572 /* SearchViewController.xib */; };
-		A95D942D1B6BDE840082A572 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95D942C1B6BDE840082A572 /* SearchResultCell.xib */; };
 		A95D94301B6BDFB20082A572 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A95D942F1B6BDFB20082A572 /* SearchResultCell.m */; };
 		A976BC551B6CC1850085695D /* VersionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A976BC541B6CC1850085695D /* VersionParser.m */; };
+		A976BC571B6CFC5F0085695D /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A976BC561B6CFC5F0085695D /* SearchResultCell.xib */; };
+		A976BC5C1B6CFE650085695D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A976BC5A1B6CFE650085695D /* SearchViewController.m */; };
+		A976BC5D1B6CFE650085695D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A976BC5B1B6CFE650085695D /* SearchViewController.xib */; };
 		A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D41B517CA300E4C389 /* ServerCommunicator.m */; };
 		A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D71B51904800E4C389 /* CoreDataManager.m */; };
 		A9A9BF891B63B7E200BD0D9E /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A9BF871B63B7E200BD0D9E /* SplashViewController.m */; };
@@ -56,14 +56,14 @@
 		A956FA601B47B25A00F48FF1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A956FA611B47B25A00F48FF1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A956FA6C1B47B25A00F48FF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A95D94271B6BD2EB0082A572 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		A95D94281B6BD2EB0082A572 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		A95D94291B6BD2EB0082A572 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		A95D942C1B6BDE840082A572 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		A95D942E1B6BDFB20082A572 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
 		A95D942F1B6BDFB20082A572 /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
 		A976BC531B6CC1850085695D /* VersionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionParser.h; sourceTree = "<group>"; };
 		A976BC541B6CC1850085695D /* VersionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionParser.m; sourceTree = "<group>"; };
+		A976BC561B6CFC5F0085695D /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		A976BC591B6CFE650085695D /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		A976BC5A1B6CFE650085695D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		A976BC5B1B6CFE650085695D /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A97BE2D31B517CA300E4C389 /* ServerCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerCommunicator.h; sourceTree = "<group>"; };
 		A97BE2D41B517CA300E4C389 /* ServerCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerCommunicator.m; sourceTree = "<group>"; };
 		A97BE2D61B51904800E4C389 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
@@ -133,12 +133,12 @@
 		A928E4FE1B5BEFC5006BBAD1 /* SearchViewContorller */ = {
 			isa = PBXGroup;
 			children = (
-				A95D94271B6BD2EB0082A572 /* SearchViewController.h */,
-				A95D94281B6BD2EB0082A572 /* SearchViewController.m */,
-				A95D94291B6BD2EB0082A572 /* SearchViewController.xib */,
-				A95D942C1B6BDE840082A572 /* SearchResultCell.xib */,
 				A95D942E1B6BDFB20082A572 /* SearchResultCell.h */,
 				A95D942F1B6BDFB20082A572 /* SearchResultCell.m */,
+				A976BC561B6CFC5F0085695D /* SearchResultCell.xib */,
+				A976BC591B6CFE650085695D /* SearchViewController.h */,
+				A976BC5A1B6CFE650085695D /* SearchViewController.m */,
+				A976BC5B1B6CFE650085695D /* SearchViewController.xib */,
 			);
 			name = SearchViewContorller;
 			sourceTree = "<group>";
@@ -360,10 +360,10 @@
 				A9EA73C01B64F68F00ECE913 /* style.css in Resources */,
 				A9C2FB071B4ABE18008EDC2B /* HomeViewController.xib in Resources */,
 				A928E4F51B529063006BBAD1 /* ContentViewController.xib in Resources */,
-				A95D942D1B6BDE840082A572 /* SearchResultCell.xib in Resources */,
+				A976BC571B6CFC5F0085695D /* SearchResultCell.xib in Resources */,
+				A976BC5D1B6CFE650085695D /* SearchViewController.xib in Resources */,
 				A9A9BF8A1B63B7E200BD0D9E /* SplashViewController.xib in Resources */,
 				A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */,
-				A95D942B1B6BD2EB0082A572 /* SearchViewController.xib in Resources */,
 				A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,8 +415,8 @@
 				A9C9ECCC1B614F870034C8F9 /* AOPContentsManager.m in Sources */,
 				A9C9ECC81B6147250034C8F9 /* ManualViewController.m in Sources */,
 				A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */,
-				A95D942A1B6BD2EB0082A572 /* SearchViewController.m in Sources */,
 				A9C9ECC11B613AE90034C8F9 /* PostItem.m in Sources */,
+				A976BC5C1B6CFE650085695D /* SearchViewController.m in Sources */,
 				A956FA5F1B47B25A00F48FF1 /* main.m in Sources */,
 				A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */,
 				A9C9ECC41B613D5B0034C8F9 /* PostParser.m in Sources */,

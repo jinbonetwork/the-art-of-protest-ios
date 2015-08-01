@@ -10,6 +10,5 @@
 
 @interface SearchResultCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *excerptLable;
-
+@property (weak, nonatomic) IBOutlet UILabel *excerptLabel;
 @end
