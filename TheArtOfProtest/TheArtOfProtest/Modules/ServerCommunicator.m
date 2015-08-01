@@ -66,24 +66,21 @@
     [operation start];
 }
 
-- (void)getDocumentListAsync:(void (^)(NSArray *docList))success
-                         failure:(void (^)(NSError *error))failure {
-    
+/**
+ Version (최종 수정 일시 문자열)을 받아온다.
+ */
+- (void)getVersionAsync:(void (^)(NSString *modified))success
+                failure:(void (^)(NSError *error))failure {
     AFHTTPRequestOperation *operation =
-        [self createBaseOperation:@"http://108.61.183.202/jinbonet/aop/menu.json"];
-
-    [operation setCompletionBlockWithSuccess:
-     ^(AFHTTPRequestOperation *operation, id responseObject) {
-         MenuJsonParser *parser = [[MenuJsonParser alloc] init];
-         NSArray *result = [parser parse:(NSDictionary*)responseObject];
-         success(result);
-         
-         FileManager *manager = [[FileManager alloc] init];
-         [manager saveMenuJson:(NSDictionary*)responseObject];
-     }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         failure(error);
-     }];
+    [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_VERSION]]];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        VersionParser *parser = [[VersionParser alloc] init];
+        NSString *result = [parser parse:(NSDictionary*)responseObject];
+        success(result);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
     
     [operation start];
 }

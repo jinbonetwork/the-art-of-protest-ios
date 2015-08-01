@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DocumentItem.h"
 #import "PostItem.h"
 #import "CategoryMenuItem.h"
 #import "AppDelegate.h"
