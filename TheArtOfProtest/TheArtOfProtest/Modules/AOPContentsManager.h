@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) NSArray *postList;
 @property (nonatomic, strong) NSArray *categoryMenuList;
+@property (nonatomic, strong) NSString *lastModified;
 
 /**
  AOPContents Manager의 싱글톤 객체를 반환한다.

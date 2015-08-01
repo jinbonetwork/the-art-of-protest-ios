@@ -14,6 +14,7 @@
 
 #define USER_DEFAULT_KEY_APP_INITED      @"user_default_key_app_inited"
 #define USER_DEFAULT_KEY_CONTENTS_INITED @"user_default_key_contents_inited"
+#define USER_DEFAULT_KEY_LAST_MODIFIED   @"user_default_key_last_modified"
 
 @interface AOPContentsManager ()
 
@@ -27,7 +28,6 @@
 @property (copy) void (^initContentsProgress)(NSInteger percent);
 @property (copy) void (^initContentsFailure)(NSError *error);
 
-
 // private method들. 주석은 implementation 된 곳에서 볼 수 이따고 한다.
 - (void)getPostsFromServerForInit;
 - (void)rectifyCategoryAndPosts;
@@ -37,6 +37,8 @@
 @end
 
 @implementation AOPContentsManager
+
+@synthesize lastModified = _lastModified;
 
 /**
  AOPContents Manager의 싱글톤 객체를 반환한다.
@@ -193,6 +195,10 @@
     }
     for (PostItem *post in self.postList) {
         [self.coreDataManager insertPost:post];
+        // lastModified 값이 더 크면 갱신
+        if (self.lastModified == nil || [post.modified compare:self.lastModified] == NSOrderedDescending) {
+            self.lastModified = post.modified;
+        }
     }
 }
 
@@ -215,7 +221,6 @@
 - (void) loadCategoryAndPosts {
     self.categoryMenuList = [self.coreDataManager getAllCategoryMenu];
     self.postList = [self.coreDataManager getAllPosts];
-    
     [self sortCategoryAndPosts];
 }
 
@@ -238,8 +243,30 @@
         }
     }
 }
+
+/**
+ 문서 및 카테고리 전체의 최신 수정 날짜를 가져온다. 이를 통해 업데이트 여부를 판별
+ */
+- (NSString*)lastModified {
+    if (_lastModified == nil) {
+        NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+        _lastModified = [sud valueForKey:USER_DEFAULT_KEY_LAST_MODIFIED];
+    }
+    return _lastModified;
+}
+
+/**
+ 문서 및 카테고리 전체의 최신 수정 날짜를 설정한다. 이를 통해 업데이트 여부를 판별
+ */
+- (void)setLastModified:(NSString*)lastModified {
+    if (lastModified != _lastModified && lastModified != nil) {
+        NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+        [sud setValue:lastModified forKey:USER_DEFAULT_KEY_LAST_MODIFIED];
+        [sud synchronize];
+    }
+    _lastModified = lastModified;
+}
+
 @end
-
-
 
 
