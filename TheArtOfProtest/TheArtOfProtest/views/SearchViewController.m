@@ -38,7 +38,6 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    BOOL selectable = self.tableView.allowsSelection;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -84,7 +83,7 @@
     
     ContentViewController *contentVC =
     [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
-    [contentVC setContent:item.content];
+    [contentVC setPost:item];
     
     [self.navigationController pushViewController:contentVC animated:YES];
 }

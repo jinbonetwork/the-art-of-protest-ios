@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AOPContentsManager.h"
+#import "PostItem.h"
 
 /**
  문서를 보는 화면
  */
 @interface ContentViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (nonatomic, copy) NSString* content;
+@property (strong, nonatomic) PostItem *post;
+@property (strong, nonatomic) IBOutlet UIButton *btnBookMark;
+- (IBAction)btnBookMarkTouched:(id)sender;
 @end

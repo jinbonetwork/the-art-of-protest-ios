@@ -22,11 +22,17 @@
     NSString *path = [fileManager getAppSupportRoot];
     NSURL* baseURL = [NSURL fileURLWithPath:path];
     
-    NSData *data = [self.content dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [self.post.content dataUsingEncoding:NSUTF8StringEncoding];
     [self.webView loadData:data MIMEType: @"text/html" textEncodingName: @"UTF-8" baseURL:baseURL];
     
+    if (self.post.isBookMarked) {
+        [self.btnBookMark setImage:[UIImage imageNamed:@"bookmark_marked"] forState:UIControlStateNormal];
+    } else {
+        [self.btnBookMark setImage:[UIImage imageNamed:@"bookmark_unmarked"] forState:UIControlStateNormal];
+    }
     UIBarButtonItem *bookMark = [[UIBarButtonItem alloc] initWithCustomView:self.btnBookMark];
     self.navigationItem.rightBarButtonItem = bookMark;
+
 }
 
 - (void)initWebView {
@@ -38,14 +44,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+/**
+ BookMark 버튼이 클릭되었을 때
+ */
+- (IBAction)btnBookMarkTouched:(id)sender {
+    BOOL isBookMarked = !self.post.isBookMarked;
+    
+    self.post.isBookMarked = isBookMarked;
+    [[AOPContentsManager sharedManager] setBookMark:self.post.postId isBookMakred:self.post.isBookMarked];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (self.post.isBookMarked) {
+        [self.btnBookMark setImage:[UIImage imageNamed:@"bookmark_marked"] forState:UIControlStateNormal];
+    } else {
+        [self.btnBookMark setImage:[UIImage imageNamed:@"bookmark_unmarked"] forState:UIControlStateNormal];
+    }
+    UIBarButtonItem *bookMark = [[UIBarButtonItem alloc] initWithCustomView:self.btnBookMark];
+    self.navigationItem.rightBarButtonItem = bookMark;
+
 }
-*/
-
 @end

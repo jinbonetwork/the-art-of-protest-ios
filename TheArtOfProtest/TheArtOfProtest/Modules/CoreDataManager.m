@@ -30,9 +30,19 @@
  */
 - (void)insertPost:(PostItem*)post {
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSManagedObject *postObj = [NSEntityDescription insertNewObjectForEntityForName:POST_MENU_ENTITY_NAME
-                                                             inManagedObjectContext:context];
+    NSManagedObject *postObj;
 
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:POST_MENU_ENTITY_NAME];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %d",post.postId];
+    [fetchRequest setPredicate:predicate];
+    NSArray *ary = [context executeFetchRequest:fetchRequest error:nil];
+    if (ary == nil || ary.count == 0) {
+        postObj = [NSEntityDescription insertNewObjectForEntityForName:POST_MENU_ENTITY_NAME
+                                                inManagedObjectContext:context];
+    } else {
+        postObj = [ary objectAtIndex:0];
+    }
+    
     [postObj setValue:[NSNumber numberWithInteger:post.categoryId] forKey:@"categoryId"];
     [postObj setValue:post.categoryName forKey:@"categoryName"];
     [postObj setValue:post.content forKey:@"content"];

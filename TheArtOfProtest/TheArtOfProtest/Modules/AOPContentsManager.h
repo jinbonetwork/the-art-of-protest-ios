@@ -64,4 +64,9 @@
  */
 - (NSArray*)searchPostsWithKeyword:(NSString*)keyword;
 
+/**
+ 해당 postId에 BookMark를 설정한다.
+ */
+- (void)setBookMark:(NSInteger)postId isBookMakred:(BOOL)isBookMarked;
+
 @end

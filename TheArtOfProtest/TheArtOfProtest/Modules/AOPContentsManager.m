@@ -215,6 +215,7 @@
 - (void) loadCategoryAndPosts {
     self.categoryMenuList = [self.coreDataManager getAllCategoryMenu];
     self.postList = [self.coreDataManager getAllPosts];
+    
     [self sortCategoryAndPosts];
 }
 
@@ -223,6 +224,19 @@
  */
 - (NSArray*)searchPostsWithKeyword:(NSString*)keyword {
     return [self.coreDataManager searchPostsWithKeyword:keyword];
+}
+
+/**
+ 해당 postId에 BookMark를 설정한다.
+ */
+- (void)setBookMark:(NSInteger)postId isBookMakred:(BOOL)isBookMarked {
+    for (PostItem *post in self.postList) {
+        if (post.postId == postId) {
+            post.isBookMarked = isBookMarked;
+            [self.coreDataManager insertPost:post];
+            break;
+        }
+    }
 }
 @end
 

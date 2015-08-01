@@ -121,7 +121,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     int cnt = 0;
-    NSString* content = @"";
+    PostItem* postItem;
     
     NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
     NSArray *postList = [[AOPContentsManager sharedManager] postList];
@@ -129,7 +129,7 @@
         CategoryMenuItem *category = [categoryMenu objectAtIndex:indexPath.section];
         if (item.categoryId == category.categoryID) {
             if (cnt == indexPath.row) {
-                content = item.content;
+                postItem = item;
             }
             cnt++;
         }
@@ -137,7 +137,7 @@
     
     ContentViewController *contentVC =
         [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
-    [contentVC setContent:content];
+    [contentVC setPost:postItem];
     
     [self.navigationController pushViewController:contentVC animated:YES];
      
