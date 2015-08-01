@@ -318,6 +318,13 @@
 }
 
 /**
+ 북마크된 콘텐츠 목록을 가져온다.
+ */
+- (NSArray*)getBookMarkedPost {
+    return [self.coreDataManager getBookMarkedPost];
+}
+
+/**
  문서 및 카테고리 전체의 최신 수정 날짜를 가져온다. 이를 통해 업데이트 여부를 판별
  */
 - (NSString*)lastModified {

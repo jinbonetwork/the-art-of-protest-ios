@@ -70,4 +70,9 @@
  */
 - (void)setBookMark:(NSInteger)postId isBookMakred:(BOOL)isBookMarked;
 
+/**
+ 북마크된 콘텐츠 목록을 가져온다.
+ */
+- (NSArray*)getBookMarkedPost;
+
 @end

@@ -85,6 +85,26 @@
 /**
  특정 Keyword를 가진 Post를 검색한다.
  */
+- (NSArray*)getBookMarkedPost {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
+                                    initWithEntityName:POST_MENU_ENTITY_NAME];
+    NSPredicate *predicate = [NSPredicate
+                              predicateWithFormat:@"isBookMarked == %d",1];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray *ary = [context executeFetchRequest:fetchRequest error:nil];
+    NSMutableArray *posts = [NSMutableArray array];
+    for (NSManagedObject* obj in ary) {
+        [posts addObject:[self convertObjectToPost:obj]];
+    }
+    return posts;
+
+}
+
+/**
+ 특정 Keyword를 가진 Post를 검색한다.
+ */
 - (NSArray*)searchPostsWithKeyword:(NSString*)keyword {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]

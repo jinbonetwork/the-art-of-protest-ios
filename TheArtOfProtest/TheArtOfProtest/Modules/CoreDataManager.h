@@ -37,6 +37,11 @@
 - (NSArray*)searchPostsWithKeyword:(NSString*)keyword;
 
 /**
+ 북마크된 콘텐츠 목록을 가져온다.
+ */
+- (NSArray*)getBookMarkedPost;
+
+/**
  카테고리 메뉴 하나를 DB에 삽입한다.
  */
 - (void)insertCategoryMenu:(CategoryMenuItem*)categoryMenu;
