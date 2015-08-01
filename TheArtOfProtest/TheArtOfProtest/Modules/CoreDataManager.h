@@ -18,7 +18,7 @@
 @interface CoreDataManager : NSObject
 
 /**
- 문서(Post) 하나를 DB에 삽입한다.
+ 문서(Post) 하나를 DB에 삽입한다. 있더 문서의 경우에는 업데이트한다.
  */
 - (void)insertPost:(PostItem*)post;
 

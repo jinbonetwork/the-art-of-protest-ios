@@ -26,20 +26,23 @@
 }
 
 /**
- 문서(Post) 하나를 DB에 삽입한다.
+ 문서(Post) 하나를 DB에 삽입한다. 있더 문서의 경우에는 업데이트한다.
  */
 - (void)insertPost:(PostItem*)post {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *postObj;
 
+    // 일단 해당 postId를 가진 오브젝트가 있으면 가져온다.
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:POST_MENU_ENTITY_NAME];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %d",post.postId];
     [fetchRequest setPredicate:predicate];
     NSArray *ary = [context executeFetchRequest:fetchRequest error:nil];
-    if (ary == nil || ary.count == 0) {
+
+    if (ary == nil || ary.count == 0) { // DB에 없던 데이터인 경우 새로 삽입
         postObj = [NSEntityDescription insertNewObjectForEntityForName:POST_MENU_ENTITY_NAME
                                                 inManagedObjectContext:context];
-    } else {
+    }
+    else { // DB에 있는 데이터인 경우에는 update
         postObj = [ary objectAtIndex:0];
     }
     
