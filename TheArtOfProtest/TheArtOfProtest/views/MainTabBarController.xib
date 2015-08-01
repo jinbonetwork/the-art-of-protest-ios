@@ -36,7 +36,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zdw-zV-Ys4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.44705882349999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <viewControllers>
                         <tableViewController id="L0H-eI-EKg">
@@ -49,7 +48,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Shy-2P-2rf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.44705882349999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <viewControllers>
                         <tableViewController id="zxy-bD-rdX" customClass="SearchViewController">

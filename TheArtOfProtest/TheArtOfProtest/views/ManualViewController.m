@@ -10,7 +10,7 @@
 #import "AOPContentsManager.h"
 #import "PostItem.h"
 #import "CategoryMenuItem.h"
-#import "ContentViewController.h"
+#import "DocumentViewController.h"
 
 @interface ManualViewController ()
 
@@ -135,11 +135,9 @@
         }
     }
     
-    ContentViewController *contentVC =
-        [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
-    [contentVC setPost:postItem];
-    
-    [self.navigationController pushViewController:contentVC animated:YES];
-     
+    DocumentViewController *documentVC =
+        [[DocumentViewController alloc] initWithNibName:@"DocumentViewController" bundle:nil];
+    [documentVC setPost:postItem];
+    [self.navigationController pushViewController:documentVC animated:YES];
 }
 @end

@@ -10,7 +10,7 @@
 #import "AOPContentsManager.h"
 #import "SearchResultCell.h"
 #import "PostItem.h"
-#import "ContentViewController.h"
+#import "DocumentViewController.h"
 
 @interface SearchViewController ()
 @property (strong, nonatomic) NSArray *searchedPosts;
@@ -99,11 +99,10 @@
     
     PostItem *item = [self.searchedPosts objectAtIndex:indexPath.row];
     
-    ContentViewController *contentVC =
-    [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
-    [contentVC setPost:item];
-    
-    [self.navigationController pushViewController:contentVC animated:YES];
+    DocumentViewController *documentVC =
+    [[DocumentViewController alloc] initWithNibName:@"DocumentViewController" bundle:nil];
+    [documentVC setPost:item];
+    [self.navigationController pushViewController:documentVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

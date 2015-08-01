@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DocumentViewController">
+            <connections>
+                <outlet property="activityIndicator" destination="y0t-Nl-NFn" id="FyN-rg-9PI"/>
+                <outlet property="btnBookmark" destination="MYK-LT-39G" id="Fjl-0Q-FK8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="v0S-dH-dme" id="fqO-wZ-CVs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0S-dH-dme">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="y0t-Nl-NFn">
+                    <rect key="frame" x="290" y="290" width="20" height="20"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="v0S-dH-dme" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FaB-pG-Nub"/>
+                <constraint firstAttribute="bottom" secondItem="v0S-dH-dme" secondAttribute="bottom" id="VZ4-cB-tb4"/>
+                <constraint firstAttribute="centerX" secondItem="y0t-Nl-NFn" secondAttribute="centerX" id="dgH-y7-49D"/>
+                <constraint firstAttribute="trailing" secondItem="v0S-dH-dme" secondAttribute="trailing" id="f4L-vP-2KB"/>
+                <constraint firstItem="v0S-dH-dme" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ryn-u6-acf"/>
+                <constraint firstAttribute="centerY" secondItem="y0t-Nl-NFn" secondAttribute="centerY" id="tVp-WS-WF1"/>
+            </constraints>
+        </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MYK-LT-39G">
+            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" image="bookmark_marked">
+                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+            <connections>
+                <action selector="btnBookMarkTouched:" destination="-1" eventType="touchUpInside" id="HdN-F6-3us"/>
+            </connections>
+            <point key="canvasLocation" x="126" y="660"/>
+        </button>
+    </objects>
+    <resources>
+        <image name="bookmark_marked" width="24" height="24"/>
+    </resources>
+</document>
