@@ -10,23 +10,25 @@
 #import "AFNetworking.h"
 
 @interface HomeViewController ()
-
+@property (assign) BOOL notifyExists;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad] ;
-    [self getMenus];
-
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://theartofprotest.jinbo.net/home.html"]];
+    [self.webView loadRequest:request];
+    
+    self.notifyExists = YES;
+    
+    if(self.notifyExists) {
+        
+    }
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void) getMenus {
-    
-        
-    // 5
- 
+- (void)addNotifyView {
 }
 
 - (void)didReceiveMemoryWarning {

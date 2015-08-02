@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet UILabel *notifyView;
 
 @end
