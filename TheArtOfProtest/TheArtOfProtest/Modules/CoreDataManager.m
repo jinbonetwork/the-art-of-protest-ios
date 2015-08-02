@@ -83,7 +83,7 @@
 }
 
 /**
- 특정 Keyword를 가진 Post를 검색한다.
+ 북마크된 콘텐츠 목록을 가져온다.
  */
 - (NSArray*)getBookMarkedPost {
     NSManagedObjectContext *context = [self managedObjectContext];

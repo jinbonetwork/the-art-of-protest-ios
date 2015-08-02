@@ -18,6 +18,8 @@
 		A976BC5D1B6CFE650085695D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A976BC5B1B6CFE650085695D /* SearchViewController.xib */; };
 		A97BE2D51B517CA300E4C389 /* ServerCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D41B517CA300E4C389 /* ServerCommunicator.m */; };
 		A97BE2D81B51904800E4C389 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A97BE2D71B51904800E4C389 /* CoreDataManager.m */; };
+		A99525AC1B6E1A1E00779546 /* BookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99525AA1B6E1A1E00779546 /* BookMarkViewController.m */; };
+		A99525AD1B6E1A1E00779546 /* BookMarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99525AB1B6E1A1E00779546 /* BookMarkViewController.xib */; };
 		A9A2DCF51B6D091300CA2FAE /* DocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A2DCF31B6D091300CA2FAE /* DocumentViewController.m */; };
 		A9A2DCF61B6D091300CA2FAE /* DocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A2DCF41B6D091300CA2FAE /* DocumentViewController.xib */; };
 		A9A9BF891B63B7E200BD0D9E /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A9BF871B63B7E200BD0D9E /* SplashViewController.m */; };
@@ -65,6 +67,9 @@
 		A97BE2D41B517CA300E4C389 /* ServerCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerCommunicator.m; sourceTree = "<group>"; };
 		A97BE2D61B51904800E4C389 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		A97BE2D71B51904800E4C389 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		A99525A91B6E1A1E00779546 /* BookMarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMarkViewController.h; sourceTree = "<group>"; };
+		A99525AA1B6E1A1E00779546 /* BookMarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMarkViewController.m; sourceTree = "<group>"; };
+		A99525AB1B6E1A1E00779546 /* BookMarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookMarkViewController.xib; sourceTree = "<group>"; };
 		A9A2DCF21B6D091300CA2FAE /* DocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentViewController.h; sourceTree = "<group>"; };
 		A9A2DCF31B6D091300CA2FAE /* DocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentViewController.m; sourceTree = "<group>"; };
 		A9A2DCF41B6D091300CA2FAE /* DocumentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocumentViewController.xib; sourceTree = "<group>"; };
@@ -187,6 +192,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A99525A81B6E19FB00779546 /* BookMarkViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A99525A91B6E1A1E00779546 /* BookMarkViewController.h */,
+				A99525AA1B6E1A1E00779546 /* BookMarkViewController.m */,
+				A99525AB1B6E1A1E00779546 /* BookMarkViewController.xib */,
+			);
+			name = BookMarkViewController;
+			sourceTree = "<group>";
+		};
 		A9A2DCF11B6D08FB00CA2FAE /* DocumentViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +233,7 @@
 		A9C2FAEE1B4ABB75008EDC2B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A99525A81B6E19FB00779546 /* BookMarkViewController */,
 				A9A2DCF11B6D08FB00CA2FAE /* DocumentViewController */,
 				A9A9BF851B63B48700BD0D9E /* SplashViewController */,
 				A928E4FE1B5BEFC5006BBAD1 /* SearchViewContorller */,
@@ -362,6 +378,7 @@
 				A976BC571B6CFC5F0085695D /* SearchResultCell.xib in Resources */,
 				A976BC5D1B6CFE650085695D /* SearchViewController.xib in Resources */,
 				A9A9BF8A1B63B7E200BD0D9E /* SplashViewController.xib in Resources */,
+				A99525AD1B6E1A1E00779546 /* BookMarkViewController.xib in Resources */,
 				A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */,
 				A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */,
 				A9A2DCF61B6D091300CA2FAE /* DocumentViewController.xib in Resources */,
@@ -422,6 +439,7 @@
 				A9C9ECC41B613D5B0034C8F9 /* PostParser.m in Sources */,
 				A9C2FB061B4ABE18008EDC2B /* HomeViewController.m in Sources */,
 				A9EA73C31B64FBB300ECE913 /* PostCacheWorker.m in Sources */,
+				A99525AC1B6E1A1E00779546 /* BookMarkViewController.m in Sources */,
 				A9EA73BE1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodeld in Sources */,
 				A9C9ECBB1B5FF29A0034C8F9 /* CategoryMenuParser.m in Sources */,
 				A9A9BF891B63B7E200BD0D9E /* SplashViewController.m in Sources */,
