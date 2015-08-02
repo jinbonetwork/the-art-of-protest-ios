@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookMarkViewController">
             <connections>
+                <outlet property="tableView" destination="Wyf-Gj-gwi" id="EZc-jQ-86Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,17 +16,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xv2-Ap-wBK">
-                    <rect key="frame" x="279" y="289" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wyf-Gj-gwi">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="xv2-Ap-wBK" secondAttribute="centerY" id="H4O-ii-FPg"/>
-                <constraint firstAttribute="centerX" secondItem="xv2-Ap-wBK" secondAttribute="centerX" id="pRY-7b-FTB"/>
+                <constraint firstAttribute="bottom" secondItem="Wyf-Gj-gwi" secondAttribute="bottom" id="1BI-2M-lTo"/>
+                <constraint firstItem="Wyf-Gj-gwi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="P5L-tT-hu2"/>
+                <constraint firstAttribute="trailing" secondItem="Wyf-Gj-gwi" secondAttribute="trailing" id="PIz-OE-yvH"/>
+                <constraint firstItem="Wyf-Gj-gwi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WjJ-eJ-csR"/>
             </constraints>
         </view>
     </objects>

@@ -43,6 +43,7 @@
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)];
     [self.searchBar sizeToFit];
     self.searchBar.delegate = self;
+    self.searchBar.placeholder = @"검색어를 입력하세요";
     self.navigationItem.titleView = self.searchBar;
 }
 

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BookMarkViewController : UIViewController
-
+@interface BookMarkViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
