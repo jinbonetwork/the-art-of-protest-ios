@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    [self initContents];
+    [self initialize];
 }
 
 - (void)initUI {
@@ -36,7 +36,7 @@
     [self.splashImage setImage:[UIImage imageNamed:imageName]];
 }
 
-- (void)initContents {
+- (void)initialize {
     AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
     
     //  앱의 기본 내용이 초기화가 안되어 있으면 초기화
@@ -44,29 +44,55 @@
         [contentsManager initApp];
     }
     
+    // 콘텐츠를 초기화 하거나 업데이트 한다.
     if ([contentsManager isContentInitialized]) {
-        [contentsManager loadCategoryAndPosts];
-        [contentsManager checkUpdate:^(BOOL needUpdate, NSString* modifiedDate) {
-            if (needUpdate) {
-                [contentsManager updateContents:^{
-                    [self.appInitDelegate checkAndInitAppDone];
-                } failure:^(NSError *error) {
-                    [self.appInitDelegate checkAndInitAppDone];
-                }];
-            } else {
-                [self.appInitDelegate checkAndInitAppDone];
-            }
-        }];
+        [self loadAndUpdateContents];
     } else {
-        [contentsManager initContents:^{
-            [self.appInitDelegate checkAndInitAppDone];
-        } progress:^(NSInteger percent) {
-        
-        } failure:^(NSError *error) {
-            [self.appInitDelegate checkAndInitAppDone];
-        }];
-        
+        [self initializeContents];
     }
+}
+
+/**
+ 최초로 콘텐츠를 초기화 한다.
+ */
+- (void)initializeContents {
+    AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
+    [contentsManager initContents:^{
+        [self loadNotice];
+    } progress:^(NSInteger percent) {
+    } failure:^(NSError *error) {
+        [self loadNotice];
+    }];
+}
+
+/**
+ 최초 초기화가 된 경우 호출되는 메소드. DB에서 콘텐츠를 불러오고 업데이트가 필요할 경우 업데이트 한다.
+ */
+- (void)loadAndUpdateContents {
+    AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
+    [contentsManager loadCategoryAndPosts];
+    [contentsManager checkUpdate:^(BOOL needUpdate, NSString* modifiedDate) {
+        if (needUpdate) {
+            [contentsManager updateContents:^{
+                [self loadNotice];
+            } failure:^(NSError *error) {
+                [self loadNotice];
+            }];
+        } else {
+            [self loadNotice];
+        }
+    }];
+
+}
+
+/**
+공지를 가져온다. 공지가져오기까지 끝나면 스플래쉬 화면을 벗어난다.
+ */
+- (void)loadNotice {
+    AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
+    [contentsManager loadNotice:^{
+        [self.appInitDelegate checkAndInitAppDone];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

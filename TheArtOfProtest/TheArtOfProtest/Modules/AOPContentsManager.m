@@ -7,10 +7,7 @@
 //
 
 #import "AOPContentsManager.h"
-#import "ServerCommunicator.h"
-#import "CoreDataManager.h"
-#import "FileManager.h"
-#import "PostCacheWorker.h"
+
 
 #define USER_DEFAULT_KEY_APP_INITED      @"user_default_key_app_inited"
 #define USER_DEFAULT_KEY_CONTENTS_INITED @"user_default_key_contents_inited"
@@ -345,6 +342,19 @@
         [sud synchronize];
     }
     _lastModified = lastModified;
+}
+
+/**
+ 공지를 불러온다.
+ */
+- (void)loadNotice:(void(^)(void))finish {
+    [self.serverCommunicator getNoticeAsync:^(NoticeItem *notice) {
+        self.notice = notice;
+        finish();
+    } failure:^(NSError *error) {
+        self.notice = nil;
+        finish();
+    }];
 }
 
 @end

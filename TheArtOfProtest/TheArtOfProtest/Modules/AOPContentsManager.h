@@ -7,6 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ServerCommunicator.h"
+#import "CoreDataManager.h"
+#import "FileManager.h"
+#import "PostCacheWorker.h"
+
 
 /**
  * 이 앱의 전반적인 콘텐츠를 관리하는 모듈 추가
@@ -15,6 +20,7 @@
 
 @property (nonatomic, strong) NSArray *postList;
 @property (nonatomic, strong) NSArray *categoryMenuList;
+@property (nonatomic, strong) NoticeItem *notice;
 @property (nonatomic, strong) NSString *lastModified;
 
 /**
@@ -74,5 +80,10 @@
  북마크된 콘텐츠 목록을 가져온다.
  */
 - (NSArray*)getBookMarkedPost;
+
+/**
+ 공지를 불러온다.
+ */
+- (void)loadNotice:(void(^)(void))finish;
 
 @end
