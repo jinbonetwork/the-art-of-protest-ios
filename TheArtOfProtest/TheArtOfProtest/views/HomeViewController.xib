@@ -54,29 +54,29 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EnN-7i-gcJ" userLabel="NotifyTitle">
                     <rect key="frame" x="0.0" y="20" width="600" height="50"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tap_Home_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="UAX-IL-S6O">
-                            <rect key="frame" x="3" y="10" width="30" height="30"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notice_bell" translatesAutoresizingMaskIntoConstraints="NO" id="UAX-IL-S6O">
+                            <rect key="frame" x="3" y="18" width="15" height="15"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="Kpf-YQ-w0I"/>
-                                <constraint firstAttribute="height" constant="30" id="q6k-t5-CTs"/>
+                                <constraint firstAttribute="width" constant="15" id="Kpf-YQ-w0I"/>
+                                <constraint firstAttribute="height" constant="15" id="q6k-t5-CTs"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfW-oK-19I">
-                            <rect key="frame" x="36" y="15" width="27" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfW-oK-19I">
+                            <rect key="frame" x="21" y="18" width="27" height="15"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="2RW-27-3fE"/>
+                                <constraint firstAttribute="height" constant="15" id="2RW-27-3fE"/>
                                 <constraint firstAttribute="width" constant="27" id="fQi-Kv-VzQ"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9월 16일 세월호 추모집회가 있습니다." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JP-IX-kNH">
-                            <rect key="frame" x="68" y="15" width="527" height="20"/>
+                            <rect key="frame" x="53" y="18" width="542" height="15"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="sLF-CF-fYk"/>
+                                <constraint firstAttribute="height" constant="15" id="sLF-CF-fYk"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -120,6 +120,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Tap_Home_Icon" width="25" height="25"/>
+        <image name="notice_bell" width="15" height="15"/>
     </resources>
 </document>
