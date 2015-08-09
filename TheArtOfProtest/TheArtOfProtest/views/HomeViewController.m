@@ -8,27 +8,37 @@
 
 #import "HomeViewController.h"
 #import "AFNetworking.h"
+#import "AOPContentsManager.h"
 
 @interface HomeViewController ()
-@property (assign) BOOL notifyExists;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad] ;
+    [super viewDidLoad];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://theartofprotest.jinbo.net/home.html"]];
+    [self initNoticeView];
+    
+    self.webView.delegate = self;
     [self.webView loadRequest:request];
-    
-    self.notifyExists = YES;
-    
-    if(self.notifyExists) {
-        
-    }
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)addNotifyView {
+/**
+ 공지View를 초기화 한다.
+ */
+- (void)initNoticeView {
+    AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
+    if(contentsManager.notice == nil) { // 공지가 없을 경우 그냥 return
+        return;
+    }
+
+    // 사용할 View 및 webView 교체
+    self.view = self.noticeView;
+    self.webView = self.webViewForNotice;
+    self.indicator = self.indicatorForNoticeView;
+    [self.labelNoticeTitle setText:contentsManager.notice.title];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,14 +46,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UIWebViewDelegate
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.indicator setHidden:YES];
 }
-*/
 
 @end

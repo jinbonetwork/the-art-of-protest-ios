@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (strong, nonatomic) IBOutlet UILabel *notifyView;
+@property (weak, nonatomic) IBOutlet UILabel *labelNoticeTitle;
+@property (strong, nonatomic) IBOutlet UIView *noticeView;
+@property (weak, nonatomic) IBOutlet UIWebView *webViewForNotice;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorForNoticeView;
 
 @end

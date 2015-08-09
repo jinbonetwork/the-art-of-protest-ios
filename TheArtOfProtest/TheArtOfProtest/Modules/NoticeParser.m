@@ -38,6 +38,6 @@
     item.date = [json valueForKey:NOTICE_JSON_DATE];
     item.content = [json valueForKey:NOTICE_JSON_CONTENT];
     
-    return [[NoticeItem alloc] init];
+    return item;
 }
 @end
