@@ -28,6 +28,7 @@
  */
 - (void)initLayout {
     [self.navigationItem setTitle:@"매뉴얼"];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 0.01f)];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
@@ -94,6 +95,9 @@
  */
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return [[UIView alloc] initWithFrame:CGRectZero];
+    }
 //    UIView *view = [UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 75);
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 75)];
     /* Create custom view to display section header... */
@@ -110,9 +114,20 @@
     return view;
 }
 
+- (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] initWithFrame:CGRectZero];
+}
+
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if (section == 0) {
+        return 0.01f;
+    }
     return 75;
+}
+
+- (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.01f;
 }
 
 
