@@ -10,6 +10,7 @@
 #import "CategoryMenuParser.h"
 #import "PostParser.h"
 #import "VersionParser.h"
+#import "NoticeParser.h"
 #import "AFNetworking.h"
 
 #define BASE_CMS_URI        @"https://public-api.wordpress.com/rest/v1.1/sites/theartofprotest.jinbo.net"
@@ -50,5 +51,11 @@
  */
 - (void)getVersionAsync:(void (^)(NSString *modified))success
                 failure:(void (^)(NSError *error))failure;
+
+/**
+ 공지를 받아온다. 공지가 없을 경우 success에서 주는 notice 값은 nil이다.
+ */
+- (void)getNoticeAsync:(void (^)(NoticeItem *notice))success
+               failure:(void (^)(NSError *error))failure;
 
 @end

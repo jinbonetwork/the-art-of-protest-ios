@@ -22,6 +22,8 @@
 		A99525AD1B6E1A1E00779546 /* BookMarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99525AB1B6E1A1E00779546 /* BookMarkViewController.xib */; };
 		A99525AF1B6E1E3500779546 /* BookMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99525AE1B6E1E3500779546 /* BookMarkCell.xib */; };
 		A99525B21B6E1E5100779546 /* BookMarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99525B11B6E1E5100779546 /* BookMarkCell.m */; };
+		A99574741B773D7400F6A932 /* NoticeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A99574731B773D7400F6A932 /* NoticeParser.m */; };
+		A99574771B773E3100F6A932 /* NoticeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A99574761B773E3100F6A932 /* NoticeItem.m */; };
 		A9A2DCF51B6D091300CA2FAE /* DocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A2DCF31B6D091300CA2FAE /* DocumentViewController.m */; };
 		A9A2DCF61B6D091300CA2FAE /* DocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9A2DCF41B6D091300CA2FAE /* DocumentViewController.xib */; };
 		A9A9BF891B63B7E200BD0D9E /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A9BF871B63B7E200BD0D9E /* SplashViewController.m */; };
@@ -75,6 +77,10 @@
 		A99525AE1B6E1E3500779546 /* BookMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookMarkCell.xib; sourceTree = "<group>"; };
 		A99525B01B6E1E5100779546 /* BookMarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMarkCell.h; sourceTree = "<group>"; };
 		A99525B11B6E1E5100779546 /* BookMarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMarkCell.m; sourceTree = "<group>"; };
+		A99574721B773D7400F6A932 /* NoticeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeParser.h; sourceTree = "<group>"; };
+		A99574731B773D7400F6A932 /* NoticeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeParser.m; sourceTree = "<group>"; };
+		A99574751B773E3100F6A932 /* NoticeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeItem.h; sourceTree = "<group>"; };
+		A99574761B773E3100F6A932 /* NoticeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeItem.m; sourceTree = "<group>"; };
 		A9A2DCF21B6D091300CA2FAE /* DocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentViewController.h; sourceTree = "<group>"; };
 		A9A2DCF31B6D091300CA2FAE /* DocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentViewController.m; sourceTree = "<group>"; };
 		A9A2DCF41B6D091300CA2FAE /* DocumentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocumentViewController.xib; sourceTree = "<group>"; };
@@ -292,6 +298,8 @@
 				A9C9ECBD1B5FF6AA0034C8F9 /* CategoryMenuItem.m */,
 				A9C9ECBF1B613AE90034C8F9 /* PostItem.h */,
 				A9C9ECC01B613AE90034C8F9 /* PostItem.m */,
+				A99574751B773E3100F6A932 /* NoticeItem.h */,
+				A99574761B773E3100F6A932 /* NoticeItem.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -317,6 +325,8 @@
 				A9EA73C21B64FBB300ECE913 /* PostCacheWorker.m */,
 				A976BC531B6CC1850085695D /* VersionParser.h */,
 				A976BC541B6CC1850085695D /* VersionParser.m */,
+				A99574721B773D7400F6A932 /* NoticeParser.h */,
+				A99574731B773D7400F6A932 /* NoticeParser.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -448,6 +458,7 @@
 				A9C9ECC41B613D5B0034C8F9 /* PostParser.m in Sources */,
 				A9C2FB061B4ABE18008EDC2B /* HomeViewController.m in Sources */,
 				A9EA73C31B64FBB300ECE913 /* PostCacheWorker.m in Sources */,
+				A99574771B773E3100F6A932 /* NoticeItem.m in Sources */,
 				A99525AC1B6E1A1E00779546 /* BookMarkViewController.m in Sources */,
 				A9EA73BE1B64E99D00ECE913 /* TheArtOfProtest.xcdatamodeld in Sources */,
 				A9C9ECBB1B5FF29A0034C8F9 /* CategoryMenuParser.m in Sources */,
@@ -455,6 +466,7 @@
 				A976BC551B6CC1850085695D /* VersionParser.m in Sources */,
 				A928E4FD1B52A8FF006BBAD1 /* FileManager.m in Sources */,
 				A9A9BF8D1B63B9BE00BD0D9E /* DeviceConfig.m in Sources */,
+				A99574741B773D7400F6A932 /* NoticeParser.m in Sources */,
 				A95D94301B6BDFB20082A572 /* SearchResultCell.m in Sources */,
 				A9C9ECBE1B5FF6AA0034C8F9 /* CategoryMenuItem.m in Sources */,
 				A99525B21B6E1E5100779546 /* BookMarkCell.m in Sources */,

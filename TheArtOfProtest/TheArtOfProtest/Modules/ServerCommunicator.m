@@ -86,6 +86,25 @@
 }
 
 /**
+ 공지를 받아온다. 공지가 없을 경우 success에서 주는 notice 값은 nil이다.
+ */
+- (void)getNoticeAsync:(void (^)(NoticeItem *notice))success
+               failure:(void (^)(NSError *error))failure {
+    AFHTTPRequestOperation *operation =
+    [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_NOTICE]]];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NoticeParser *parser = [[NoticeParser alloc] init];
+        NoticeItem *result = [parser parse:(NSDictionary*)responseObject];
+        success(result);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+    
+    [operation start];
+}
+
+/**
  AFHTTPRequestOperation GET을 위한 기본 객체 생성
  */
 - (AFHTTPRequestOperation*)createBaseOperation:(NSString*)url {
