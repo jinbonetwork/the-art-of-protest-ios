@@ -11,5 +11,6 @@
 @interface BookMarkCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *excerptLabel;
+@property (weak, nonatomic) IBOutlet UIButton *btnBookMark;
 
 @end 

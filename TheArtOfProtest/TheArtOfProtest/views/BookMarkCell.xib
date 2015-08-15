@@ -14,12 +14,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="집회 시위 매뉴얼 집회 시위 매뉴얼 집회 시위 매뉴얼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbH-jJ-pmb">
-                        <rect key="frame" x="42" y="5" width="270" height="32"/>
+                        <rect key="frame" x="34" y="5" width="278" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="Gkv-O1-QzN"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnZ-FL-4Xz" userLabel="I">
@@ -29,28 +29,29 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2z-3S-3XF">
-                        <rect key="frame" x="5" y="4" width="32" height="32"/>
+                        <rect key="frame" x="5" y="11" width="19" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="32" id="QNs-Tt-CFf"/>
-                            <constraint firstAttribute="width" constant="32" id="kBp-Gt-Wqp"/>
+                            <constraint firstAttribute="height" constant="18" id="QNs-Tt-CFf"/>
+                            <constraint firstAttribute="width" constant="19" id="kBp-Gt-Wqp"/>
                         </constraints>
-                        <state key="normal" backgroundImage="bookmark_marked">
+                        <state key="normal" image="bookmarked">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="g2z-3S-3XF" firstAttribute="top" secondItem="yXA-rN-L7s" secondAttribute="top" constant="4" id="1qp-E9-c8d"/>
+                    <constraint firstItem="g2z-3S-3XF" firstAttribute="top" secondItem="yXA-rN-L7s" secondAttribute="top" constant="11" id="1qp-E9-c8d"/>
                     <constraint firstAttribute="trailing" secondItem="DbH-jJ-pmb" secondAttribute="trailing" constant="8" id="8hX-Xw-7B7"/>
                     <constraint firstAttribute="trailing" secondItem="mnZ-FL-4Xz" secondAttribute="trailing" constant="8" id="Lwy-I2-WwO"/>
                     <constraint firstItem="g2z-3S-3XF" firstAttribute="leading" secondItem="yXA-rN-L7s" secondAttribute="leading" constant="5" id="N4V-mO-JVW"/>
                     <constraint firstAttribute="bottom" secondItem="mnZ-FL-4Xz" secondAttribute="bottom" constant="5" id="O7Z-Jg-yHO"/>
                     <constraint firstItem="DbH-jJ-pmb" firstAttribute="top" secondItem="yXA-rN-L7s" secondAttribute="top" constant="5" id="Qdu-tk-pBm"/>
-                    <constraint firstItem="DbH-jJ-pmb" firstAttribute="leading" secondItem="g2z-3S-3XF" secondAttribute="trailing" constant="5" id="t00-i2-ekR"/>
+                    <constraint firstItem="DbH-jJ-pmb" firstAttribute="leading" secondItem="g2z-3S-3XF" secondAttribute="trailing" constant="10" id="t00-i2-ekR"/>
                     <constraint firstItem="mnZ-FL-4Xz" firstAttribute="leading" secondItem="yXA-rN-L7s" secondAttribute="leading" constant="42" id="tOy-NX-P3D"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnBookMark" destination="g2z-3S-3XF" id="I26-zf-vRP"/>
                 <outlet property="excerptLabel" destination="mnZ-FL-4Xz" id="T3X-Xe-qig"/>
                 <outlet property="titleLabel" destination="DbH-jJ-pmb" id="ptw-VG-iYv"/>
             </connections>
@@ -58,6 +59,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bookmark_marked" width="24" height="24"/>
+        <image name="bookmarked" width="19" height="18"/>
     </resources>
 </document>
