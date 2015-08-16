@@ -49,7 +49,7 @@
  */
 - (void)setBookMarkButton {
     NSString *imageName;
-    imageName = (self.post.isBookMarked) ? @"bookmark_marked" : @"bookmark_unmarked";
+    imageName = (self.post.isBookMarked) ? @"bookmarked" : @"bookmark_removed";
     [self.btnBookmark setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     UIBarButtonItem *bookMark = [[UIBarButtonItem alloc] initWithCustomView:self.btnBookmark];
     self.navigationItem.rightBarButtonItem = bookMark;

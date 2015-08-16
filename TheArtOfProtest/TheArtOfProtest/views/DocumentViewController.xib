@@ -37,18 +37,18 @@
             </constraints>
         </view>
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MYK-LT-39G">
-            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+            <rect key="frame" x="0.0" y="0.0" width="19" height="18"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal" image="bookmark_marked">
+            <state key="normal" image="bookmarked">
                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
             </state>
             <connections>
                 <action selector="btnBookMarkTouched:" destination="-1" eventType="touchUpInside" id="HdN-F6-3us"/>
             </connections>
-            <point key="canvasLocation" x="126" y="660"/>
+            <point key="canvasLocation" x="125.5" y="660"/>
         </button>
     </objects>
     <resources>
-        <image name="bookmark_marked" width="24" height="24"/>
+        <image name="bookmarked" width="19" height="18"/>
     </resources>
 </document>

@@ -60,13 +60,8 @@
     post.isBookMarked = changeBookMarked;
     [contentManager setBookMark:post.postId isBookMakred:changeBookMarked];
     
-    UIImage *image;
-    if(changeBookMarked) {
-        image = [UIImage imageNamed:@"bookmarked"];
-    } else {
-        image = [UIImage imageNamed:@"bookmark_removed"];
-    }
-    [sender setImage:image forState:UIControlStateNormal];
+    NSString *imageName = (changeBookMarked)? @"bookmarked" : @"bookmark_removed";
+    [sender setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
