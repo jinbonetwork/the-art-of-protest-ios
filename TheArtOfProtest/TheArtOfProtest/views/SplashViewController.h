@@ -14,5 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *splashImage;
 @property (assign, nonatomic) id<AppInitDelegate> appInitDelegate;
+@property (weak, nonatomic) IBOutlet UILabel *progressMessage;
 
 @end

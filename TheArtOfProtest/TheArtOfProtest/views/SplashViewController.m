@@ -33,6 +33,8 @@
         imageName = @"SplashImage";
     }
     
+    [self.progressMessage.layer setCornerRadius:6.0f];
+    self.progressMessage.clipsToBounds = true;
     [self.splashImage setImage:[UIImage imageNamed:imageName]];
 }
 
@@ -56,6 +58,8 @@
  최초로 콘텐츠를 초기화 한다.
  */
 - (void)initializeContents {
+    [self.progressMessage setText:@"초기화 중..."];
+    
     AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
     [contentsManager initContents:^{
         [self loadNotice];
@@ -69,10 +73,14 @@
  최초 초기화가 된 경우 호출되는 메소드. DB에서 콘텐츠를 불러오고 업데이트가 필요할 경우 업데이트 한다.
  */
 - (void)loadAndUpdateContents {
+    
+    
     AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
     [contentsManager loadCategoryAndPosts];
+    [self.progressMessage setText:@"업데이트 확인 중..."];
     [contentsManager checkUpdate:^(BOOL needUpdate, NSString* modifiedDate) {
         if (needUpdate) {
+            [self.progressMessage setText:@"업데이트 중..."];
             [contentsManager updateContents:^{
                 [self loadNotice];
             } failure:^(NSError *error) {

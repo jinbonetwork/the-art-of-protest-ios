@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashViewController">
             <connections>
+                <outlet property="progressMessage" destination="W0Q-wi-v3M" id="ITL-CB-OSs"/>
                 <outlet property="splashImage" destination="nxj-0f-Flx" id="CDk-CL-yJU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,16 +21,17 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ddz-s0-92J">
-                    <rect key="frame" x="290" y="555" width="20" height="20"/>
+                    <rect key="frame" x="290" y="570" width="20" height="20"/>
                 </activityIndicatorView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱을 초기화하는 중입니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0Q-wi-v3M">
-                    <rect key="frame" x="200" y="526" width="200" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱을 시작하는 중..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0Q-wi-v3M">
+                    <rect key="frame" x="185" y="524" width="230" height="36"/>
+                    <color key="backgroundColor" red="0.13725490196078433" green="0.094117647058823528" blue="0.082352941176470587" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="a6N-I8-l7F"/>
-                        <constraint firstAttribute="width" constant="200" id="vhf-xg-Km4"/>
+                        <constraint firstAttribute="height" constant="36" id="a6N-I8-l7F"/>
+                        <constraint firstAttribute="width" constant="230" id="vhf-xg-Km4"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -37,11 +39,11 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="nxj-0f-Flx" secondAttribute="bottom" id="JWq-lH-JSb"/>
                 <constraint firstAttribute="trailing" secondItem="nxj-0f-Flx" secondAttribute="trailing" id="Jfk-pM-QYL"/>
-                <constraint firstAttribute="bottom" secondItem="ddz-s0-92J" secondAttribute="bottom" constant="25" id="Pyz-aI-W4r"/>
+                <constraint firstAttribute="bottom" secondItem="ddz-s0-92J" secondAttribute="bottom" constant="10" id="Pyz-aI-W4r"/>
                 <constraint firstAttribute="centerX" secondItem="ddz-s0-92J" secondAttribute="centerX" id="cv1-Xm-EHu"/>
                 <constraint firstAttribute="centerX" secondItem="W0Q-wi-v3M" secondAttribute="centerX" id="e0i-Nu-3VE"/>
                 <constraint firstItem="nxj-0f-Flx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nXz-LZ-9NW"/>
-                <constraint firstItem="ddz-s0-92J" firstAttribute="top" secondItem="W0Q-wi-v3M" secondAttribute="bottom" constant="8" id="ocP-YN-z39"/>
+                <constraint firstItem="ddz-s0-92J" firstAttribute="top" secondItem="W0Q-wi-v3M" secondAttribute="bottom" constant="10" id="ocP-YN-z39"/>
                 <constraint firstItem="nxj-0f-Flx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tIN-iS-mAw"/>
             </constraints>
         </view>

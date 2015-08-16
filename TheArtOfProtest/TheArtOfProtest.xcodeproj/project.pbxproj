@@ -159,6 +159,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A914B7FD1B80C67D0011C733 /* NoticeViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NoticeViewController;
+			sourceTree = "<group>";
+		};
 		A928E4FE1B5BEFC5006BBAD1 /* SearchViewContorller */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +277,7 @@
 		A9C2FAEE1B4ABB75008EDC2B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A914B7FD1B80C67D0011C733 /* NoticeViewController */,
 				A9BA08201B8069420041DF3E /* RefWebViewController */,
 				A99525A81B6E19FB00779546 /* BookMarkViewController */,
 				A9A2DCF11B6D08FB00CA2FAE /* DocumentViewController */,
