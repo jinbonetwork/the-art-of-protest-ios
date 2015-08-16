@@ -100,6 +100,8 @@
     cell.titleLabel.text = item.title;
     cell.excerptLabel.text = item.excerpt;
     cell.btnBookMark.tag = indexPath.row;
+    NSString *imageName = (item.isBookMarked)? @"bookmarked" : @"bookmark_removed";
+    [cell.btnBookMark setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [cell.btnBookMark addTarget:self action:@selector(bookMarkBtnTouched:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
