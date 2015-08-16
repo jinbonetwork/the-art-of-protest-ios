@@ -9,6 +9,8 @@
 #import "DocumentViewController.h"
 #import "RefWebViewController.h"
 #import "FileManager.h"
+#import "UIView+Toast.h"
+#import "AOPUtils.h"
 
 @interface DocumentViewController ()
 
@@ -66,9 +68,12 @@
     [self presentViewController:naviVC animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)showToast:(BOOL)isBookMarked
+{
+    NSString *text = (isBookMarked)?@"북마크가 저장되었습니다.":@"북마크가 해제되었습니다.";
+    [self.view showToast:[AOPUtils getToastView:text]
+                duration:1.5f
+                position:CSToastPositionBottom];
 }
 
 #pragma mark - UIWebViewDelegate
@@ -96,5 +101,6 @@
     self.post.isBookMarked = isBookMarked;
     [[AOPContentsManager sharedManager] setBookMark:self.post.postId isBookMakred:self.post.isBookMarked];
     [self setBookMarkButton];
+    [self showToast:isBookMarked];
 }
 @end

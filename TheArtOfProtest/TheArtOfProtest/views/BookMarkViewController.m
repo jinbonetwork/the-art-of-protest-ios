@@ -11,6 +11,8 @@
 #import "BookMarkCell.h"
 #import "PostItem.h"
 #import "DocumentViewController.h"
+#import "AOPUtils.h"
+#import "UIView+Toast.h"
 
 @interface BookMarkViewController ()
 
@@ -62,11 +64,16 @@
     
     NSString *imageName = (changeBookMarked)? @"bookmarked" : @"bookmark_removed";
     [sender setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    
+    [self showToast:changeBookMarked];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)showToast:(BOOL)isBookMarked
+{
+    NSString *text = (isBookMarked)?@"북마크가 저장되었습니다.":@"북마크가 해제되었습니다.";
+    [self.view showToast:[AOPUtils getToastView:text]
+                duration:1.5f
+                position:CSToastPositionBottom];
 }
 
 #pragma mark - tableview related delegates

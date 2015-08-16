@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A914B7FC1B80B39C0011C733 /* AOPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A914B7FB1B80B39C0011C733 /* AOPUtils.m */; };
 		A928E4FD1B52A8FF006BBAD1 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A928E4FC1B52A8FF006BBAD1 /* FileManager.m */; };
 		A956FA5F1B47B25A00F48FF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA5E1B47B25A00F48FF1 /* main.m */; };
 		A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA611B47B25A00F48FF1 /* AppDelegate.m */; };
@@ -55,6 +56,8 @@
 		54E22E5AAFDE391C40C2CCC1 /* Pods-TheArtOfProtest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheArtOfProtest.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheArtOfProtest/Pods-TheArtOfProtest.release.xcconfig"; sourceTree = "<group>"; };
 		6EF1624C7E9633F109EE59F1 /* Pods-TheArtOfProtest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheArtOfProtest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheArtOfProtest/Pods-TheArtOfProtest.debug.xcconfig"; sourceTree = "<group>"; };
 		A31BA1CE601AB941201C9151 /* libPods-TheArtOfProtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheArtOfProtest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A914B7FA1B80B39C0011C733 /* AOPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPUtils.h; sourceTree = "<group>"; };
+		A914B7FB1B80B39C0011C733 /* AOPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPUtils.m; sourceTree = "<group>"; };
 		A928E4FB1B52A8FF006BBAD1 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		A928E4FC1B52A8FF006BBAD1 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
 		A956FA591B47B25A00F48FF1 /* TheArtOfProtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheArtOfProtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -351,6 +354,8 @@
 				A976BC541B6CC1850085695D /* VersionParser.m */,
 				A99574721B773D7400F6A932 /* NoticeParser.h */,
 				A99574731B773D7400F6A932 /* NoticeParser.m */,
+				A914B7FA1B80B39C0011C733 /* AOPUtils.h */,
+				A914B7FB1B80B39C0011C733 /* AOPUtils.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 				A95D94301B6BDFB20082A572 /* SearchResultCell.m in Sources */,
 				A9C9ECBE1B5FF6AA0034C8F9 /* CategoryMenuItem.m in Sources */,
 				A99525B21B6E1E5100779546 /* BookMarkCell.m in Sources */,
+				A914B7FC1B80B39C0011C733 /* AOPUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
