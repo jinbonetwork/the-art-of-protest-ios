@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A914B7FC1B80B39C0011C733 /* AOPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A914B7FB1B80B39C0011C733 /* AOPUtils.m */; };
+		A914B8011B80C6B40011C733 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A914B7FF1B80C6B40011C733 /* NoticeViewController.m */; };
+		A914B8021B80C6B40011C733 /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A914B8001B80C6B40011C733 /* NoticeViewController.xib */; };
 		A928E4FD1B52A8FF006BBAD1 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A928E4FC1B52A8FF006BBAD1 /* FileManager.m */; };
 		A956FA5F1B47B25A00F48FF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA5E1B47B25A00F48FF1 /* main.m */; };
 		A956FA621B47B25A00F48FF1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A956FA611B47B25A00F48FF1 /* AppDelegate.m */; };
@@ -58,6 +60,9 @@
 		A31BA1CE601AB941201C9151 /* libPods-TheArtOfProtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheArtOfProtest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A914B7FA1B80B39C0011C733 /* AOPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPUtils.h; sourceTree = "<group>"; };
 		A914B7FB1B80B39C0011C733 /* AOPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPUtils.m; sourceTree = "<group>"; };
+		A914B7FE1B80C6B40011C733 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
+		A914B7FF1B80C6B40011C733 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
+		A914B8001B80C6B40011C733 /* NoticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeViewController.xib; sourceTree = "<group>"; };
 		A928E4FB1B52A8FF006BBAD1 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		A928E4FC1B52A8FF006BBAD1 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
 		A956FA591B47B25A00F48FF1 /* TheArtOfProtest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheArtOfProtest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +167,9 @@
 		A914B7FD1B80C67D0011C733 /* NoticeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A914B7FE1B80C6B40011C733 /* NoticeViewController.h */,
+				A914B7FF1B80C6B40011C733 /* NoticeViewController.m */,
+				A914B8001B80C6B40011C733 /* NoticeViewController.xib */,
 			);
 			name = NoticeViewController;
 			sourceTree = "<group>";
@@ -435,6 +443,7 @@
 				A976BC5D1B6CFE650085695D /* SearchViewController.xib in Resources */,
 				A9A9BF8A1B63B7E200BD0D9E /* SplashViewController.xib in Resources */,
 				A99525AD1B6E1A1E00779546 /* BookMarkViewController.xib in Resources */,
+				A914B8021B80C6B40011C733 /* NoticeViewController.xib in Resources */,
 				A956FA6D1B47B25A00F48FF1 /* Images.xcassets in Resources */,
 				A9C2FB091B4AC09A008EDC2B /* MainTabBarController.xib in Resources */,
 				A9BA082A1B80871F0041DF3E /* ManualCell.xib in Resources */,
@@ -505,6 +514,7 @@
 				A9C9ECBB1B5FF29A0034C8F9 /* CategoryMenuParser.m in Sources */,
 				A9A9BF891B63B7E200BD0D9E /* SplashViewController.m in Sources */,
 				A976BC551B6CC1850085695D /* VersionParser.m in Sources */,
+				A914B8011B80C6B40011C733 /* NoticeViewController.m in Sources */,
 				A928E4FD1B52A8FF006BBAD1 /* FileManager.m in Sources */,
 				A9A9BF8D1B63B9BE00BD0D9E /* DeviceConfig.m in Sources */,
 				A99574741B773D7400F6A932 /* NoticeParser.m in Sources */,

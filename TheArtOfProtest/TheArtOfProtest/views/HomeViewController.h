@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutlet UIView *noticeView;
 @property (weak, nonatomic) IBOutlet UIWebView *webViewForNotice;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UIButton *btnNotice;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorForNoticeView;
+- (IBAction)noticeTouched:(id)sender;
 
 @end

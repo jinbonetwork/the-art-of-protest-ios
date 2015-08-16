@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "AFNetworking.h"
 #import "AOPContentsManager.h"
+#import "NoticeViewController.h"
 
 @interface HomeViewController ()
 @end
@@ -38,7 +39,25 @@
     self.webView = self.webViewForNotice;
     self.indicator = self.indicatorForNoticeView;
     [self.labelNoticeTitle setText:contentsManager.notice.title];
+    
+    [self.btnNotice setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]] forState:UIControlStateHighlighted];
+}
 
+/**
+ UIButton이 Click 되었을 때 배경 색 변화를 위해 사용하는 메소드
+ */
+- (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,4 +70,9 @@
     [self.indicator setHidden:YES];
 }
 
+- (IBAction)noticeTouched:(id)sender {
+    NoticeViewController *vc = [[NoticeViewController alloc] initWithNibName:@"NoticeViewController" bundle:nil];
+    UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:navigationVC animated:YES completion:nil];
+}
 @end
