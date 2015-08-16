@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RefWebViewController : UIViewController <UIWebViewDelegate>
+@interface RefWebViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate>
 
 @property (copy, nonatomic) NSString *startUrl;
 
