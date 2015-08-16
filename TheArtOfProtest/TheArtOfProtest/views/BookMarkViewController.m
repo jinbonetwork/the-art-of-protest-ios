@@ -10,6 +10,7 @@
 #import "AOPContentsManager.h"
 #import "BookMarkCell.h"
 #import "PostItem.h"
+#import "DocumentViewController.h"
 
 @interface BookMarkViewController ()
 
@@ -117,6 +118,19 @@
     CGSize size = rect.size;
     
     return size.height + 45.0f;
+}
+
+/**
+ Cell이 선택되었을 때는 document View 창으로 이동한다.
+ */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    PostItem *item = [self.bookMarkPosts objectAtIndex:indexPath.row];
+    DocumentViewController *documentVC =
+    [[DocumentViewController alloc] initWithNibName:@"DocumentViewController" bundle:nil];
+    [documentVC setPost:item];
+    [self.navigationController pushViewController:documentVC animated:YES];
 }
 
 @end
