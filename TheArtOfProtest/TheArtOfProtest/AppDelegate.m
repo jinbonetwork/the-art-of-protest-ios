@@ -23,6 +23,11 @@
     vc.appInitDelegate = self;
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
+    
+    // 메인 테마 색깔을 탭바와 네비게이션의 tintColor로 설정한다.
+    UIColor *themeColor = [UIColor colorWithRed:1.0f green:114/255.0f blue:0.0f alpha:1.0f];
+    [[UINavigationBar appearance] setTintColor:themeColor];
+    [[UITabBar appearance] setTintColor:themeColor];
     return YES;
 }
 

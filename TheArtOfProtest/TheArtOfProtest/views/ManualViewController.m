@@ -11,6 +11,7 @@
 #import "PostItem.h"
 #import "CategoryMenuItem.h"
 #import "DocumentViewController.h"
+#import "ManualCell.h"
 
 @interface ManualViewController ()
 
@@ -32,6 +33,55 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
+/**
+ indexPath에 해당하는 postItem을 return 한다.
+ */
+- (PostItem*)getPostItemAtIndexPath:(NSIndexPath*)indexPath {
+    PostItem *postItem = nil;
+    int cnt = 0;
+    NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
+    NSArray *postList = [[AOPContentsManager sharedManager] postList];
+    for(PostItem *item in postList) {
+        CategoryMenuItem *category = [categoryMenu objectAtIndex:indexPath.section];
+        if (item.categoryId == category.categoryID) {
+            if (cnt == indexPath.row) {
+                postItem = item;
+                break;
+            }
+            cnt++;
+        }
+    }
+    return postItem;
+}
+
+/**
+ 이 앱 매뉴얼에서 카테고리 및 맨 처음 아이템에서 사용되는 View를 return 한다.
+ */
+- (UIView*) getCustomSectionView:(NSString*)title imageName:(NSString*)imageName {
+    CGFloat width = self.tableView.frame.size.width;
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 135)];
+    [view setBackgroundColor:[UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]];
+    
+    UILabel *topLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 5)];
+    [topLine setBackgroundColor:[UIColor colorWithRed:255/255.0 green:114/255.0 blue:0 alpha:1.0]];
+    
+    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, width, 25)];
+    [titleView setFont:[UIFont boldSystemFontOfSize:21]];
+    [titleView setTextAlignment:NSTextAlignmentCenter];
+    [titleView setText:title];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, width, 85)];
+    imageView.image = [UIImage imageNamed:imageName];
+    
+    [view addSubview:topLine];
+    [view addSubview:titleView];
+    [view addSubview:imageView];
+    
+    return view;
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -45,7 +95,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     int cnt = 0;
     
     NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
@@ -59,59 +108,75 @@
     return cnt;
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   /* UITableViewCell *cell =
-        [tableView dequeueReusableCellWithIdentifier:@"identifier" forIndexPath:indexPath];*/
-    
-    UITableViewCell *cell;
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"identifier"];
+- (UITableViewCell*)tableView:(UITableView*)tableView
+        cellForRowAtIndexPath:(NSIndexPath*)indexPath {
+    static NSString *CellIdentifier = @"manualCell";
+    ManualCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if ( cell == nil ) {
+        cell = (ManualCell*)[[[NSBundle mainBundle] loadNibNamed:@"ManualCell" owner:self options:nil] objectAtIndex:0];
     }
+    PostItem *item = [self getPostItemAtIndexPath:indexPath];
     
-    int cnt = 0;
-    NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
-    NSArray *postList = [[AOPContentsManager sharedManager] postList];
-    for(PostItem *item in postList) {
-        CategoryMenuItem *category = [categoryMenu objectAtIndex:indexPath.section];
-        if (item.categoryId == category.categoryID) {
-            if (cnt == indexPath.row) {
-                cell.textLabel.text = item.title;
-                break;
-            }
-            cnt++;
+    /* 맨 처음 아이템일 경우 */
+    if(indexPath.row == 0 && indexPath.section == 0) {
+        [cell.customView setHidden:NO];
+        [cell.titleLabel setHidden:YES];
+        NSArray *viewsToRemove = [cell.customView subviews];
+        for (UIView *v in viewsToRemove) {
+            [v removeFromSuperview];
         }
+        [cell.customView addSubview:[self getCustomSectionView:item.title imageName:@"manual1"]];
+    } else {
+        [cell.customView setHidden:YES];
+        [cell.titleLabel setHidden:NO];
+        cell.titleLabel.text = item.title;
     }
 
+    if ((indexPath.row%2) == 0) {
+        CGFloat val = 247/255.0;
+        [cell.contentView setBackgroundColor:[UIColor colorWithRed:val green:val blue:val alpha:1.0]];
+    } else {
+        [cell.contentView setBackgroundColor:[UIColor whiteColor]];
+    }
+
+    
+  
     return cell;
 }
 
-/*
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
-    CategoryMenuItem *item = [categoryMenu objectAtIndex:section];
-    return [item name];
-}
+/**
+ 동적 Cell 높이를 지정하기 위해 Cell의 높이를 계산해서 반환한다.
  */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    /* 맨 처음 아이템일 경우 */
+    if(indexPath.row == 0 && indexPath.section == 0) {
+        return 135;
+    }
+    
+    PostItem *item = [self getPostItemAtIndexPath:indexPath];
+    NSString *str = item.title;
+    
+    CGFloat width = self.view.frame.size.width - 24;
+    UIFont *font = [UIFont systemFontOfSize:17.0f];
+    NSAttributedString *attributeText = [[NSAttributedString alloc] initWithString:str
+                                                                        attributes:@{NSFontAttributeName: font}];
+    CGRect rect = [attributeText boundingRectWithSize:(CGSize){width,CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    CGSize size = rect.size;
+    
+    return size.height + 24.0f;
+}
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return [[UIView alloc] initWithFrame:CGRectZero];
     }
-//    UIView *view = [UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 75);
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 75)];
-    /* Create custom view to display section header... */
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 50)];
-    [label setFont:[UIFont boldSystemFontOfSize:21]];
+    
+    NSString *imageName = [NSString stringWithFormat:@"manual%d",section+1];
     
     NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
     CategoryMenuItem *item = [categoryMenu objectAtIndex:section];
-    NSString *string = [item name];
-    /* Section header is in 0th index... */
-    [label setText:string];
-    [view addSubview:label];
-    [view setBackgroundColor:[UIColor colorWithRed:1/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
-    return view;
+    return [self getCustomSectionView:[item name] imageName:imageName];
 }
 
 - (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section {
@@ -123,7 +188,7 @@
     if (section == 0) {
         return 0.01f;
     }
-    return 75;
+    return 135;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section {
@@ -135,21 +200,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    int cnt = 0;
-    PostItem* postItem;
-    
-    NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
-    NSArray *postList = [[AOPContentsManager sharedManager] postList];
-    for(PostItem *item in postList) {
-        CategoryMenuItem *category = [categoryMenu objectAtIndex:indexPath.section];
-        if (item.categoryId == category.categoryID) {
-            if (cnt == indexPath.row) {
-                postItem = item;
-            }
-            cnt++;
-        }
-    }
-    
+    PostItem* postItem = [self getPostItemAtIndexPath:indexPath];
     DocumentViewController *documentVC =
         [[DocumentViewController alloc] initWithNibName:@"DocumentViewController" bundle:nil];
     [documentVC setPost:postItem];
