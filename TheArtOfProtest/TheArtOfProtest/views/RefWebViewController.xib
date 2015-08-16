@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RefWebViewController">
+            <connections>
+                <outlet property="btnClose" destination="6Yr-YW-AZr" id="UHm-ny-yn1"/>
+                <outlet property="btnShare" destination="mpe-g8-dEJ" id="5yz-BS-Hae"/>
+                <outlet property="indicator" destination="K2U-mq-RqX" id="Ptw-qR-n1x"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="Abj-fM-dyn" id="8bh-Qt-skw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abj-fM-dyn">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="K2U-mq-RqX">
+                    <rect key="frame" x="290" y="290" width="20" height="20"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="K2U-mq-RqX" secondAttribute="centerX" id="4zv-MW-472"/>
+                <constraint firstItem="Abj-fM-dyn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CIo-sz-sNA"/>
+                <constraint firstAttribute="bottom" secondItem="Abj-fM-dyn" secondAttribute="bottom" id="ElA-GM-rui"/>
+                <constraint firstItem="Abj-fM-dyn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JBq-Bc-n3K"/>
+                <constraint firstAttribute="trailing" secondItem="Abj-fM-dyn" secondAttribute="trailing" id="Ky8-Ri-X9g"/>
+                <constraint firstAttribute="centerY" secondItem="K2U-mq-RqX" secondAttribute="centerY" id="hUU-CA-WV7"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+        </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="6Yr-YW-AZr" userLabel="Close">
+            <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal">
+                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+            <connections>
+                <action selector="closeBtnTouched:" destination="-1" eventType="touchUpInside" id="d7D-TV-Lpp"/>
+            </connections>
+            <point key="canvasLocation" x="83" y="697"/>
+        </button>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="mpe-g8-dEJ" userLabel="Share">
+            <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal">
+                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+            <connections>
+                <action selector="shareBtnTouched:" destination="-1" eventType="touchUpInside" id="jnU-51-wz4"/>
+            </connections>
+            <point key="canvasLocation" x="190" y="697"/>
+        </button>
+    </objects>
+</document>

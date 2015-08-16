@@ -7,6 +7,7 @@
 //
 
 #import "DocumentViewController.h"
+#import "RefWebViewController.h"
 #import "FileManager.h"
 
 @interface DocumentViewController ()
@@ -55,6 +56,16 @@
 
 }
 
+/**
+ a링크가 클릭 되었을 때 참조할 웹문서 페이지를 띄운다.
+ */
+- (void)showReferenceWebViewWithUrl:(NSString*)url {
+    RefWebViewController *vc = [[RefWebViewController alloc] initWithNibName:@"RefWebViewController" bundle:nil];
+    vc.startUrl = url;
+    UINavigationController *naviVC = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:naviVC animated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -63,6 +74,18 @@
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.activityIndicator setHidden:YES];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSString *urlString = [[request URL] absoluteString];
+    
+    // 본 문서 내용은 로컬 캐싱된 것을 가져옴으로 http로 시작하지 않는다
+    if (![urlString hasPrefix:@"http"]) {
+        return YES;
+    }
+    
+    [self showReferenceWebViewWithUrl:urlString];
+    return NO;
 }
 
 /**
