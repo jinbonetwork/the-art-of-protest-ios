@@ -62,4 +62,9 @@
 - (IBAction)btnCloseTouched:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - webview 
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.indicator setHidden:YES];
+}
 @end

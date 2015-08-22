@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UIButton *btnClose;
 @property (strong, nonatomic) NoticeItem* noticeItem;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 - (IBAction)btnCloseTouched:(id)sender;
 
 @end

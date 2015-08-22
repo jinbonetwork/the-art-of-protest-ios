@@ -16,9 +16,18 @@
                 <color key="tintColor" red="1" green="0.44705882349999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             </tabBar>
             <viewControllers>
-                <viewController id="ZP2-7d-wlE" userLabel="Home" customClass="HomeViewController">
-                    <tabBarItem key="tabBarItem" title="처음" image="Tap_Home_Icon" id="h3C-Xu-5ZI" userLabel="Home"/>
-                </viewController>
+                <navigationController id="uKa-5E-q1l" userLabel="Home">
+                    <tabBarItem key="tabBarItem" title="처음" image="Tap_Home_Icon" id="0Nv-hX-sy4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MIh-R7-Kd7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController id="Qj9-zv-cbG" customClass="HomeViewController">
+                            <navigationItem key="navigationItem" title="처음" id="Tnu-zV-eHY"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
                 <navigationController id="v6p-qw-VsZ" userLabel="Navigation_Manual">
                     <tabBarItem key="tabBarItem" title="매뉴얼" image="Tab_Manual_Icon" id="07K-vt-qqV" userLabel="Manual"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kcr-kb-rz5">

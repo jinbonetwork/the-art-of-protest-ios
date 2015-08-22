@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticeViewController">
             <connections>
                 <outlet property="btnClose" destination="n8Y-tp-r4v" id="Gus-YJ-NQX"/>
+                <outlet property="indicator" destination="cO5-A3-GD6" id="wle-7N-zsv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="cUT-yH-ehA" id="IlE-nM-4Sv"/>
             </connections>
@@ -21,12 +22,17 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </webView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cO5-A3-GD6">
+                    <rect key="frame" x="290" y="290" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="cUT-yH-ehA" secondAttribute="trailing" id="ISz-n5-Rx1"/>
                 <constraint firstItem="cUT-yH-ehA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aRA-XG-73d"/>
+                <constraint firstAttribute="centerY" secondItem="cO5-A3-GD6" secondAttribute="centerY" id="bmC-DT-jSm"/>
                 <constraint firstAttribute="bottom" secondItem="cUT-yH-ehA" secondAttribute="bottom" id="hT0-fb-QpL"/>
+                <constraint firstAttribute="centerX" secondItem="cO5-A3-GD6" secondAttribute="centerX" id="l1w-5M-o70"/>
                 <constraint firstItem="cUT-yH-ehA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="opJ-ww-JWL"/>
             </constraints>
         </view>
