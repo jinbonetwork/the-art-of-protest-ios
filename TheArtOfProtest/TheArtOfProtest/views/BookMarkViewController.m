@@ -46,7 +46,14 @@
  */
 - (void)updateTableViewContents {
     self.bookMarkPosts = [[AOPContentsManager sharedManager] getBookMarkedPost];
-    [self.tableView reloadData];
+    if (self.bookMarkPosts == nil || self.bookMarkPosts.count == 0) {
+        [self.imgNoResult setHidden:NO];
+        [self.tableView setHidden:YES];
+    } else {
+        [self.imgNoResult setHidden:YES];
+        [self.tableView setHidden:NO];
+        [self.tableView reloadData];
+    }
 }
 
 /**

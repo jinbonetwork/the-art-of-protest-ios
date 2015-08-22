@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookMarkViewController">
             <connections>
+                <outlet property="imgNoResult" destination="bVN-Bc-HEN" id="8WL-ha-nDc"/>
                 <outlet property="tableView" destination="Wyf-Gj-gwi" id="EZc-jQ-86Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,14 +21,26 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_result" translatesAutoresizingMaskIntoConstraints="NO" id="bVN-Bc-HEN">
+                    <rect key="frame" x="183" y="344" width="235" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="f0w-cm-ENO"/>
+                        <constraint firstAttribute="width" constant="235" id="wi3-hw-Bhp"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Wyf-Gj-gwi" secondAttribute="bottom" id="1BI-2M-lTo"/>
+                <constraint firstAttribute="bottom" secondItem="bVN-Bc-HEN" secondAttribute="bottom" constant="56" id="1uW-Xz-4b9"/>
                 <constraint firstItem="Wyf-Gj-gwi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="P5L-tT-hu2"/>
                 <constraint firstAttribute="trailing" secondItem="Wyf-Gj-gwi" secondAttribute="trailing" id="PIz-OE-yvH"/>
                 <constraint firstItem="Wyf-Gj-gwi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WjJ-eJ-csR"/>
+                <constraint firstAttribute="centerX" secondItem="bVN-Bc-HEN" secondAttribute="centerX" id="qKM-5g-iop"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="no_result" width="235" height="200"/>
+    </resources>
 </document>
