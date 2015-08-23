@@ -32,9 +32,9 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 북마크한 게 없습니다. 제목 옆의" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v67-7W-WBV" userLabel="아직 북마크한 게 없습니다. ">
-                    <rect key="frame" x="10" y="80" width="260" height="28"/>
+                    <rect key="frame" x="10" y="80" width="260" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="28" id="3h0-Ii-V3D"/>
+                        <constraint firstAttribute="height" constant="21" id="3h0-Ii-V3D"/>
                         <constraint firstAttribute="width" constant="260" id="8C2-yZ-Pfc"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -42,14 +42,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark_removed" translatesAutoresizingMaskIntoConstraints="NO" id="lzK-4G-vc3">
-                    <rect key="frame" x="10" y="111" width="20" height="20"/>
+                    <rect key="frame" x="10" y="104" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="eHf-lz-3xH"/>
                         <constraint firstAttribute="height" constant="20" id="o5L-hu-zT6"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="을 클릭해 북마크를 저장하세요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIN-AK-53i">
-                    <rect key="frame" x="33" y="111" width="229" height="21"/>
+                    <rect key="frame" x="33" y="104" width="229" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="AVa-Hq-48y"/>
                         <constraint firstAttribute="width" constant="229" id="gtw-nC-Xtp"/>
