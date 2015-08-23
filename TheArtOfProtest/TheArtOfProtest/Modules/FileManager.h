@@ -65,6 +65,11 @@
 - (NSString*)getHomeHtmlFilePath;
 
 /**
+ ~/Library/Application Support/home_resource 디렉토리의 css 파일 경로
+ */
+- (NSString*)getHomeStyleCssFilePath;
+
+/**
  앱 자료를 저장하는 기본 루트인 ~/Library/Application Supprt/ 경로를 얻어온다.
  */
 - (NSString*)getAppSupportRoot;

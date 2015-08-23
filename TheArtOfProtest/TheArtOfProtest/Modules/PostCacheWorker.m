@@ -9,6 +9,9 @@
 #import "PostCacheWorker.h"
 #import "FileManager.h"
 
+#define HOME_HTML_URL @"http://theartofprotest.jinbo.net/home.html"
+#define HOME_CSS_URL @"http://theartofprotest.jinbo.net/home-style.css"
+
 @interface PostCacheWorker()
 
 @property (nonatomic, strong) FileManager *fileManager;
@@ -36,6 +39,33 @@
     post.content = [self changeContentStr:post.content ofUrl:urlList withPostId:post.postId];
     
     return post.content;
+}
+
+/**
+ 홈 화면 WebView에 들어갈 자료들을 Caching한다.
+ */
+- (void)cacheHomePage {
+    self.fileManager = [[FileManager alloc] init];
+    
+    NSURL *htmlURL = [NSURL URLWithString:HOME_HTML_URL];
+    NSString *homeHtmlStr =
+        [NSString stringWithContentsOfURL:htmlURL encoding:NSUTF8StringEncoding error:nil];
+    
+    // 홈화면 이미지 캐싱하고 이미지 주소를 로컬형태로 변환
+    NSArray *urlList = [self getImgUrlList:homeHtmlStr];
+    if (urlList != nil) {
+        [self saveImagesForHome:urlList];
+        homeHtmlStr = [self changeHomeStr:homeHtmlStr ofUrl:urlList];
+    }
+    
+    // 홈화면 html 파일 저장
+    [homeHtmlStr writeToFile:[self.fileManager getHomeHtmlFilePath] atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    
+    // 홈화면 css 파일 저장
+    NSURL *cssUrl = [NSURL URLWithString:HOME_CSS_URL];
+    NSString *homeCssStr =
+        [NSString stringWithContentsOfURL:cssUrl encoding:NSUTF8StringEncoding error:nil];
+    [homeCssStr writeToFile:[self.fileManager getHomeStyleCssFilePath] atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 
 /**
@@ -94,6 +124,23 @@
 }
 
 /**
+ Home html 파일에 필요한 이미지들을 저장한다.
+ */
+- (void)saveImagesForHome:(NSArray*)urlList {
+    int count = 0;
+    for (NSString* url in urlList) {
+        NSString *directory = [self.fileManager getHomeResourcesDirPath];
+        NSString *extension = [url pathExtension];
+        UIImage *image = [self getImageFromURL:url];
+        NSString *imageName = [NSString stringWithFormat:@"%d",count];
+        
+        [self saveImage:image withFileName:imageName ofType:extension inDirectory:directory];
+        
+        ++count;
+    }
+}
+
+/**
  Content 문자열의 주소들을 로컬 주소로 변경한다.
  */
 - (NSString*)changeContentStr:(NSString*)content
@@ -107,6 +154,20 @@
         ++cnt;
     }
     
+    return content;
+}
+
+/**
+ Home html파일들의 주소를 바꾼다.
+ */
+- (NSString*)changeHomeStr:(NSString*)content ofUrl:(NSArray*)urlList {
+    int cnt = 0;
+    for (NSString* url in urlList) {
+        NSString *localPath = [NSString
+                               stringWithFormat:@"%d.%@",cnt,[url pathExtension]];
+        content = [content stringByReplacingOccurrencesOfString:url withString:localPath];
+        ++cnt;
+    }
     return content;
 }
 

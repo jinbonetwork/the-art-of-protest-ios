@@ -12,6 +12,7 @@
 #define USER_DEFAULT_KEY_APP_INITED      @"user_default_key_app_inited"
 #define USER_DEFAULT_KEY_CONTENTS_INITED @"user_default_key_contents_inited"
 #define USER_DEFAULT_KEY_LAST_MODIFIED   @"user_default_key_last_modified"
+#define USER_DEFAULT_KEY_HOME_VERSION    @"user_default_key_home_version"
 
 @interface AOPContentsManager ()
 
@@ -24,6 +25,7 @@
 @property (copy) void (^initContentsSuccess)(void);
 @property (copy) void (^initContentsProgress)(NSInteger percent);
 @property (copy) void (^initContentsFailure)(NSError *error);
+@property (copy) void (^updateHomeFinish)(void);
 
 @property (nonatomic, strong) NSString* lastModifiedRemote;
 
@@ -32,6 +34,7 @@
 @implementation AOPContentsManager
 
 @synthesize lastModified = _lastModified;
+@synthesize homeVersion = _homeVersion;
 
 /**
  AOPContents Manager의 싱글톤 객체를 반환한다.
@@ -322,6 +325,39 @@
 }
 
 /**
+ 홈 화면 webView에 들어갈 내용이 업데이트 할 필요가 있으면 업데이트한다.
+ */
+- (void)checkAndUpdateHomePage:(void(^)(void))finish {
+    self.updateHomeFinish = finish;
+    [self.serverCommunicator getHomePageVersionAsync:^(NSString *version) {
+        if (version == nil) {
+            finish();
+            return;
+        }
+        if (self.homeVersion == nil || ![self.homeVersion isEqualToString:version]) {
+            self.homeVersion = version;
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [self updateAndCacheHome];
+            });
+        } else {
+            finish();
+        }
+    }];
+}
+
+/**
+ 홈 화면에 들어갈 내용을 업데이트 하고 cache한다.
+ */
+- (void)updateAndCacheHome {
+    PostCacheWorker *worker = [[PostCacheWorker alloc] init];
+    
+    [worker cacheHomePage];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.updateHomeFinish();
+    });
+}
+
+/**
  문서 및 카테고리 전체의 최신 수정 날짜를 가져온다. 이를 통해 업데이트 여부를 판별
  */
 - (NSString*)lastModified {
@@ -342,6 +378,29 @@
         [sud synchronize];
     }
     _lastModified = lastModified;
+}
+
+/**
+홈 화면 웹뷰에 들어갈 내용의 버전을 얻어온다.
+ */
+- (NSString*)homeVersion {
+    if (_homeVersion == nil) {
+        NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+        _homeVersion = [sud valueForKey:USER_DEFAULT_KEY_HOME_VERSION];
+    }
+    return _homeVersion;
+}
+
+/**
+홈 화면 웹뷰에 들어갈 내용의 버전을 설정한다.
+ */
+- (void)setHomeVersion:(NSString *)homeVersion {
+    if (homeVersion != _homeVersion && homeVersion != nil) {
+        NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+        [sud setValue:homeVersion forKey:USER_DEFAULT_KEY_HOME_VERSION];
+        [sud synchronize];
+    }
+    _homeVersion = homeVersion;
 }
 
 /**

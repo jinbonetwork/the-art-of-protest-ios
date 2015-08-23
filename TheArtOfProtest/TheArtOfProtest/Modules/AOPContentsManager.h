@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSArray *categoryMenuList;
 @property (nonatomic, strong) NoticeItem *notice;
 @property (nonatomic, strong) NSString *lastModified;
+@property (nonatomic, strong) NSString *homeVersion;
 
 /**
  AOPContents Manager의 싱글톤 객체를 반환한다.
@@ -60,6 +61,11 @@
  */
 - (void)updateContents:(void(^)(void))success
                failure:(void(^)(NSError *error))failure;
+
+/**
+ 홈 화면 webView에 들어갈 내용이 업데이트 할 필요가 있으면 업데이트한다.
+ */
+- (void)checkAndUpdateHomePage:(void(^)(void))finish;
 
 /**
  저장된 콘텐츠들을 불러온다.

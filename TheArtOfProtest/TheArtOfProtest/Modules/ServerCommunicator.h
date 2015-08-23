@@ -13,6 +13,7 @@
 #import "NoticeParser.h"
 #import "AFNetworking.h"
 
+#define HOME_PAGE_VERSION_URL  @"http://theartofprotest.jinbo.net/home_version.php"
 #define BASE_CMS_URI        @"https://public-api.wordpress.com/rest/v1.1/sites/theartofprotest.jinbo.net"
 #define REST_API_CATEGORIES @"categories"
 #define REST_API_WHOLE_DOCS @"posts/?category=manual&type=page&status=publish"
@@ -58,4 +59,8 @@
 - (void)getNoticeAsync:(void (^)(NoticeItem *notice))success
                failure:(void (^)(NSError *error))failure;
 
+/**
+ 홈 페이지 버전을 얻어온다.
+ */
+- (void)getHomePageVersionAsync:(void (^)(NSString *version))finish;
 @end

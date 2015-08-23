@@ -21,4 +21,9 @@
  */
 - (NSString*)cachePost:(PostItem*)post;
 
+/**
+ 홈 화면 WebView에 들어갈 자료들을 Caching한다.
+ */
+- (void)cacheHomePage;
+
 @end

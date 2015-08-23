@@ -73,8 +73,6 @@
  최초 초기화가 된 경우 호출되는 메소드. DB에서 콘텐츠를 불러오고 업데이트가 필요할 경우 업데이트 한다.
  */
 - (void)loadAndUpdateContents {
-    
-    
     AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
     [contentsManager loadCategoryAndPosts];
     [self.progressMessage setText:@"업데이트 확인 중..."];
@@ -90,15 +88,24 @@
             [self loadNotice];
         }
     }];
-
 }
 
 /**
-공지를 가져온다. 공지가져오기까지 끝나면 스플래쉬 화면을 벗어난다.
+공지를 가져온다. 공지가져오기까지 끝나면 필요할 경우 홈 화면 업데이트를 한다.
  */
 - (void)loadNotice {
     AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
     [contentsManager loadNotice:^{
+        [self checkAndUpdateHomePage];
+    }];
+}
+
+/**
+ 홈 화면의 업데이트가 필요하면 업데이트를 진행한다. 이 작업이 끝나면 스플래쉬 화면을 벗어난다.
+ */
+- (void)checkAndUpdateHomePage {
+    AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
+    [contentsManager checkAndUpdateHomePage:^{
         [self.appInitDelegate checkAndInitAppDone];
     }];
 }

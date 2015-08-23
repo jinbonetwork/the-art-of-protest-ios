@@ -105,6 +105,25 @@
 }
 
 /**
+ 홈 페이지 버전을 얻어온다.
+ */
+- (void)getHomePageVersionAsync:(void (^)(NSString *version))finish {
+    AFHTTPRequestOperation *operation =
+    [self createBaseOperation:HOME_PAGE_VERSION_URL];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dic = (NSDictionary*)responseObject;
+        long versionNum = [[dic objectForKey:@"version"] longValue];
+        NSString *version = [NSString stringWithFormat:@"%ld",versionNum];
+        finish(version);        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        finish(nil);
+    }];
+    
+    [operation start];
+}
+
+/**
  AFHTTPRequestOperation GET을 위한 기본 객체 생성
  */
 - (AFHTTPRequestOperation*)createBaseOperation:(NSString*)url {
