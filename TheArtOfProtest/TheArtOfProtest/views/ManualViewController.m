@@ -91,13 +91,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
+    if (categoryMenu == nil) {
+        return 0;
+    }
     return [categoryMenu count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     int cnt = 0;
-    
     NSArray *categoryMenu = [[AOPContentsManager sharedManager] categoryMenuList];
+    if (categoryMenu == nil) {
+        return 0;
+    }
+    
     NSArray *postList = [[AOPContentsManager sharedManager] postList];
     for(PostItem *item in postList) {
         CategoryMenuItem *category = [categoryMenu objectAtIndex:section];

@@ -65,6 +65,9 @@
  */
 - (void)moveToDocumentView:(NSInteger)postId {
     AOPContentsManager *manager = [AOPContentsManager sharedManager];
+    if (manager.postList == nil) {
+        return;
+    }
     for(PostItem* post in manager.postList) {
         if (postId == post.postId) {
             DocumentViewController *vc = [[DocumentViewController alloc] initWithNibName:@"DocumentViewController" bundle:nil];
