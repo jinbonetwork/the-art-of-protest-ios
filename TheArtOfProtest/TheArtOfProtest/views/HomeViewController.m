@@ -28,7 +28,7 @@
 }
 
 /**
- 
+ 네비게이션바가 첫화면에서는 안보이고 문서 보기창으로 이동했을 때만 나타나돌록 아래 두 메소드를 override한다.
  */
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
