@@ -56,12 +56,27 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
+/**
+ 해당 keyword의 검색 결과를 보여준다.
+ */
+- (void)showSearchResultForKeyword:(NSString*)keyword {
+    self.searchedPosts = [[AOPContentsManager sharedManager] searchPostsWithKeyword:keyword];
+    if (self.searchedPosts == nil || self.searchedPosts.count == 0) {
+        [self.imgNoResult setHidden:NO];
+        [self.labelNoResult setHidden:NO];
+        [self.tableView setHidden:YES];
+    } else {
+        [self.imgNoResult setHidden:YES];
+        [self.labelNoResult setHidden:YES];
+        [self.tableView setHidden:NO];
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark - Search Bar Delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    NSString *keyword = searchBar.text;
-    self.searchedPosts = [[AOPContentsManager sharedManager] searchPostsWithKeyword:keyword];
-    [self.tableView reloadData];
     [self dismissKeyboard];
+    [self showSearchResultForKeyword:searchBar.text];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
