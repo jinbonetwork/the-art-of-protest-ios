@@ -28,6 +28,8 @@
     UIColor *themeColor = [UIColor colorWithRed:1.0f green:114/255.0f blue:0.0f alpha:1.0f];
     [[UINavigationBar appearance] setTintColor:themeColor];
     [[UITabBar appearance] setTintColor:themeColor];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor blackColor] } forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : themeColor } forState:UIControlStateSelected];
     return YES;
 }
 

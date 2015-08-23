@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tabBarController id="ZOx-0s-jDh" customClass="MainTabBarController">
             <nil key="simulatedBottomBarMetrics"/>
-            <tabBar key="tabBar" contentMode="scaleToFill" id="JzM-dY-b3d">
+            <tabBar key="tabBar" contentMode="scaleToFill" selectedItem="0Nv-hX-sy4" id="JzM-dY-b3d">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -17,7 +17,9 @@
             </tabBar>
             <viewControllers>
                 <navigationController id="uKa-5E-q1l" userLabel="Home">
-                    <tabBarItem key="tabBarItem" title="처음" image="Tap_Home_Icon" id="0Nv-hX-sy4"/>
+                    <tabBarItem key="tabBarItem" title="처음" image="tab_home" id="0Nv-hX-sy4">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-6"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MIh-R7-Kd7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +31,9 @@
                     </viewControllers>
                 </navigationController>
                 <navigationController id="v6p-qw-VsZ" userLabel="Navigation_Manual">
-                    <tabBarItem key="tabBarItem" title="매뉴얼" image="Tab_Manual_Icon" id="07K-vt-qqV" userLabel="Manual"/>
+                    <tabBarItem key="tabBarItem" title="매뉴얼" image="tab_manual" id="07K-vt-qqV" userLabel="Manual">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-6"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kcr-kb-rz5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -41,7 +45,9 @@
                     </viewControllers>
                 </navigationController>
                 <navigationController id="ORT-S9-0B6" userLabel="BookMark">
-                    <tabBarItem key="tabBarItem" title="북마크" image="Tab_Bookmark_Icon" id="AKI-WI-qCN"/>
+                    <tabBarItem key="tabBarItem" title="북마크" image="tab_bookmark" id="AKI-WI-qCN">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-6"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zdw-zV-Ys4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -53,7 +59,9 @@
                     </viewControllers>
                 </navigationController>
                 <navigationController id="zPH-Yd-k5f" userLabel="Navigation_Search">
-                    <tabBarItem key="tabBarItem" title="검색" image="Tab_Search_Icon" id="dYf-Os-pZV"/>
+                    <tabBarItem key="tabBarItem" title="검색" image="tab_search" id="dYf-Os-pZV">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-6"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Shy-2P-2rf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -74,7 +82,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="정보" image="Tab_Info_Icon" id="aoN-A1-91f"/>
+                    <tabBarItem key="tabBarItem" title="정보" image="tab_setting" id="aoN-A1-91f">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-6"/>
+                    </tabBarItem>
                 </viewController>
             </viewControllers>
             <connections>
@@ -83,10 +93,10 @@
         </tabBarController>
     </objects>
     <resources>
-        <image name="Tab_Bookmark_Icon" width="25" height="25"/>
-        <image name="Tab_Info_Icon" width="25" height="25"/>
-        <image name="Tab_Manual_Icon" width="25" height="25"/>
-        <image name="Tab_Search_Icon" width="25" height="25"/>
-        <image name="Tap_Home_Icon" width="25" height="25"/>
+        <image name="tab_bookmark" width="15" height="15"/>
+        <image name="tab_home" width="15" height="15"/>
+        <image name="tab_manual" width="15" height="15"/>
+        <image name="tab_search" width="15" height="15"/>
+        <image name="tab_setting" width="15" height="15"/>
     </resources>
 </document>
