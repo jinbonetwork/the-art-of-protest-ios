@@ -72,20 +72,20 @@
                         </tableViewController>
                     </viewControllers>
                 </navigationController>
-                <viewController id="S3i-UZ-lcB" userLabel="Info">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ftq-GW-NSH"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ie5-6E-iXV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="D2h-SJ-MPx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="정보" image="tab_setting" id="aoN-A1-91f">
+                <navigationController id="1QO-wY-Wdx" userLabel="Info">
+                    <tabBarItem key="tabBarItem" title="정보" image="tab_setting" id="TEr-Rv-zgz">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-6"/>
                     </tabBarItem>
-                </viewController>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="FbZ-ZR-rxb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController id="Hpn-nT-2L4" customClass="SettingViewController">
+                            <navigationItem key="navigationItem" title="정보" id="hX9-8Y-Q1d" userLabel="정보"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
             </viewControllers>
             <connections>
                 <outlet property="mTabBar" destination="JzM-dY-b3d" id="Kqb-Jo-D0r"/>
