@@ -38,11 +38,16 @@
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
         </view>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="6Yr-YW-AZr" userLabel="Close">
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6Yr-YW-AZr" userLabel="Close">
             <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal">
+            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+            <state key="normal" title="X">
+                <color key="titleColor" red="1" green="0.44705882349999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+            <state key="highlighted">
+                <color key="titleColor" red="0.95294117647058818" green="0.60392156862745094" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
             </state>
             <connections>
                 <action selector="closeBtnTouched:" destination="-1" eventType="touchUpInside" id="d7D-TV-Lpp"/>
