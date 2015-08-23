@@ -54,6 +54,27 @@
 - (void)copyBundleFilesToAppSupportDir {
     NSString* bundleCSS = [[NSBundle mainBundle] pathForResource:@"style" ofType:@"css"];
     [[NSFileManager defaultManager] copyItemAtPath:bundleCSS toPath:[self getContentCssFilePath] error:nil];
+    
+    // home_resource 폴더 생성
+    [[NSFileManager defaultManager]
+     createDirectoryAtPath:[self getHomeResourcesDirPath]
+     withIntermediateDirectories:YES attributes: nil error:nil];
+    
+    // home.html 복사
+    NSString* homeHtmlPath = [[NSBundle mainBundle] pathForResource:@"home" ofType:@"html"];
+    [[NSFileManager defaultManager] copyItemAtPath:homeHtmlPath toPath:[self getHomeHtmlFilePath] error:nil];
+    
+    // home-style.css 복사
+    NSString* homeCssPath = [[NSBundle mainBundle] pathForResource:@"home-style" ofType:@"css"];
+    [[NSFileManager defaultManager] copyItemAtPath:homeCssPath toPath:[self getHomeStyleCssFilePath] error:nil];
+    
+    // home.html에서 사용되는 이미지들 복사
+    int imgCount = 4;
+    for(int i=1; i <= imgCount; i++) {
+        NSString *idx = [NSString stringWithFormat:@"%d",i];
+        NSString *imgPath = [[NSBundle mainBundle] pathForResource:idx ofType:@"png"];
+        [[NSFileManager defaultManager] copyItemAtPath:imgPath toPath:[self getHomeImagePathOfidx:idx] error:nil];
+    }
 }
 
 /**
@@ -78,6 +99,34 @@
  */
 - (NSString*)getContentCssFilePath {
     return [NSString pathWithComponents:@[[self getAppSupportRoot], FILE_NAME_STYLE_CSS]];
+}
+
+/**
+  ~/Library/Application Support/home_resource 디렉토리 경로. 홈 화면 웹뷰에 사용되는 파일들
+ */
+- (NSString*)getHomeResourcesDirPath {
+    return [NSString pathWithComponents:@[[self getAppSupportRoot], DIR_NAME_HOME_RESOURCES]];
+}
+
+/**
+ ~/Library/Application Support/home_resource 디렉토리의 html 파일 경로
+ */
+- (NSString*)getHomeHtmlFilePath {
+    return [NSString pathWithComponents:@[[self getHomeResourcesDirPath], FILE_NAME_HOME_HTML]];
+}
+
+/**
+ ~/Library/Application Support/home_resource 디렉토리의 css 파일 경로
+ */
+- (NSString*)getHomeStyleCssFilePath {
+    return [NSString pathWithComponents:@[[self getHomeResourcesDirPath], FILE_NAME_HOME_STYLE_CSS]];
+}
+
+/**
+ ~/Library/Application Support/home_resource 디렉토리의 이미지 파일 경로
+ */
+- (NSString*)getHomeImagePathOfidx:(NSString*)idxStr {
+    return [[NSString pathWithComponents:@[[self getHomeResourcesDirPath], idxStr]] stringByAppendingPathExtension:@"png"];
 }
 
 /**

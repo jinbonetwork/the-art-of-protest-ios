@@ -15,11 +15,14 @@
 @interface HomeViewController ()
 @end
 
+//@"http://theartofprotest.jinbo.net/home.html"
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://theartofprotest.jinbo.net/home.html"]];
+    
+    FileManager *fileManager = [[FileManager alloc] init];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:[fileManager getHomeHtmlFilePath]]];
     [self initNoticeView];
     
     self.webView.delegate = self;

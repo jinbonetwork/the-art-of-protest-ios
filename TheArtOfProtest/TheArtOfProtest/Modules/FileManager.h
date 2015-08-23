@@ -10,6 +10,9 @@
 
 #define FILE_NAME_MENU_JSON @"menu.json"
 #define FILE_NAME_STYLE_CSS @"style.css"
+#define FILE_NAME_HOME_STYLE_CSS @"home-style.css"
+#define FILE_NAME_HOME_HTML @"home.html"
+#define DIR_NAME_HOME_RESOURCES @"home_resources"
 
 /**
  로컬에 저장되는 파일을 관리하는 모듈
@@ -50,6 +53,16 @@
  ~/Library/Application Support/style.css 파일. 문서 콘텐츠에 사용되는 css 파일
  */
 - (NSString*)getContentCssFilePath;
+
+/**
+ ~/Library/Application Support/home_resource 디렉토리 경로. 홈 화면 웹뷰에 사용되는 파일들
+ */
+- (NSString*)getHomeResourcesDirPath;
+
+/**
+ ~/Library/Application Support/home_resource 디렉토리의 html 파일 경로
+ */
+- (NSString*)getHomeHtmlFilePath;
 
 /**
  앱 자료를 저장하는 기본 루트인 ~/Library/Application Supprt/ 경로를 얻어온다.
