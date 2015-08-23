@@ -123,7 +123,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    PostItem *item = [self.searchedPosts objectAtIndex:indexPath.row];
+    NSString *str = item.excerpt;
+    
+    CGFloat width = self.view.frame.size.width - 24;
+    UIFont *font = [UIFont systemFontOfSize:15.0f];
+    NSAttributedString *attributeText = [[NSAttributedString alloc] initWithString:str
+                                                                        attributes:@{NSFontAttributeName: font}];
+    CGRect rect = [attributeText boundingRectWithSize:(CGSize){width,CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    CGSize size = rect.size;
+    
+    return size.height + 51.0f;
 }
 
 - (void)didReceiveMemoryWarning {

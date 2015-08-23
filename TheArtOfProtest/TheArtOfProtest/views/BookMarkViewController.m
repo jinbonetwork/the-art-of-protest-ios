@@ -138,17 +138,17 @@
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        PostItem *item = [self.bookMarkPosts objectAtIndex:indexPath.row];
+    PostItem *item = [self.bookMarkPosts objectAtIndex:indexPath.row];
     NSString *str = item.excerpt;
     
-    CGFloat width = self.view.frame.size.width - 50;
+    CGFloat width = self.view.frame.size.width - 52;
     UIFont *font = [UIFont systemFontOfSize:15.0f];
     NSAttributedString *attributeText = [[NSAttributedString alloc] initWithString:str
                                                                         attributes:@{NSFontAttributeName: font}];
     CGRect rect = [attributeText boundingRectWithSize:(CGSize){width,CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
     CGSize size = rect.size;
     
-    return size.height + 45.0f;
+    return size.height + 47.0f;
 }
 
 /**
