@@ -47,13 +47,33 @@
 - (void)updateTableViewContents {
     self.bookMarkPosts = [[AOPContentsManager sharedManager] getBookMarkedPost];
     if (self.bookMarkPosts == nil || self.bookMarkPosts.count == 0) {
-        [self.imgNoResult setHidden:NO];
-        [self.tableView setHidden:YES];
+        [self showNoBookMarkUI];
     } else {
-        [self.imgNoResult setHidden:YES];
-        [self.tableView setHidden:NO];
-        [self.tableView reloadData];
+        [self showBookMarkListUI];
     }
+}
+
+/**
+ 북마크 된 것이 없을 때 나타내는 UI를 보여준다.
+ */
+- (void)showNoBookMarkUI {
+    [self.labelNoResult1 setHidden:NO];
+    [self.labelNoResult2 setHidden:NO];
+    [self.iconNoResult setHidden:NO];
+    [self.imgNoResult setHidden:NO];
+    [self.tableView setHidden:YES];
+}
+
+/**
+ 북마크 목록을 나타내는 UI를 보여준다.
+ */
+- (void)showBookMarkListUI {
+    [self.labelNoResult1 setHidden:YES];
+    [self.labelNoResult2 setHidden:YES];
+    [self.iconNoResult setHidden:YES];
+    [self.imgNoResult setHidden:YES];
+    [self.tableView setHidden:NO];
+    [self.tableView reloadData];
 }
 
 /**

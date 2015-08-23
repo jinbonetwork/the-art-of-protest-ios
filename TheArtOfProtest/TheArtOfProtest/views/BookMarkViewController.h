@@ -11,4 +11,7 @@
 @interface BookMarkViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgNoResult;
+@property (weak, nonatomic) IBOutlet UILabel *labelNoResult1;
+@property (weak, nonatomic) IBOutlet UIImageView *iconNoResult;
+@property (weak, nonatomic) IBOutlet UILabel *labelNoResult2;
 @end
