@@ -9,8 +9,11 @@
 #import "SplashViewController.h"
 #import "AOPContentsManager.h"
 
-@interface SplashViewController ()
-
+@interface SplashViewController (){
+    BOOL mIsInitializing;
+    BOOL mIsCheckUpdateFinished;
+    double mStartTime;
+}
 @end
 
 @implementation SplashViewController
@@ -19,6 +22,10 @@
     [super viewDidLoad];
     [self initUI];
     [self initialize];
+    mIsInitializing = NO;
+    mIsCheckUpdateFinished = NO;
+    mStartTime = CACurrentMediaTime();
+    [self startTimer];
 }
 
 - (void)initUI {
@@ -38,6 +45,19 @@
     [self.splashImage setImage:[UIImage imageNamed:imageName]];
 }
 
+- (void)startTimer {
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(onLimitTime)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
+- (void)onLimitTime {
+    int debug;
+    debug = 1;
+}
+
 - (void)initialize {
     AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
     
@@ -50,6 +70,7 @@
     if ([contentsManager isContentInitialized]) {
         [self loadAndUpdateContents];
     } else {
+        mIsInitializing = YES;
         [self initializeContents];
     }
 }
@@ -77,6 +98,12 @@
     [contentsManager loadCategoryAndPosts];
     [self.progressMessage setText:@"업데이트 확인 중..."];
     [contentsManager checkUpdate:^(BOOL needUpdate, NSString* modifiedDate) {
+        mIsCheckUpdateFinished = YES;
+        double timeElapsed = CACurrentMediaTime() - mStartTime;
+        if (timeElapsed > 5.0) {
+            [self.appInitDelegate checkAndInitAppDone];
+            return;
+        }
         if (needUpdate) {
             [self.progressMessage setText:@"업데이트 중..."];
             [contentsManager updateContents:^{
