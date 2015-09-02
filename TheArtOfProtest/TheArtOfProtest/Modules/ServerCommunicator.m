@@ -127,7 +127,8 @@
  AFHTTPRequestOperation GET을 위한 기본 객체 생성
  */
 - (AFHTTPRequestOperation*)createBaseOperation:(NSString*)url {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setTimeoutInterval:6];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     return operation;

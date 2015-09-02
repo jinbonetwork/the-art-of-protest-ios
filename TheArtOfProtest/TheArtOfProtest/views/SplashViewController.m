@@ -10,8 +10,6 @@
 #import "AOPContentsManager.h"
 
 @interface SplashViewController (){
-    BOOL mIsInitializing;
-    BOOL mIsCheckUpdateFinished;
     double mStartTime;
 }
 @end
@@ -22,10 +20,7 @@
     [super viewDidLoad];
     [self initUI];
     [self initialize];
-    mIsInitializing = NO;
-    mIsCheckUpdateFinished = NO;
     mStartTime = CACurrentMediaTime();
-    [self startTimer];
 }
 
 - (void)initUI {
@@ -45,19 +40,6 @@
     [self.splashImage setImage:[UIImage imageNamed:imageName]];
 }
 
-- (void)startTimer {
-    [NSTimer scheduledTimerWithTimeInterval:2.0
-                                     target:self
-                                   selector:@selector(onLimitTime)
-                                   userInfo:nil
-                                    repeats:NO];
-}
-
-- (void)onLimitTime {
-    int debug;
-    debug = 1;
-}
-
 - (void)initialize {
     AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
     
@@ -70,7 +52,6 @@
     if ([contentsManager isContentInitialized]) {
         [self loadAndUpdateContents];
     } else {
-        mIsInitializing = YES;
         [self initializeContents];
     }
 }
@@ -98,9 +79,9 @@
     [contentsManager loadCategoryAndPosts];
     [self.progressMessage setText:@"업데이트 확인 중..."];
     [contentsManager checkUpdate:^(BOOL needUpdate, NSString* modifiedDate) {
-        mIsCheckUpdateFinished = YES;
+        // 업데이트 필요 여부를 확인하는데만 5초 이상이 걸리면 네트워크가 느린 것이라 판단하여 바로 홈화면으로 간다.
         double timeElapsed = CACurrentMediaTime() - mStartTime;
-        if (timeElapsed > 5.0) {
+        if (timeElapsed > 5.5) {
             [self.appInitDelegate checkAndInitAppDone];
             return;
         }
