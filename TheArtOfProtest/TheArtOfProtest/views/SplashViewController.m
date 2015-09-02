@@ -81,7 +81,7 @@
     [contentsManager checkUpdate:^(BOOL needUpdate, NSString* modifiedDate) {
         // 업데이트 필요 여부를 확인하는데만 5초 이상이 걸리면 네트워크가 느린 것이라 판단하여 바로 홈화면으로 간다.
         double timeElapsed = CACurrentMediaTime() - mStartTime;
-        if (timeElapsed > 2.0) {
+        if (timeElapsed > 5.5) {
             [self.appInitDelegate checkAndInitAppDone];
             return;
         }
