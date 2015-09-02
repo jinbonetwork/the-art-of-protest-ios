@@ -38,15 +38,15 @@
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
         </view>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6Yr-YW-AZr" userLabel="Close">
-            <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+        <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6Yr-YW-AZr" userLabel="Close">
+            <rect key="frame" x="0.0" y="0.0" width="22" height="28"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <fontDescription key="fontDescription" type="system" pointSize="23"/>
-            <state key="normal" title="X">
+            <state key="normal" image="barbtn_close">
                 <color key="titleColor" red="1" green="0.44705882349999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
             </state>
-            <state key="highlighted">
+            <state key="highlighted" image="barbtn_close">
                 <color key="titleColor" red="0.95294117647058818" green="0.60392156862745094" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
             </state>
             <connections>
@@ -54,16 +54,21 @@
             </connections>
             <point key="canvasLocation" x="83" y="697"/>
         </button>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="mpe-g8-dEJ" userLabel="Share">
+        <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mpe-g8-dEJ" userLabel="Share">
             <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal">
+            <state key="normal" image="barbtn_share">
                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
             </state>
+            <state key="highlighted" image="barbtn_share"/>
             <connections>
                 <action selector="shareBtnTouched:" destination="-1" eventType="touchUpInside" id="jnU-51-wz4"/>
             </connections>
             <point key="canvasLocation" x="190" y="697"/>
         </button>
     </objects>
+    <resources>
+        <image name="barbtn_close" width="22" height="22"/>
+        <image name="barbtn_share" width="22" height="22"/>
+    </resources>
 </document>
