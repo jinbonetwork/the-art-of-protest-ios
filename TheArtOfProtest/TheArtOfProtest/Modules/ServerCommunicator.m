@@ -128,7 +128,7 @@
  */
 - (AFHTTPRequestOperation*)createBaseOperation:(NSString*)url {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [request setTimeoutInterval:7];
+    [request setTimeoutInterval:10];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     return operation;

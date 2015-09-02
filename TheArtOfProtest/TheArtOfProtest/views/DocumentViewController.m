@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = self.post.title;
+    self.navigationItem.title = self.post.categoryName;
     [self initWebview];
     [self setBookMarkButton];
 }
