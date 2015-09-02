@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = self.post.categoryName;
+    self.navigationItem.title = self.post.title;
     [self initWebview];
     [self setBookMarkButton];
 }
@@ -55,7 +55,11 @@
     [self.btnBookmark setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     UIBarButtonItem *bookMark = [[UIBarButtonItem alloc] initWithCustomView:self.btnBookmark];
     self.navigationItem.rightBarButtonItem = bookMark;
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    [self setBookMarkButton];
 }
 
 /**
