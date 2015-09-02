@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *labelLastModified;
+@property (weak, nonatomic) IBOutlet UILabel *lastModified;
 
 @end

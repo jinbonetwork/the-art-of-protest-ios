@@ -18,8 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     AOPContentsManager *manager = [AOPContentsManager sharedManager];
-    if (manager.lastModified != nil) {
-        self.labelLastModified.text = manager.lastModified;
+    if (manager.lastModified == nil) {
+        self.lastModified.text = @"초기화 필요";
+    } else {
+        NSString *date = [manager.lastModified substringToIndex:10];
+        date = [date stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
+        self.lastModified.text = date;
     }
 }
 

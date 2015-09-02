@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController">
             <connections>
+                <outlet property="lastModified" destination="tQv-6a-fX9" id="zxT-FP-iov"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -216,7 +217,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 집회시위 제대로 앱은 아름다운재단의 2015 변화의 시나리오로 제작되었습니다." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZQ-9g-kuV">
-                    <rect key="frame" x="20" y="320" width="560" height="40"/>
+                    <rect key="frame" x="20" y="310" width="560" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="3BZ-yY-RiJ"/>
                     </constraints>
@@ -234,7 +235,7 @@
                 <constraint firstAttribute="trailing" secondItem="XZQ-9g-kuV" secondAttribute="trailing" constant="20" id="flZ-1n-A66"/>
                 <constraint firstItem="alw-OB-Uzv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lZT-iK-gTP"/>
                 <constraint firstItem="8zi-BE-CSV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sNk-dE-bcr"/>
-                <constraint firstItem="XZQ-9g-kuV" firstAttribute="top" secondItem="8zi-BE-CSV" secondAttribute="bottom" constant="15" id="z2W-0K-4aN"/>
+                <constraint firstItem="XZQ-9g-kuV" firstAttribute="top" secondItem="8zi-BE-CSV" secondAttribute="bottom" constant="5" id="z2W-0K-4aN"/>
                 <constraint firstItem="XZQ-9g-kuV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="zpS-DO-JlK"/>
             </constraints>
         </view>
