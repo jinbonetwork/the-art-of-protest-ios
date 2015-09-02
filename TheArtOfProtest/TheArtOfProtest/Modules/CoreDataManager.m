@@ -109,8 +109,22 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]
                                     initWithEntityName:POST_MENU_ENTITY_NAME];
-    NSPredicate *predicate = [NSPredicate
-                                 predicateWithFormat:@"(title CONTAINS[cd] %@) OR (content CONTAINS[cd] %@)",keyword, keyword];
+    
+    NSArray *keywords = [keyword componentsSeparatedByString:@" "];
+    NSMutableArray *filterArgs = [NSMutableArray array];
+    NSString *filter = @"";
+    int cnt = 0;
+    for(NSString *key in keywords) {
+        NSString *prefix = ((cnt++) == 0)? @"" : @" AND ";
+        filter = [NSString stringWithFormat:@"%@%@%@",
+                  filter,
+                  prefix,
+                  @"(%K CONTAINS[cd] %@ || %K CONTAINS[cd] %@ || %K CONTAINS[cd] %@)"];
+        [filterArgs addObjectsFromArray:@[@"title", key, @"content", key, @"excerpt", key]];
+        ++cnt;
+    }
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:filter argumentArray:filterArgs];
     [fetchRequest setPredicate:predicate];
     
     NSArray *ary = [context executeFetchRequest:fetchRequest error:nil];
