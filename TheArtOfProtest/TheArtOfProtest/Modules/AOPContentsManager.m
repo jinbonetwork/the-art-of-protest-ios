@@ -262,6 +262,8 @@
         
         PostCacheWorker *cacheWorker = [[PostCacheWorker alloc] init];
         for (PostItem *currPost in postList) {
+            currPost.excerpt = [self getPlainStringFromHtmlString:currPost.excerpt];
+            currPost.content = [self postContentWithHeader:currPost];
             
             BOOL isUpdatedPost = YES;
             PostItem *prevPost = [self getPostHasId:currPost.postId];
@@ -273,8 +275,6 @@
             }
             
             if (isUpdatedPost) { // 새 포스트(업데이트 또는 새로추가) 의 경우에는 필요한 작업들을 해준다.
-                currPost.excerpt = [self getPlainStringFromHtmlString:currPost.excerpt];
-                currPost.content = [self postContentWithHeader:currPost];
                 [cacheWorker cachePost:currPost];
                 [self.coreDataManager insertPost:currPost];
             }
