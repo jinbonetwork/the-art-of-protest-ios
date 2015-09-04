@@ -109,6 +109,7 @@
     
     [self.serverCommunicator getCategoryMenusAsync:^(NSArray *categoryMenuList) {
         self.categoryMenuList = categoryMenuList;
+        self.initContentsProgress(10);
         [self getPostsFromServerForInit];
     } failure:^(NSError *error) {
         self.initContentsFailure(error);
@@ -120,6 +121,7 @@
  */
 - (void)getPostsFromServerForInit {
     [self.serverCommunicator getPostsAsync:^(NSArray *postList) {
+        self.initContentsProgress(20);
         self.postList = postList;
         [self rectifyCategoryAndPosts];
         [self saveCategoryMenuList];
@@ -152,9 +154,12 @@
     // post와 category를 정렬한다.
     [self sortCategoryAndPosts];
     
-    // HTML로 부터 plain 문자열을 얻는다.
+
     for (PostItem *post in self.postList) {
+        // HTML로 부터 plain 문자열을 얻는다.
         post.excerpt = [self getPlainStringFromHtmlString:post.excerpt];
+        // post에 제목과 날짜를 붙임
+        post.content = [self postContentWithHeader:post];
     }
 }
 
@@ -169,6 +174,19 @@
                        NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
                        NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]}
              documentAttributes:nil error:nil] string];
+}
+
+/**
+ contetn 앞에 제목과 날짜를 붙인 content 문자열을 반환한다.
+ */
+- (NSString*) postContentWithHeader:(PostItem*)post {
+    NSString *date=@"";
+    if (post.modified != nil && post.modified.length > 10) {
+        date = [post.modified substringToIndex:10];
+        date = [date stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
+    }
+    return [NSString stringWithFormat:@"<header><h1>%@</h1><time>최종 업데이트: %@</time></header>%@",
+                    post.title, date, post.content];
 }
 
 /**
@@ -202,7 +220,6 @@
  포스트를 DB에 저장하고 필요한 자료들을 Caching 한다.
  */
 - (void)savePosts {
-    
     PostCacheWorker *worker = [[PostCacheWorker alloc] init];
     
     for (PostItem *post in self.postList) {
@@ -257,6 +274,7 @@
             
             if (isUpdatedPost) { // 새 포스트(업데이트 또는 새로추가) 의 경우에는 필요한 작업들을 해준다.
                 currPost.excerpt = [self getPlainStringFromHtmlString:currPost.excerpt];
+                currPost.content = [self postContentWithHeader:currPost];
                 [cacheWorker cachePost:currPost];
                 [self.coreDataManager insertPost:currPost];
             }

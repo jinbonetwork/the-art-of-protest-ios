@@ -60,12 +60,17 @@
  최초로 콘텐츠를 초기화 한다.
  */
 - (void)initializeContents {
-    [self.progressMessage setText:@"초기화 중..."];
+    [self.progressMessage setText:@"카테고리 초기화 중..."];
     
     AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
     [contentsManager initContents:^{
         [self loadNotice];
     } progress:^(NSInteger percent) {
+        if (percent == 10) {
+            [self.progressMessage setText:@"콘텐츠를 받아오는 중..."];
+        } else if (percent == 20) {
+            [self.progressMessage setText:@"콘텐츠 초기화 중..."];
+        }
     } failure:^(NSError *error) {
         [self loadNotice];
     }];
@@ -79,9 +84,9 @@
     [contentsManager loadCategoryAndPosts];
     [self.progressMessage setText:@"업데이트 확인 중..."];
     [contentsManager checkUpdate:^(BOOL needUpdate, NSString* modifiedDate) {
-        // 업데이트 필요 여부를 확인하는데만 5초 이상이 걸리면 네트워크가 느린 것이라 판단하여 바로 홈화면으로 간다.
+        // 업데이트 필요 여부를 확인하는데만 7.5초 이상이 걸리면 네트워크가 느린 것이라 판단하여 바로 홈화면으로 간다.
         double timeElapsed = CACurrentMediaTime() - mStartTime;
-        if (timeElapsed > 5.5) {
+        if (timeElapsed > 7.5) {
             [self.appInitDelegate checkAndInitAppDone];
             return;
         }

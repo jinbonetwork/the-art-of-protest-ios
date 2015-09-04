@@ -119,10 +119,9 @@ body {
     background-color: #ffffff;
     text-rendering: optimizeLegibility;
     font-size: 16px;
-}
-body {
-    color: #333333;
+    color: #595757;
     line-height: 1.6;
+    text-align: justify;
 }
 pre,
 code, {
@@ -229,29 +228,23 @@ blockquote {
 dl {
     margin-top: 1em;
 }
-ol {
+ol,ul {
     padding-left: 1em;
 }
-ul {
-    padding-left: 1em;
+header {
+    background: #F7F7F7;
+    padding: 25px;
 }
-h6 {
-    margin-top: 1em;
-}
-h5 {
-    margin-top: 1em;
-}
-h4 {
-    margin-top: 1em;
-}
-h3 {
-    margin-top: 0;
-}
-h2 {
-    margin-top: 1em;
+h1, h2, h3, h4, h5, h6 {
+    color: #0F82ED;
+    margin-top: 0em;
 }
 h1 {
-    margin-top: 1em;
+    font-size: 21px;
+}
+time {
+    font-size: 11px;
+    color: #595757;
 }
 p {
     margin-top: 1em;
@@ -298,17 +291,28 @@ p {
 .builder-section.cryout .builder-text-section-title,
 .builder-section.neverforget .builder-text-section-title,
 .builder-section.arguemore .builder-text-section-title,
-.builder-section.cases .builder-text-section-title,
-h3 {
+.builder-section.cases .builder-text-section-title {
     display: block;
     font-size: 18px;
+}
+.builder-section.cases .builder-text-content h3 {
+    font-size: 15px;
+    color: #333;
 }
 sub {
     vertical-align: baseline;
     font-size: 0.8em;
+    color: #929292;
 }
-small {
-    color: #333;
+.builder-section.laws h3 + p {
+    font-size: 0.95em;
+    line-height: 1.2;
+    color: #929292;
+}
+.builder-section .builder-section-content .builder-text-content a:before {
+    display: inline;
+    content: '��';
+    padding-right: 3px;
 }
 .builder-section .builder-section-content {
     width: auto;
@@ -320,6 +324,15 @@ small {
     content: '';
     display: block;
     clear: both;
+}
+.builder-section .builder-section-content figure {
+    margin: 10px 0;
+    padding: 0;
+}
+.builder-section .builder-section-content figcaption {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
 }
 .builder-section .builder-section-content .builder-text-image {
     display: block;
@@ -364,7 +377,7 @@ small {
 }
 .builder-section .builder-section-content .builder-text-content h3 a {
     color: #ff9d4d;
-    font-size: 11px;
+    font-size: 12px;
     text-decoration: none;
 }
 .builder-section .builder-section-content .builder-text-content * + h2 {
@@ -380,24 +393,15 @@ small {
     padding-bottom: 18px;
 }
 .builder-section .builder-section-content .builder-text-content cite {
-    display: inline-block;
-    background: #ff9d4d;
-    color: #fff;
-    padding: 2px 4px;
-    border-radius: 3px;
+    color: #ff9d4d;
+    padding-left: 2px;
     font-style: normal;
-    font-size :0.85em;
+    font-size: 11px;
 }
 .builder-section .builder-section-content .builder-text-content cite a {
     text-decoration: none;
-    color: #fff;
+    color: #ff9d4d;
 }
-.builder-section .builder-section-content .builder-text-content cite a:before {
-    display: inline;
-    content: '#';
-    padding-right: 3px;
-}
-display: inline-block;
 .builder-section .builder-section-content .builder-text-image + .builder-text-content {
     margin-top: 15px;
 }

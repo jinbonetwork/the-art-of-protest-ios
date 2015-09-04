@@ -34,7 +34,7 @@
     FileManager *fileManager = [[FileManager alloc] init];
     NSString *path = [fileManager getAppSupportRoot];
     NSURL* baseURL = [NSURL fileURLWithPath:path];
-    
+
     // WebView 들어갈 html콘텐츠를 구성
     NSString *html= [NSString stringWithFormat:@"%@%@%@",
                      @"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\"/></head><body>",
