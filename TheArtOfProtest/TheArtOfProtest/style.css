@@ -311,7 +311,7 @@ sub {
 }
 .builder-section .builder-section-content .builder-text-content a:before {
     display: inline;
-    content: '��';
+    content: ' ';
     padding-right: 3px;
 }
 .builder-section .builder-section-content {
