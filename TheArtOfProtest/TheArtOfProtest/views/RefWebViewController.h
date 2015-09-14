@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (strong, nonatomic) IBOutlet UIButton *btnClose;
+@property (weak, nonatomic) IBOutlet UILabel *disconnectErrorLabel;
 @property (strong, nonatomic) IBOutlet UIButton *btnShare;
 - (IBAction)closeBtnTouched:(id)sender;
 - (IBAction)shareBtnTouched:(id)sender;

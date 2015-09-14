@@ -94,6 +94,12 @@
     self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 }
 
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    self.navigationItem.title = @"불러오기 실패";
+    [self.indicator setHidden:YES];
+    [self.disconnectErrorLabel setHidden:NO];
+}
+
 #pragma mark = UIActionSheet Delegate 
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

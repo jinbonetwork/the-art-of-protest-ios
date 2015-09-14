@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="btnClose" destination="6Yr-YW-AZr" id="UHm-ny-yn1"/>
                 <outlet property="btnShare" destination="mpe-g8-dEJ" id="5yz-BS-Hae"/>
+                <outlet property="disconnectErrorLabel" destination="zWH-ku-2CY" id="rzq-7q-y8Z"/>
                 <outlet property="indicator" destination="K2U-mq-RqX" id="Ptw-qR-n1x"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="Abj-fM-dyn" id="8bh-Qt-skw"/>
@@ -23,6 +24,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </webView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="네트워크가 연결되어 있지 않습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWH-ku-2CY">
+                    <rect key="frame" x="190" y="290" width="220" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="R72-Kh-GzW"/>
+                        <constraint firstAttribute="width" constant="220" id="dDd-1o-jmD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="K2U-mq-RqX">
                     <rect key="frame" x="290" y="290" width="20" height="20"/>
                 </activityIndicatorView>
@@ -30,11 +41,13 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="K2U-mq-RqX" secondAttribute="centerX" id="4zv-MW-472"/>
+                <constraint firstAttribute="centerX" secondItem="zWH-ku-2CY" secondAttribute="centerX" id="50P-Z0-AhY"/>
                 <constraint firstItem="Abj-fM-dyn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CIo-sz-sNA"/>
                 <constraint firstAttribute="bottom" secondItem="Abj-fM-dyn" secondAttribute="bottom" id="ElA-GM-rui"/>
                 <constraint firstItem="Abj-fM-dyn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JBq-Bc-n3K"/>
                 <constraint firstAttribute="trailing" secondItem="Abj-fM-dyn" secondAttribute="trailing" id="Ky8-Ri-X9g"/>
                 <constraint firstAttribute="centerY" secondItem="K2U-mq-RqX" secondAttribute="centerY" id="hUU-CA-WV7"/>
+                <constraint firstAttribute="centerY" secondItem="zWH-ku-2CY" secondAttribute="centerY" id="jSY-GW-EG1"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
         </view>
