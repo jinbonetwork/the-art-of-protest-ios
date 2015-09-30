@@ -8,6 +8,9 @@
 
 관련 소개 페이지: http://lab.jinbo.net/projects/the-art-of-protest
 
+## 앱 다운로드
+https://itunes.apple.com/kr/app/jibhoesiwi-jedaelo/id1033019907
+
 ## 앱 지원 범위
 * iPhone4 이상
 * iOS7 이상
