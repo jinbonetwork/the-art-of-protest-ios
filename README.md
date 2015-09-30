@@ -27,4 +27,4 @@ clone 후 아래 명렁어를 실행해 주십시오.
 > pod install
 
 ## license
-진보네트워크센터, 공권력감시대응팀 CC BY-NC-SA
+<a href="http://www.jinbo.net" target="_blank">진보네트워크센터</a>, <a href="http://policewatch.jinbo.net/" target="_blank">공권력감시대응팀</a> <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">CC BY-NC-SA</a>
