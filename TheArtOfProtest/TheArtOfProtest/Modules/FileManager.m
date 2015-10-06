@@ -69,7 +69,7 @@
     [[NSFileManager defaultManager] copyItemAtPath:homeCssPath toPath:[self getHomeStyleCssFilePath] error:nil];
     
     // home.html에서 사용되는 이미지들 복사
-    int imgCount = 4;
+    int imgCount = 11;
     for(int i=1; i <= imgCount; i++) {
         NSString *idx = [NSString stringWithFormat:@"%d",i];
         NSString *imgPath = [[NSBundle mainBundle] pathForResource:idx ofType:@"png"];

@@ -107,7 +107,7 @@
                     </constraints>
                 </view>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcY-nj-gSk">
-                    <rect key="frame" x="0.0" y="70" width="600" height="530"/>
+                    <rect key="frame" x="0.0" y="70" width="600" height="485"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </webView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="13Q-HC-H3Z">
@@ -121,7 +121,7 @@
                 <constraint firstAttribute="centerX" secondItem="13Q-HC-H3Z" secondAttribute="centerX" id="Eex-WB-tge"/>
                 <constraint firstItem="EnN-7i-gcJ" firstAttribute="leading" secondItem="VsD-jM-JHn" secondAttribute="leading" id="PPB-wA-8y4"/>
                 <constraint firstItem="pYE-c8-Oyi" firstAttribute="leading" secondItem="VsD-jM-JHn" secondAttribute="leading" id="TSS-Xf-urm"/>
-                <constraint firstAttribute="bottom" secondItem="rcY-nj-gSk" secondAttribute="bottom" id="UFg-Dg-xr1"/>
+                <constraint firstAttribute="bottom" secondItem="rcY-nj-gSk" secondAttribute="bottom" constant="45" id="UFg-Dg-xr1"/>
                 <constraint firstItem="EnN-7i-gcJ" firstAttribute="top" secondItem="pYE-c8-Oyi" secondAttribute="bottom" id="Za9-Mu-Pc5"/>
                 <constraint firstItem="rcY-nj-gSk" firstAttribute="leading" secondItem="VsD-jM-JHn" secondAttribute="leading" id="gCT-It-Hd2"/>
                 <constraint firstItem="pYE-c8-Oyi" firstAttribute="top" secondItem="VsD-jM-JHn" secondAttribute="top" id="hhr-sa-w7l"/>
