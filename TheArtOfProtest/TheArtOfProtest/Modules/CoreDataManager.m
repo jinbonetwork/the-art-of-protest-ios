@@ -114,7 +114,9 @@
     NSMutableArray *filterArgs = [NSMutableArray array];
     NSString *filter = @"";
     int cnt = 0;
-    for(NSString *key in keywords) {
+    for(NSString *rarekey in keywords) {
+        NSString *key = [rarekey stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if ([key length] == 0) continue;
         NSString *prefix = ((cnt++) == 0)? @"" : @" AND ";
         filter = [NSString stringWithFormat:@"%@%@%@",
                   filter,
@@ -123,7 +125,9 @@
         [filterArgs addObjectsFromArray:@[@"title", key, @"content", key, @"excerpt", key]];
         ++cnt;
     }
-    
+    if ([filter length] == 0) {
+        return [NSMutableArray array];
+    }
     NSPredicate *predicate = [NSPredicate predicateWithFormat:filter argumentArray:filterArgs];
     [fetchRequest setPredicate:predicate];
     
