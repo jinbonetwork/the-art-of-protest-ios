@@ -84,9 +84,9 @@
     [contentsManager loadCategoryAndPosts];
     [self.progressMessage setText:@"업데이트 확인 중..."];
     [contentsManager checkUpdate:^(BOOL needUpdate, NSString* modifiedDate) {
-        // 업데이트 필요 여부를 확인하는데만 7.5초 이상이 걸리면 네트워크가 느린 것이라 판단하여 바로 홈화면으로 간다.
+        // 업데이트 필요 여부를 확인하는데만 3.5초 이상이 걸리면 네트워크가 느린 것이라 판단하여 바로 홈화면으로 간다.
         double timeElapsed = CACurrentMediaTime() - mStartTime;
-        if (timeElapsed > 7.5) {
+        if (timeElapsed > 3.5) {
             [self.appInitDelegate checkAndInitAppDone];
             return;
         }

@@ -29,7 +29,7 @@
 - (void)getCategoryMenusAsync:(void (^)(NSArray *categoryMenuList))success
                       failure:(void (^)(NSError *error))failure {
     AFHTTPRequestOperation *operation =
-        [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_CATEGORIES]] isUrgent:NO];
+        [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_CATEGORIES]] timeOut:25];
     
     [operation setCompletionBlockWithSuccess:
      ^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -51,7 +51,7 @@
 - (void)getPostsAsync:(void (^)(NSArray *postList))success
               failure:(void (^)(NSError *error))failure {
     AFHTTPRequestOperation *operation =
-    [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_WHOLE_DOCS]] isUrgent:NO];
+    [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_WHOLE_DOCS]] timeOut:25];
     
     [operation setCompletionBlockWithSuccess:
      ^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -72,7 +72,7 @@
 - (void)getVersionAsync:(void (^)(NSString *modified))success
                 failure:(void (^)(NSError *error))failure {
     AFHTTPRequestOperation *operation =
-    [self createBaseOperation:CONTENT_VERSION_URL isUrgent:YES];
+    [self createBaseOperation:CONTENT_VERSION_URL timeOut:4];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dic = (NSDictionary*)responseObject;
@@ -107,7 +107,7 @@
 - (void)getNoticeAsync:(void (^)(NoticeItem *notice))success
                failure:(void (^)(NSError *error))failure {
     AFHTTPRequestOperation *operation =
-    [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_NOTICE]] isUrgent:NO];
+    [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_NOTICE]] timeOut:7];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NoticeParser *parser = [[NoticeParser alloc] init];
@@ -125,7 +125,7 @@
  */
 - (void)getHomePageVersionAsync:(void (^)(NSString *version))finish {
     AFHTTPRequestOperation *operation =
-    [self createBaseOperation:HOME_PAGE_VERSION_URL isUrgent:YES];
+    [self createBaseOperation:HOME_PAGE_VERSION_URL timeOut:4];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dic = (NSDictionary*)responseObject;
@@ -142,15 +142,11 @@
 /**
  AFHTTPRequestOperation GET을 위한 기본 객체 생성
  */
-- (AFHTTPRequestOperation*)createBaseOperation:(NSString*)url isUrgent:(BOOL)isUrgent{
+- (AFHTTPRequestOperation*)createBaseOperation:(NSString*)url timeOut:(NSTimeInterval)timeOut{
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSTimeInterval timeOutInterval;
-    if (isUrgent) {
-        timeOutInterval = 8;
-    } else {
-        timeOutInterval = 25;
+    if (timeOut > 0) {
+        [request setTimeoutInterval:timeOut];
     }
-    [request setTimeoutInterval:timeOutInterval];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     return operation;
