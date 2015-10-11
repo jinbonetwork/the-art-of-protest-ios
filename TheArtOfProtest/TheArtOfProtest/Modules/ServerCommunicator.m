@@ -72,17 +72,33 @@
 - (void)getVersionAsync:(void (^)(NSString *modified))success
                 failure:(void (^)(NSError *error))failure {
     AFHTTPRequestOperation *operation =
-    [self createBaseOperation:[NSString pathWithComponents:@[BASE_CMS_URI,REST_API_VERSION]] isUrgent:YES];
+    [self createBaseOperation:CONTENT_VERSION_URL isUrgent:YES];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        VersionParser *parser = [[VersionParser alloc] init];
-        NSString *result = [parser parse:(NSDictionary*)responseObject];
-        success(result);
+        NSDictionary *dic = (NSDictionary*)responseObject;
+        long versionNum = [[dic objectForKey:@"version"] longValue];
+        NSString *version = [NSString stringWithFormat:@"%ld",versionNum];
+        version = [self parseSecondsToISOString:version];
+        success(version);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(error);
+        failure(nil);
     }];
     
     [operation start];
+}
+
+/**
+ Unix Time Stamp 초단위로 된 시간을 ISO8609 문자열 형태로 변환한다.
+ */
+- (NSString*)parseSecondsToISOString:(NSString*)secondsStr {
+    NSTimeInterval seconds = [secondsStr doubleValue];
+    NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:seconds];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"KST"]];
+    NSString *result = [formatter stringFromDate:date];
+    result = [NSString stringWithFormat:@"%@+09:00",result];
+    return result;
 }
 
 /**

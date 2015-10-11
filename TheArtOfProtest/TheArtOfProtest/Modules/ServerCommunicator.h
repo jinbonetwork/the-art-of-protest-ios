@@ -14,6 +14,7 @@
 #import "AFNetworking.h"
 
 #define HOME_PAGE_VERSION_URL  @"http://theartofprotest.jinbo.net/home_version.php"
+#define CONTENT_VERSION_URL @"http://theartofprotest.jinbo.net/content_version.php"
 #define BASE_CMS_URI        @"https://public-api.wordpress.com/rest/v1.1/sites/theartofprotest.jinbo.net"
 #define REST_API_CATEGORIES @"categories"
 #define REST_API_WHOLE_DOCS @"posts/?category=manual&type=page&status=publish&number=100"
