@@ -11,6 +11,7 @@
 @protocol AppInitDelegate <NSObject>
 
 - (void)checkAndInitAppDone;
+- (void)backToSplash;
 
 @end
 

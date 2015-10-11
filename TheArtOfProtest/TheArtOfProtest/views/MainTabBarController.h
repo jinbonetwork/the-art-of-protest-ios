@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppInitDelegate.h"
 
 /**
+ 탭바 Controller
  */
 @interface MainTabBarController : UITabBarController
 @property (strong, nonatomic) IBOutlet UITabBar *mTabBar;
-
+@property (assign, nonatomic) id<AppInitDelegate> appInitDelegate;
 @end

@@ -11,6 +11,7 @@
 #import "AOPContentsManager.h"
 #import "NoticeViewController.h"
 #import "DocumentViewController.h"
+#import "MainTabBarController.h"
 
 @interface HomeViewController ()
 @end
@@ -42,6 +43,32 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    AOPContentsManager *manager = [AOPContentsManager sharedManager];
+    // 앱이 초기화 되지 않았으면 알림을 띄운다.
+    if (![manager isContentInitialized] || manager.postList == nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"초기화 필요"
+                                                    message:@"콘텐츠가 초기화 되지 않았습니다. 네트워크가 연결된 상황에서 다시 앱을 시작하여 콘텐츠를 초기화하셔야 합니다."
+                                                   delegate:self
+                                              cancelButtonTitle:@"취소"
+                                              otherButtonTitles:@"초기화", nil];
+        [alert show];
+    }
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // 알림창에서 초기화 버튼을 눌렀을 때
+    if (buttonIndex == 1) {
+        [self backToSplashToInitialize];
+    }
+}
+
+- (void)backToSplashToInitialize {
+    MainTabBarController *tabVC = (MainTabBarController *)self.tabBarController;
+    [tabVC.appInitDelegate backToSplash];
+}
+
 /**
  공지View를 초기화 한다.
  */
@@ -65,7 +92,7 @@
  */
 - (void)moveToDocumentView:(NSInteger)postId {
     AOPContentsManager *manager = [AOPContentsManager sharedManager];
-    if (manager.postList == nil) {
+    if (![manager isContentInitialized] || manager.postList == nil) {
         return;
     }
     for(PostItem* post in manager.postList) {

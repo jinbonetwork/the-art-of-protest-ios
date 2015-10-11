@@ -62,12 +62,25 @@
 #pragma mark - App Init Delegate
 -(void) checkAndInitAppDone {
     MainTabBarController *tabBarVC = [[[NSBundle mainBundle] loadNibNamed:@"MainTabBarController" owner:nil options:nil] objectAtIndex:0];
+    tabBarVC.appInitDelegate = self;
     
     // TabBar로 전환한다.
     [UIView transitionWithView:self.window
                       duration:0.5
                        options:UIViewAnimationOptionTransitionFlipFromBottom
                     animations:^{self.window.rootViewController = tabBarVC;}
+                    completion:nil];
+}
+
+-(void) backToSplash {
+    SplashViewController *vc = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+    vc.appInitDelegate = self;
+    
+    // Splash 화면으로 돌아간다.
+    [UIView transitionWithView:self.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromRight
+                    animations:^{self.window.rootViewController = vc;}
                     completion:nil];
 }
 
