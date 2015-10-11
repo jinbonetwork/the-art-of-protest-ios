@@ -32,9 +32,15 @@
     NSString *path = [fileManager getAppSupportRoot];
     NSURL* baseURL = [NSURL fileURLWithPath:path];
     
+    NSString *date = [self.noticeItem.date substringToIndex:10];
+    date = [date stringByReplacingOccurrencesOfString:@"-" withString:@"/"];
     // WebView 들어갈 html콘텐츠를 구성
-    NSString *html= [NSString stringWithFormat:@"%@%@%@",
-                     @"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\"/></head><body>",
+    NSString *html= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",
+                     @"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\"/></head><body><header><h1>",
+                     self.noticeItem.title,
+                     @"</h1><time>",
+                     date,
+                     @"</time></header>",
                      self.noticeItem.content,
                      @"</body></html>"];
     NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
