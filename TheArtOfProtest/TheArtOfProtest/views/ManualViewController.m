@@ -74,9 +74,13 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, width, 85)];
     imageView.image = [UIImage imageNamed:imageName];
     
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, 134, width, 1)];
+    [separator setBackgroundColor:[UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:0.7]];
+    
     [view addSubview:topLine];
     [view addSubview:titleView];
     [view addSubview:imageView];
+    [view addSubview:separator];
     
     return view;
 
