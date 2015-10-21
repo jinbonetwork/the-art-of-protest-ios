@@ -315,7 +315,7 @@ sub {
     color: #929292;
 }
 .builder-section .builder-section-content .builder-text-content a {
-    border-bottom: 1px dashed;
+    border-bottom: 1px dashed #ff9d4d;
 }
 .builder-section .builder-section-content {
     width: auto;
@@ -1809,4 +1809,9 @@ img#site .gallery .gallery-icon,
 }
 #site .gallery .gallery-caption {
     display: none;
+}
+
+#notice-content {
+    margin-left: 40px;
+    margin-right: 40px;
 }

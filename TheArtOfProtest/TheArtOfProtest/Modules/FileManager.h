@@ -35,6 +35,11 @@
 - (NSString*)getMenuJsonPath;
 
 /**
+ 메인 CSS 파일을 Copy 한다.
+ */
+- (void)copyMainCSSFile;
+
+/**
  메인 번들에 포함되어있는 필요한 파일들 ~/Library/Application Support/ 폴더로 복사하는 작업을 진행한다.
  */
 - (void)copyBundleFilesToAppSupportDir;

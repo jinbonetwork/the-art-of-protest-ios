@@ -47,13 +47,23 @@
     return [NSString pathWithComponents:@[[self getAppSupportRoot],FILE_NAME_MENU_JSON]];
 }
 
+/**
+ 메인 CSS 파일을 Copy 한다.
+ */
+- (void)copyMainCSSFile {
+    NSString* bundleCSS = [[NSBundle mainBundle] pathForResource:@"style" ofType:@"css"];
+    NSString *filePath = [self getContentCssFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+    [[NSFileManager defaultManager] copyItemAtPath:bundleCSS toPath:filePath error:nil];
+}
 
 /**
  메인 번들에 포함되어있는 필요한 파일들 ~/Library/Application Support/ 폴더로 복사하는 작업을 진행한다.
  */
 - (void)copyBundleFilesToAppSupportDir {
-    NSString* bundleCSS = [[NSBundle mainBundle] pathForResource:@"style" ofType:@"css"];
-    [[NSFileManager defaultManager] copyItemAtPath:bundleCSS toPath:[self getContentCssFilePath] error:nil];
+    // 메인 css 파일 복사
+    [self copyMainCSSFile];
     
     // home_resource 폴더 생성
     [[NSFileManager defaultManager]

@@ -13,6 +13,8 @@
 #define USER_DEFAULT_KEY_CONTENTS_INITED @"user_default_key_contents_inited"
 #define USER_DEFAULT_KEY_LAST_MODIFIED   @"user_default_key_last_modified"
 #define USER_DEFAULT_KEY_HOME_VERSION    @"user_default_key_home_version"
+#define USER_DEFAULT_KEY_CSS_VERSION     @"user_default_key_css_version"
+#define CURR_CSS_VERSION                 @"1.0.1"
 
 @interface AOPContentsManager ()
 
@@ -29,12 +31,15 @@
 
 @property (nonatomic, strong) NSString* lastModifiedRemote;
 
+@property (nonatomic, strong) NSString* cssVersion;
+
 @end
 
 @implementation AOPContentsManager
 
 @synthesize lastModified = _lastModified;
 @synthesize homeVersion = _homeVersion;
+@synthesize cssVersion = _cssVersion;
 
 /**
  AOPContents Manager의 싱글톤 객체를 반환한다.
@@ -75,6 +80,7 @@
     // 파일 시스템 초기화
     [self.fileManager initFileSystem];
     [self.fileManager copyBundleFilesToAppSupportDir];
+    self.cssVersion = CURR_CSS_VERSION;
 
     // 레지스트리값 저장
     NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
@@ -109,7 +115,7 @@
     
     [self.serverCommunicator getCategoryMenusAsync:^(NSArray *categoryMenuList) {
         self.categoryMenuList = categoryMenuList;
-        self.initContentsProgress(10);
+        self.initContentsProgress(-1);
         [self getPostsFromServerForInit];
     } failure:^(NSError *error) {
         self.initContentsFailure(error);
@@ -121,16 +127,13 @@
  */
 - (void)getPostsFromServerForInit {
     [self.serverCommunicator getPostsAsync:^(NSArray *postList) {
-        self.initContentsProgress(20);
+        self.initContentsProgress(-2);
         self.postList = postList;
         [self rectifyCategoryAndPosts];
         [self saveCategoryMenuList];
-        [self savePosts];
-        
-        NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
-        [sud setBool:YES forKey:USER_DEFAULT_KEY_CONTENTS_INITED];
-        [sud synchronize];
-        self.initContentsSuccess();
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self savePostsForInit];
+        });
     } failure:^(NSError *error) {
         self.initContentsFailure(error);
     }];
@@ -219,8 +222,10 @@
 /**
  포스트를 DB에 저장하고 필요한 자료들을 Caching 한다.
  */
-- (void)savePosts {
+- (void)savePostsForInit {
     PostCacheWorker *worker = [[PostCacheWorker alloc] init];
+    int totalCnt = self.postList.count;
+    int cnt = 0;
     
     for (PostItem *post in self.postList) {
         // Caching
@@ -234,7 +239,22 @@
         if (self.lastModified == nil || [post.modified compare:self.lastModified] == NSOrderedDescending) {
             self.lastModified = post.modified;
         }
+        
+        // 프로그래스 알림
+        ++cnt;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            double percent = (double)(cnt)/ (double)totalCnt;
+            self.initContentsProgress(percent*100);
+        });
     }
+    
+    // 포스트 캐쉬까지 완료되면 콘텐츠 초기화가 끝남을 알림
+    NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+    [sud setBool:YES forKey:USER_DEFAULT_KEY_CONTENTS_INITED];
+    [sud synchronize];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.initContentsSuccess();
+    });
 }
 
 /**
@@ -399,6 +419,29 @@
 }
 
 /**
+ CSS Version을 얻는다.
+ */
+- (NSString*)cssVersion {
+    if (_cssVersion == nil) {
+        NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+        _cssVersion = [sud valueForKey:USER_DEFAULT_KEY_CSS_VERSION];
+    }
+    return _cssVersion;
+}
+
+/**
+ 현재 css Version을 얻는다.
+ */
+- (void)setCssVersion:(NSString*)cssVersion {
+    if (cssVersion != _cssVersion && cssVersion != nil) {
+        NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
+        [sud setValue:cssVersion forKey:USER_DEFAULT_KEY_CSS_VERSION];
+        [sud synchronize];
+    }
+    _cssVersion = cssVersion;
+}
+
+/**
 홈 화면 웹뷰에 들어갈 내용의 버전을 얻어온다.
  */
 - (NSString*)homeVersion {
@@ -432,6 +475,19 @@
         self.notice = nil;
         finish();
     }];
+}
+
+/**
+ CSS파일 업그레이드가 필요하면 업그레이드 한다 (번들에서 APP Support Dir로 Copy)
+ */
+- (void)updateCSSIfNeeded {
+    // 현재 css version이 설정이 안되어 있거나 최신 CSS 버전과 다르면 css 파일 다시 복사...
+    // 업데이트를 위한 로직이다.
+    if (self.cssVersion == nil ||
+        ![self.cssVersion isEqualToString:CURR_CSS_VERSION]) {
+        self.cssVersion = CURR_CSS_VERSION;
+        [self.fileManager copyMainCSSFile];
+    }
 }
 
 @end

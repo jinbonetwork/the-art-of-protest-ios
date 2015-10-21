@@ -46,6 +46,9 @@
     //  앱의 기본 내용이 초기화가 안되어 있으면 초기화
     if (![contentsManager isAppInitialized]) {
         [contentsManager initApp];
+    } else {
+        // 초기화가 되어있을 경우 CSS업데이트가 필요한지만 판단한다.
+        [contentsManager updateCSSIfNeeded];
     }
     
     // 콘텐츠를 초기화 하거나 업데이트 한다.
@@ -64,12 +67,15 @@
     
     AOPContentsManager *contentsManager = [AOPContentsManager sharedManager];
     [contentsManager initContents:^{
+        [self.progressMessage setText:@"업데이트 확인 중..."];
         [self loadNotice];
     } progress:^(NSInteger percent) {
-        if (percent == 10) {
+        if (percent == -1) {
             [self.progressMessage setText:@"콘텐츠를 받아오는 중..."];
-        } else if (percent == 20) {
-            [self.progressMessage setText:@"콘텐츠 초기화 중..."];
+        } else if (percent == -2) {
+            [self.progressMessage setText:@"콘텐츠 초기화 중... 0%"];
+        } else {
+            [self.progressMessage setText:[NSString stringWithFormat:@"콘텐츠 초기화 중... %d%@",percent,@"%"]];
         }
     } failure:^(NSError *error) {
         [self loadNotice];

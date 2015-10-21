@@ -92,4 +92,9 @@
  */
 - (void)loadNotice:(void(^)(void))finish;
 
+/**
+ CSS파일 업그레이드가 필요하면 업그레이드 한다 (번들에서 APP Support Dir로 Copy)
+ */
+- (void)updateCSSIfNeeded;
+
 @end

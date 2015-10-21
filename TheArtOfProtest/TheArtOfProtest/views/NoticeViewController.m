@@ -40,9 +40,9 @@
                      self.noticeItem.title,
                      @"</h1><time>",
                      date,
-                     @"</time></header>",
+                     @"</time></header><div id=\"notice-content\">",
                      self.noticeItem.content,
-                     @"</body></html>"];
+                     @"</div></body></html>"];
     NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
     
     self.webView.delegate = self;
