@@ -49,7 +49,7 @@
     // 앱이 초기화 되지 않았으면 알림을 띄운다.
     if (![manager isContentInitialized] || manager.postList == nil) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"초기화 필요"
-                                                    message:@"콘텐츠가 초기화 되지 않았습니다. 네트워크가 연결된 상황에서 다시 앱을 시작하여 콘텐츠를 초기화하셔야 합니다."
+                                                    message:@"콘텐츠가 초기화되지 않았습니다. 네트워크가 연결된 상황에서 다시 앱을 시작하여 콘텐츠를 초기화하셔야 합니다."
                                                    delegate:self
                                               cancelButtonTitle:@"취소"
                                               otherButtonTitles:@"초기화", nil];
